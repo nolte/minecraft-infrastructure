@@ -60,6 +60,7 @@ Portal Output
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
  * (4073 132 -5820) Bergdorf großes Haus Dachgeschoss
+ * (4001 153 -5795) Bergdorf Turm Portal Richtung City
 
 
 Defekte Bereiche

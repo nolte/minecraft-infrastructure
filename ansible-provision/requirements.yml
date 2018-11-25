@@ -1,0 +1,6 @@
+---
+- src: git+https://github.com/nolte/ansible-minecraft
+  name: nolte.minecraft
+  version: feature/docu
+
+- name: ansiblebit.oracle-java

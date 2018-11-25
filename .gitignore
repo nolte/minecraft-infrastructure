@@ -1,0 +1,4 @@
+serverdata
+.tox
+*.retry
+*.vagrant

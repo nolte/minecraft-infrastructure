@@ -1,0 +1,9 @@
+---
+language: python
+install:
+  - pip install tox
+script:
+  - tox -e docs
+# notifications:
+#   email: false
+#   webhooks: https://galaxy.ansible.com/api/v1/notifications/

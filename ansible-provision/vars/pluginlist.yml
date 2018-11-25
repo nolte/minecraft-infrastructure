@@ -1,0 +1,46 @@
+mc_plugin_sets:
+  server:
+    vault:
+      src: https://media.forgecdn.net/files/2615/750/Vault.jar
+      version: 1.7.1
+    dynmap:
+      src: https://github.com/webbukkit/dynmap/releases/download/3.0-beta-1/Dynmap-3.0-beta-1-spigot.jar
+    permissionsEx:
+      src: https://media.forgecdn.net/files/909/154/PermissionsEx-1.23.4.jar
+    worldedit:
+      src: https://media.forgecdn.net/files/2618/989/worldedit-bukkit-7.0.0-beta-01.jar
+#    https://www.spigotmc.org/resources/worldeditselectionvisualizer.17311/download?version=244912  
+    worldguard:
+      src: https://media.forgecdn.net/files/2621/118/worldguard-legacy-7.0.0-beta01.jar
+    craftbook:
+      src: http://builds.enginehub.org/job/craftbook/10634/download/craftbook-3.9-SNAPSHOT-dist.jar
+    multiverseSignPortals:
+      src: https://ci.onarandombox.com/job/Multiverse-SignPortals/lastSuccessfulBuild/artifact/target/Multiverse-SignPortals-2.5.2-SNAPSHOT.jar
+      validate_certs: false
+    multiverseNether:
+      src: https://ci.onarandombox.com/job/Multiverse-NetherPortals/lastSuccessfulBuild/artifact/target/Multiverse-NetherPortals-2.5.2-SNAPSHOT.jar
+      validate_certs: false
+    multiversePortal:
+      src: https://ci.onarandombox.com/job/Multiverse-Portals/lastSuccessfulBuild/artifact/target/Multiverse-Portals-2.5.2-SNAPSHOT.jar
+      validate_certs: false
+    multiverseCore:
+      src: https://ci.onarandombox.com/job/Multiverse-Core/lastSuccessfulBuild/artifact/target/Multiverse-Core-2.6.0.jar
+      validate_certs: false
+    citizens:
+      src: http://ci.citizensnpcs.co/job/Citizens2/lastSuccessfulBuild/artifact/dist/target/Citizens-2.0.24-b1592.jar
+    sentinel:
+      src: http://ci.citizensnpcs.co/job/Sentinel/lastSuccessfulBuild/artifact/target/Sentinel-1.7.5-b202.jar
+    denizen:
+      src: http://ci.citizensnpcs.co/job/Denizen/lastSuccessfulBuild/artifact/target/Denizen-1.0.3-b1652-REL.jar
+    shopChest:
+      src: https://ci.codemc.org/job/EpicEricEE/job/ShopChest/lastSuccessfulBuild/artifact/target/ShopChest-1.13-SNAPSHOT.jar
+    blacksmith:
+      src: http://ci.citizensnpcs.co/job/Blacksmith/lastSuccessfulBuild/artifact/target/blacksmith-1.13-SNAPSHOT.jar
+    perworldinventory:
+      src: https://github.com/EbonJaeger/perworldinventory-kt/releases/download/v2.1.0/perworldinventory-kt-2.1.0.jar
+    nuvotifier:
+      src: https://github.com/parallelblock/NuVotifier/releases/download/v2.4.1/nuvotifier-2.4.1.jar
+    votingplugin:
+      src: http://ben12345rocks.com/job/VotingPlugin/lastSuccessfulBuild/artifact/VotingPlugin/target/VotingPlugin.jar
+    prometheus:
+      src: https://github.com/sladkoff/minecraft-prometheus-exporter/releases/download/v1.1.0/minecraft-prometheus-exporter-1.1.0.jar

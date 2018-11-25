@@ -64,3 +64,4 @@ todo_include_todos = True
 # html_theme = 'alabaster'
 html_theme = 'sphinx_rtd_theme'
 # Output file base name for HTML help builder.
+html_static_path = ['_static']

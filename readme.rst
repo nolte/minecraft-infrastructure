@@ -1,7 +1,7 @@
 Minecraft Server Documentation
 =================================================
 
-|Travis CI build status| |Chat on gitter.im| |Chat on Discord| |Issues on GitHub| |Stars on GitHub|
+|Travis CI build status| |Chat on gitter.im| |Chat on Discord| |Issues on GitHub| |Stars on GitHub| |Dynmap|
 
 Project for Management and Documentate the Minecraft Server.
 
@@ -20,3 +20,6 @@ Project for Management and Documentate the Minecraft Server.
 
 .. |Stars on GitHub| image:: https://img.shields.io/github/stars/nolte/minecraft-server.svg?style=social&label=Star&maxAge=2592000
     :target: https://github.com/nolte/minecraft-server/stargazers/
+
+.. |Dynmap| image:: https://img.shields.io/badge/dynmap-95.216.185.51:8123-green.svg
+    :target: http://95.216.185.51:8123/

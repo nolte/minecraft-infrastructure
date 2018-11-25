@@ -61,6 +61,14 @@
         state: enabled
       notify: restart firewalld
 
+    # TODO Find a better way to block idiots with brute force attachs
+    - firewalld:
+        source: 116.31.116.10
+        permanent: true
+        state: disabled
+        rich_rule:
+      notify: restart firewalld
+
   handlers:
     - name: restart firewalld
       service:

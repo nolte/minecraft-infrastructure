@@ -9,8 +9,14 @@ Project for Management and Documentate the Minecraft Server.
 .. |Travis CI build status| image:: https://travis-ci.org/nolte/minecraft-server.svg?branch=master
     :target: https://travis-ci.org/nolte/minecraft-server
 
-.. |Chat on gitter.im| image:: https://badges.gitter.im/gitterHQ/gitter.png
-    :target: https://gitter.im/noltes-minecraft-server/Lobby
+.. |Chat on gitter.im| image:: https://badges.gitter.im/noltes-minecraft-server/Lobby.svg
+    :target: https://gitter.im/noltes-minecraft-server/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 
 .. |Chat on Discord| image:: https://discordapp.com/api/guilds/516299557412274209/widget.json
     :target: https://discord.gg/tFZmkxW
+
+.. |Issues on GitHub| image:: https://img.shields.io/github/issues/nolte/minecraft-server.svg
+    :target: https://github.com/nolte/minecraft-server/issues
+
+.. |Stars on GitHub| image:: https://img.shields.io/github/stars/nolte/minecraft-server.svg?style=social&label=Star&maxAge=2592000
+    :target: https://github.com/nolte/minecraft-server/stargazers/

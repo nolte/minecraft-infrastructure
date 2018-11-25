@@ -1,7 +1,7 @@
 Minecraft Server Documentation
 =================================================
 
-|Install from Ansible Galaxy| |Chat on gitter.im| |Chat on Discord|
+|Travis CI build status| |Chat on gitter.im| |Chat on Discord|
 
 Project for Management and Documentate the Minecraft Server.
 

@@ -13,6 +13,7 @@ extensions = [
     'sphinx.ext.coverage',
     'sphinx.ext.viewcode',
     'sphinxcontrib.plantuml',
+    'sphinx.ext.githubpages',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -63,4 +64,3 @@ todo_include_todos = True
 # html_theme = 'alabaster'
 html_theme = 'sphinx_rtd_theme'
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'minecraft-server-doc'

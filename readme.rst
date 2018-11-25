@@ -1,7 +1,7 @@
 Minecraft Server Documentation
 =================================================
 
-|Travis CI build status| |Chat on gitter.im| |Chat on Discord|
+|Travis CI build status| |Chat on gitter.im| |Chat on Discord| |Issues on GitHub| |Stars on GitHub|
 
 Project for Management and Documentate the Minecraft Server.
 
@@ -12,7 +12,7 @@ Project for Management and Documentate the Minecraft Server.
 .. |Chat on gitter.im| image:: https://badges.gitter.im/noltes-minecraft-server/Lobby.svg
     :target: https://gitter.im/noltes-minecraft-server/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 
-.. |Chat on Discord| image:: https://discordapp.com/api/guilds/516299557412274209/widget.json
+.. |Chat on Discord| image:: https://img.shields.io/discord/516299557412274209.svg
     :target: https://discord.gg/tFZmkxW
 
 .. |Issues on GitHub| image:: https://img.shields.io/github/issues/nolte/minecraft-server.svg

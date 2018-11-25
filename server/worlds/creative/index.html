@@ -26,10 +26,13 @@
 
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Flat Construction World" href="../flatworld/index.html" />
-    <link rel="prev" title="Worlds" href="../index.html" /> 
+    <link rel="prev" title="Welten" href="../index.html" />
+ 
+
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -79,11 +82,9 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../../plugins/index.html">Used Plugins</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../environment/index.html">Server Umgebung</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Der Server</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../newuser.html">Neuer Spieler</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Worlds</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Welten</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Creative World</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#orte">Orte</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#ebenen">Ebenen</a></li>
@@ -94,8 +95,11 @@
 <li class="toctree-l3"><a class="reference internal" href="../survival/index.html">Survival Map</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../schematics/index.html">Schematics</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plugins/index.html">Used Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../environment/index.html">Server Umgebung</a></li>
 </ul>
 
             
@@ -143,7 +147,7 @@
         
           <li><a href="../../index.html">Der Server</a> &raquo;</li>
         
-          <li><a href="../index.html">Worlds</a> &raquo;</li>
+          <li><a href="../index.html">Welten</a> &raquo;</li>
         
       <li>Creative World</li>
     
@@ -265,14 +269,38 @@
 </tr>
 </tbody>
 </table>
-<div class="section" id="portal-output">
-<h3>Portal Output<a class="headerlink" href="#portal-output" title="Permalink to this headline">¶</a></h3>
-<blockquote>
-<div><ul class="simple">
-<li>(4073 132 -5820) Bergdorf großes Haus Dachgeschoss</li>
-<li>(4001 153 -5795) Bergdorf Turm Portal Richtung City</li>
-</ul>
-</div></blockquote>
+<div class="section" id="portal">
+<h3>Portal<a class="headerlink" href="#portal" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="15%" />
+<col width="23%" />
+<col width="44%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Portal ID</td>
+<td>Standort</td>
+<td>Ziel</td>
+<td>Beschreibung</td>
+</tr>
+<tr class="row-even"><td>world_city_castle</td>
+<td>2562 96 -5869</td>
+<td>e:world:4001,154,-5795</td>
+<td>Magier Turm in der City, Portal zum Bergdorf</td>
+</tr>
+<tr class="row-odd"><td>world_castle_city</td>
+<td>4001 154 -5795</td>
+<td>e:world:2562,96,-5869</td>
+<td>Bergdorf Turm Portal Richtung City</td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td>4073 132 -5820</td>
+<td>&#160;</td>
+<td>Bergdorf Haus Richtung Technik World</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="section" id="defekte-bereiche">
@@ -296,7 +324,7 @@
         <a href="../flatworld/index.html" class="btn btn-neutral float-right" title="Flat Construction World" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../index.html" class="btn btn-neutral" title="Worlds" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../index.html" class="btn btn-neutral" title="Welten" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -340,7 +368,9 @@
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+ 
+
 
 </body>
 </html>

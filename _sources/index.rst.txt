@@ -1,5 +1,5 @@
-Minecraft Server As a Service
-==================================================
+.. include:: ../readme.rst
+
 
 Ziel ist es eine Server Struktur aufzubauen bei der die Betriebskosten möglichst gering sind,
 die Verfügbarkeit und die usability sollte allerdings mit einem Anblieter wie `nitrado.com <https:\\www.nintrado.com>`_ vergleichbar sein.
@@ -9,40 +9,18 @@ die Verfügbarkeit und die usability sollte allerdings mit einem Anblieter wie `
   - Prüfen der Welten mit region fixer
   - Scriptgesteuerte vollständiege Bereitstellung
 
-Genutzte Projekte
--------------------------------
-
-Für die unterschiedlichen Services werden weitere OpenSource Projekte verwendet.
-
-+-----------------------------------------------------------------------------------------------+--------------------------------------+
-| Projekte                                                                                      | description                          |
-+-----------------------------------------------------------------------------------------------+--------------------------------------+
-| `minecraft-plugin-archivator <https://github.com/nolte/minecraft-plugin-archivator>`_         | Minecraft Java Plugin                |
-+-----------------------------------------------------------------------------------------------+--------------------------------------+
-| `ansible-minecraft <https://github.com/nolte/ansible-minecraft>`_                             | Ansible Role to Controll the Server  |
-+-----------------------------------------------------------------------------------------------+--------------------------------------+
-| `ansible-minecraft-region-fixer <https://github.com/nolte/ansible-minecraft-region-fixer>`_   | Ansible Role für den region Fixer    |
-+-----------------------------------------------------------------------------------------------+--------------------------------------+
-| `itzg/rcon-cli <https://github.com/itzg/rcon-cli>`_                                           | Go Rcon Commandline Interface        |
-+-----------------------------------------------------------------------------------------------+--------------------------------------+
-| `ansiblebit/oracle-java <https://github.com/ansiblebit/oracle-java>`_                         | Ansible Role for install Oracle Java |
-+-----------------------------------------------------------------------------------------------+--------------------------------------+
-| `geerlingguy/ansible-role-certbot <https://github.com/geerlingguy/ansible-role-certbot>`_     | Ansible Role for LetsEncrypt CertBot |
-+-----------------------------------------------------------------------------------------------+--------------------------------------+
-| `geerlingguy/ansible-role-nginx <https://github.com/geerlingguy/ansible-role-nginx>`_         | Ansible Role for handle the nginx    |
-+-----------------------------------------------------------------------------------------------+--------------------------------------+
-
-
+Anfragen können über `discordapp.com <https://discord.gg/tFZmkxW>`_ oder als Pull Request erfolgen.
 
 Getting Started
 ---------------
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
+   server/index
    plugins/index
    environment/index
-   server/index
+
 
 
 .. uml::

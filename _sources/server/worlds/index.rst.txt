@@ -1,4 +1,4 @@
-Worlds
+Welten
 ===================================
 
 Der Server besteht aus unterschiedlichen Welten für unterschiedliche UseCases.

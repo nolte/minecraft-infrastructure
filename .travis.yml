@@ -2,7 +2,7 @@ language: python
 install:
 - pip install tox
 script:
-- tox -e docs
+- tox
 deploy:
   provider: pages
   skip-cleanup: true

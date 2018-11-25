@@ -9,7 +9,7 @@ mc_plugin_sets:
       src: https://media.forgecdn.net/files/909/154/PermissionsEx-1.23.4.jar
     worldedit:
       src: https://media.forgecdn.net/files/2618/989/worldedit-bukkit-7.0.0-beta-01.jar
-#    https://www.spigotmc.org/resources/worldeditselectionvisualizer.17311/download?version=244912  
+#    https://www.spigotmc.org/resources/worldeditselectionvisualizer.17311/download?version=244912
     worldguard:
       src: https://media.forgecdn.net/files/2621/118/worldguard-legacy-7.0.0-beta01.jar
     craftbook:
@@ -44,3 +44,5 @@ mc_plugin_sets:
       src: http://ben12345rocks.com/job/VotingPlugin/lastSuccessfulBuild/artifact/VotingPlugin/target/VotingPlugin.jar
     prometheus:
       src: https://github.com/sladkoff/minecraft-prometheus-exporter/releases/download/v1.1.0/minecraft-prometheus-exporter-1.1.0.jar
+    discordSRV:
+      src: https://github.com/DiscordSRV/DiscordSRV/releases/download/v1.16.4/DiscordSRV-Build-1.16.4.jar

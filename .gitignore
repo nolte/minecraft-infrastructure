@@ -2,3 +2,6 @@ serverdata
 .tox
 *.retry
 *.vagrant
+*.terraform
+*.tfstate
+*.tfstate.*

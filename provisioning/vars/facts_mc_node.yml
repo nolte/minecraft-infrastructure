@@ -1,0 +1,33 @@
+restic_repos:
+  - name: localbackup-worlddata
+    url: "{{ restic_repos_localbackup_url }}/gamedata"
+    password: "dolphins"
+    jobs:
+      - command: 'restic backup --exclude="plugins/*" --exclude="logs/*" /opt/minecraft/server/shared'
+        at: '0 1  * * *'
+    retention_time: '17 5 * * *'
+    retention:
+      last: 2
+      hourly: 4
+      daily: 10
+      weekly: 9
+      monthly: 3
+      yearly: 10
+      tags:
+        - special
+  - name: localbackup-plugins
+    url: "{{ restic_repos_localbackup_url }}/plugindata"
+    password: "dolphins"
+    jobs:
+      - command: 'restic backup /opt/minecraft/plugins/shared'
+        at: '0 1  * * *'
+    retention_time: '17 5 * * *'
+    retention:
+      last: 2
+      hourly: 4
+      daily: 10
+      weekly: 9
+      monthly: 3
+      yearly: 10
+      tags:
+        - special

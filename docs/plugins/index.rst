@@ -1,4 +1,4 @@
-Used Plugins
+Doku Plugins
 ==================================================
 
 .. toctree::
@@ -6,3 +6,11 @@ Used Plugins
    :glob:
 
    */index
+
+
+
+ClickSort
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+| **GitHub:** `NewbieOrange/clicksort <https://github.com/NewbieOrange/clicksort>`_
+| **Bukkit:** `clicksort <https://dev.bukkit.org/projects/clicksort>`_

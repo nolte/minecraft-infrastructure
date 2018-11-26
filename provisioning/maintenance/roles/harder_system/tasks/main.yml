@@ -1,0 +1,19 @@
+---
+
+- include: harder_sshd.yml
+
+#- include_role:
+#    name: dev-sec.os-hardening
+#  vars:
+#    os_ignore_users:
+#      - "{{ ansible_user }}"
+#      - vagrant
+
+- include: configure_firewall.yml
+
+- template:
+    src: fail2ban_jail.local.j2
+    dest: /etc/fail2ban/jail.local
+    owner: root
+    group: root
+  notify: restart fail2ban

@@ -14,6 +14,7 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinxcontrib.plantuml',
     'sphinx.ext.githubpages',
+    'sphinxcontrib.ansibleautodoc',
 ]
 
 # Add any paths that contain templates here, relative to this directory.

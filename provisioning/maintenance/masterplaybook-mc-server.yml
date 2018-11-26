@@ -1,0 +1,5 @@
+---
+# Setup the base System Config like firewalld and configure sshd
+- import_playbook: ansible_playbook-base-configureation.yml
+# install the mc gameserver
+- import_playbook: provision-minecraft-master.yml

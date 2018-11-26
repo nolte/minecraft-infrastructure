@@ -1,0 +1,63 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: true
+  tasks:
+
+    # load the facts from the mc node
+    - set_fact:
+        node_attributes: "{{ lookup('file', ansible_inventory_sources[0] +'/group_vars/minecraftgameserver.yml') | from_yaml }}"
+
+    - name: "configure the Cloud Project Base"
+      terraform:
+        project_path: "{{ playbook_dir}}/hetzner_project"
+        workspace: "{{ terraform_workspace }}"
+        state: present
+
+    - set_fact:
+        hotstorage_labels:
+          hotstorage: "true"
+
+    - name: "configure the hot storage"
+      terraform:
+        project_path: "{{ playbook_dir}}/hetzner_hotstorage"
+        workspace: "{{ terraform_workspace }}"
+        state: present
+        variables:
+          volume_name: "{{ node_attributes.hotstorage.name }}"
+          volume_size: "{{ node_attributes.hotstorage.size }}"
+          #volume_labels: "{{ hotstorage_labels | combine(node_attributes.labels) }}"
+      when: node_attributes.hotstorage is defined
+      register: infrastrukturhotstorage
+
+    - debug: var=infrastrukturhotstorage
+
+    - name: "configure the Infrastruktur"
+      terraform:
+        project_path: "{{ playbook_dir}}/hetzner_mc_server"
+        workspace: "{{ terraform_workspace }}"
+        state: present
+        variables:
+          node_name: "{{ node_attributes.node_name }}"
+          flavour: "{{ node_attributes.flavour }}"
+          volume_hotstorage: "true"
+          volume_hotstorage_name: "{{ node_attributes.hotstorage.name }}"
+
+    - meta: refresh_inventory
+
+    - set_fact:
+        remote_host: "minecraftgameserver"
+
+    #- wait_for_connection:
+    #    timeout: 600
+    #
+    #- name: gether facts
+    #  ping:
+    #  delegate_to: minecraftgameserver
+
+
+- hosts: "minecraftgameserver"
+  tasks:
+    - wait_for_connection:
+        timeout: 600    
+    - ping:

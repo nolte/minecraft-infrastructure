@@ -1,0 +1,56 @@
+---
+- hosts: all
+  become: true
+  vars_files:
+    - ./../vars/facts_mc_node.yml
+  tasks:
+
+    - set_fact:
+        restic_repos_localbackup_url: /mnt/hotstoarge/mcbackup
+      when: hotstorage is defined
+
+    - file:
+        path: /mnt/hotstoarge
+        state: directory
+        owner: root
+        group: root
+      when: hotstorage is defined
+
+    - name: Mount the hotstorage
+      mount:
+        path: /mnt/hotstoarge
+        src: UUID={{ansible_facts.devices.sdb.links.uuids[0]}}
+        fstype: ext4
+        opts: discard,defaults
+        state: mounted
+      when: hotstorage is defined
+
+    - include_role:
+        name: robertdebock.bootstrap
+
+    - include_role:
+        name: robertdebock.epel
+
+    - include_role:
+        name: harder_system
+
+    - include_role:
+        name: paulfantom.restic
+
+
+
+  handlers:
+
+    - name: restart fail2ban
+      service:
+        name: fail2ban
+        state: restarted
+    - name: restart sshd
+      service:
+        name: sshd
+        state: restarted
+
+    - name: restart firewalld
+      service:
+        name: firewalld
+        state: restarted

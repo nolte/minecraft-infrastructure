@@ -1,0 +1,254 @@
+.
+├── Alex
+│   ├── mranto1_skycrown.schematic
+│   ├── nbbhouse.schematic
+│   ├── nbbhousesmall.schematic
+│   └── nbbstorage.schematic
+├── baumMittel.schematic
+├── Bruecke.schematic
+├── FriedhofXX.schematic
+├── malte
+│   ├── burgkomplett.schematic
+│   ├── cactus_farm.schematic
+│   ├── castle_tower.schematic
+│   ├── cow_farm.schematic
+│   ├── dev
+│   │   ├── finish
+│   │   │   └── house
+│   │   │       ├── house_stone_H18_B16_T16.schematic
+│   │   │       ├── house_stone_H18_B21_T11.schematic
+│   │   │       └── house_stone_H20_B28_T20.schematic
+│   │   └── work
+│   │       ├── castle
+│   │       │   ├── castle_small_tower.schematic
+│   │       │   ├── full_castle.schematic
+│   │       │   ├── tech_railwail_floor_power.schematic
+│   │       │   ├── tech_railwail_single_wall.schematic
+│   │       │   ├── tech_railwail_stairway_INFI.schematic
+│   │       │   └── tech_railwail_tube_INFI.schematic
+│   │       ├── element
+│   │       │   ├── farm_element.schematic
+│   │       │   ├── house_quarz_OG_CORNER.schematic
+│   │       │   ├── house_quarz_OG_INFI.schematic
+│   │       │   ├── house_stairway_4x4_INFI.schematic
+│   │       │   ├── house_stone_CROSS.schematic
+│   │       │   ├── house_stone_EG_CORNER.schematic
+│   │       │   ├── house_stone_EG_CROSS.schematic
+│   │       │   ├── house_stone_EG_DOUBLE_CORNER.schematic
+│   │       │   ├── house_stone_EG_INFI.schematic
+│   │       │   ├── tech_auto_furnace.schematic
+│   │       │   ├── tech_auto_max_lenght_furnace.schematic
+│   │       │   ├── tech_auto_max_lenght_redstone_ports_furnace.schematic
+│   │       │   ├── tech_chest_fill_size.schematic
+│   │       │   ├── tech_controll_redstone_cornder.schematic
+│   │       │   ├── tech_redstone_pipeline_16_furnace.schematic
+│   │       │   ├── tech_sorter_furnace_res_controll.schematic
+│   │       │   └── tech_sorter_INFI.schematic
+│   │       ├── fabric
+│   │       │   ├── chicken_farm.schematic
+│   │       │   ├── farm_pumpkin_melone.schematic
+│   │       │   ├── field_full_18.schematic
+│   │       │   ├── field_full_18_with_sorter_rail.schematic
+│   │       │   ├── field_full_18_with_sorter.schem
+│   │       │   ├── field_full_18_with_sorter.schematic
+│   │       │   ├── field_full_building_area_house.schematic
+│   │       │   ├── field_full_building_area.schematic
+│   │       │   ├── field_full.schematic
+│   │       │   ├── field_part_end.schematic
+│   │       │   ├── field_part_infi.schematic
+│   │       │   ├── field_part_water_harvest.schematic
+│   │       │   ├── field_seeds_chests.schematic
+│   │       │   ├── field_sorter.schematic
+│   │       │   ├── flower_farm.schematic
+│   │       │   ├── pig_cooker.schematic
+│   │       │   ├── potion_resources_sorter_6_slot.schematic
+│   │       │   ├── potion_resources_storage_6_slot.schematic
+│   │       │   ├── potion_resources_storage.schematic
+│   │       │   ├── potion_resources_storage_sorter_6_slot.schematic
+│   │       │   ├── potion_trank_damage_button.schematic
+│   │       │   ├── potion_trank_damage.schematic
+│   │       │   ├── potion_trank_damage_validation.schematic
+│   │       │   ├── potion_tranks_buttons_with_validation.schematic
+│   │       │   ├── potion_trank_underwater_button.schematic
+│   │       │   ├── potion_trank_underwater.schematic
+│   │       │   ├── potion_trank_underwater_validation.schematic
+│   │       │   ├── potion_trank_weakness_button.schematic
+│   │       │   ├── potion_trank_weakness_validation.schematic
+│   │       │   ├── potion_water_bottle_station.schematic
+│   │       │   ├── rabbit_farm.schematic
+│   │       │   ├── railway_18x18.schematic
+│   │       │   ├── sugar_element.schematic
+│   │       │   └── villager_farm_railway_18x18.schematic
+│   │       ├── farmfabric
+│   │       │   ├── baker.schem
+│   │       │   ├── farmland_full.schem
+│   │       │   ├── farmland_with_sorter_and_seedsselector.schem
+│   │       │   ├── milkfabric_full.schem
+│   │       │   ├── ressources_distribution_station_12_outputs.schem
+│   │       │   ├── sugar_distribution_station.schem
+│   │       │   └── sugar_farm.schem
+│   │       ├── logic
+│   │       │   ├── tech_logic_and_gate.schematic
+│   │       │   ├── tech_logic_and.schematic
+│   │       │   ├── tech_logic_flip_flop.schematic
+│   │       │   ├── tech_logic_nand_gate.schematic
+│   │       │   ├── tech_logic_or_gate.schematic
+│   │       │   ├── tech_logic_rapid_pulser.schematic
+│   │       │   ├── tech_logic_rs_nand_latch.schematic
+│   │       │   ├── tech_logic_rs_nor_latch.schematic
+│   │       │   ├── tech_logic_xnor_gate.schematic
+│   │       │   └── tech_logic_xor_gate.schematic
+│   │       ├── sorter
+│   │       │   ├── tech_sorter_boat.schematic
+│   │       │   ├── tech_sorter_buckets.schematic
+│   │       │   ├── tech_sorter_flint_steal.schematic
+│   │       │   ├── tech_sorter_furnace_part.schematic
+│   │       │   ├── tech_sorter_minecards.schematic
+│   │       │   ├── tech_sorter_potion_items.schematic
+│   │       │   ├── tech_sorter_stackable_items.schematic
+│   │       │   ├── tech_sorter_tow_outputs.schematic
+│   │       │   ├── tech_sorter_wood.schem
+│   │       │   ├── tech_sorter_wood.schematic
+│   │       │   └── tech_storage_4x4_INFI.schematic
+│   │       ├── transport
+│   │       │   ├── railway_1_trail_corner.schematic
+│   │       │   ├── railway_1_trail_infi.schematic
+│   │       │   ├── railway_1_trail_up_infi.schematic
+│   │       │   ├── railway_2_trail_corner.schematic
+│   │       │   ├── railway_2_trail_infi.schematic
+│   │       │   ├── railway_2_trail_t_corner.schematic
+│   │       │   ├── railway_2_trail_up_infi.schematic
+│   │       │   ├── trail_corner.schematic
+│   │       │   ├── trail_infi.schematic
+│   │       │   ├── trail_t_corner.schematic
+│   │       │   └── trail_up.schematic
+│   │       ├── utils
+│   │       │   ├── tech_chest_ressources_split.schematic
+│   │       │   ├── tech_reailway_ressources_fill_minecard.schem
+│   │       │   ├── tech_reailway_ressources_transport.schematic
+│   │       │   ├── tech_ressources_arrival_with_sorter.schem
+│   │       │   ├── tech_ressources_collector_waiting_area.schem
+│   │       │   ├── tech_ressources_dispenser.schematic
+│   │       │   ├── tech_ressources_elevator.schem
+│   │       │   ├── tech_ressources_falling_eight_way.schem
+│   │       │   ├── tech_ressources_falling_five_way.schematic
+│   │       │   ├── tech_ressources_falling.schematic
+│   │       │   ├── tech_ressources_splitter_2_way_1to3_and_minecardFiller.schem
+│   │       │   ├── tech_ressources_splitter_2_way_1to3.schem
+│   │       │   ├── tech_ressources_splitter_2_way_1to3.schematic
+│   │       │   ├── tech_ressources_splitter_2_way_1to3_stack_collector_card_filler.schem
+│   │       │   ├── tech_ressources_splitter_4_way.schem
+│   │       │   └── tech_ressources_stacks_collector.schem
+│   │       ├── village
+│   │       │   ├── chessboard_H2_B8_T8.schematic
+│   │       │   ├── lamp_daylight_stone.schematic
+│   │       │   ├── village_house_sandstone_stonebrick_big.schematic
+│   │       │   ├── village_house_sandstone_stonebrick_quadrat.schematic
+│   │       │   ├── village_tower_sandstone_birch.schematic
+│   │       │   ├── village_tower_stone_dark_wood.schematic
+│   │       │   ├── village_wall_CORNER.schematic
+│   │       │   ├── village_wall_INFI.schematic
+│   │       │   ├── village_wall_stairway.schematic
+│   │       │   ├── village_wall_stone_wood_CORNER.schematic
+│   │       │   ├── village_wall_stone_wood_INFI.schematic
+│   │       │   ├── village_wall_stone_wood_roof_INFI.schematic
+│   │       │   ├── village_wall_TOWER_MIDDLE.schematic
+│   │       │   ├── village_wall_Tower_quadrat.schematic
+│   │       │   ├── village_wall_Tower_stone_wood_CORNER.schematic
+│   │       │   ├── village_wall_Tower_stone_wood_INFI.schematic
+│   │       │   └── village_wall_window_INFI.schematic
+│   │       └── xpmarchine
+│   │           ├── xp_floor_ground.schematic
+│   │           ├── xp_floor_infi.schematic
+│   │           └── xp_floor_top.schematic
+│   ├── door.schematic
+│   ├── elemente
+│   │   └── hausuntenwand.schematic
+│   ├── farmtower.schematic
+│   ├── haus1.schematic
+│   ├── hauseckegross.schematic
+│   ├── hauseckende.schematic
+│   ├── hausuntenquardrad.schematic
+│   ├── hauswandecke.schematic
+│   ├── hauswandlang.schematic
+│   ├── hauswand.schematic
+│   ├── hochlager.schematic
+│   ├── IndustrialFurnace.schematic
+│   ├── keller.schematic
+│   ├── MCstation.schematic
+│   ├── melon_tower.schematic
+│   ├── mrt
+│   │   ├── Entrances
+│   │   │   ├── Elevated
+│   │   │   │   ├── button_entrance_elevated_4.1.schematic
+│   │   │   │   ├── corridor_elevated_4.1.schematic
+│   │   │   │   ├── halfsteps_elevated_4.1.schematic
+│   │   │   │   ├── plate_entrance_elevated_4.1.schematic
+│   │   │   │   └── stairs_elevated_4.1.schematic
+│   │   │   └── Underground
+│   │   │       ├── button_entrance_underground_4.1.schematic
+│   │   │       ├── corridor_underground_4.1.schematic
+│   │   │       ├── halfsteps_underground_4.1.schematic
+│   │   │       ├── plate_entrance_underground_4.1.schematic
+│   │   │       └── stairs_underground_4.1.schematic
+│   │   ├── Roofs
+│   │   │   ├── roof_high_arched_4.1.schematic
+│   │   │   ├── roof_high_gabled_4.1.schematic
+│   │   │   ├── roof_high_hip_4.1.schematic
+│   │   │   ├── roof_low_arched_4.1.schematic
+│   │   │   ├── roof_low_gabled_4.1.schematic
+│   │   │   ├── roof_low_hip_4.1.schematic
+│   │   │   ├── roof_multi_arched_4.1.schematic
+│   │   │   └── roof_multi_gabled_4.1.schematic
+│   │   ├── Stations
+│   │   │   ├── Elevated
+│   │   │   │   ├── station_elevated_south_4.1.schematic
+│   │   │   │   └── station_elevated_west_4.1.schematic
+│   │   │   ├── Ground
+│   │   │   │   ├── station_ground_south_4.1.schematic
+│   │   │   │   └── station_ground_west_4.1.schematic
+│   │   │   ├── Subground
+│   │   │   │   ├── station_subground_south_4.1.schematic
+│   │   │   │   └── station_subground_west_4.1.schematic
+│   │   │   └── Underground
+│   │   │       ├── station_underground_south_4.1.schematic
+│   │   │       └── station_underground_west_4.1.schematic
+│   │   └── Tracks
+│   │       ├── Elevated
+│   │       │   ├── track_basic_elevated_4.1.schematic
+│   │       │   ├── track_chime_elevated_4.1.schematic
+│   │       │   ├── track_curve_elevated_4.1.schematic
+│   │       │   ├── track_switch_elevated_4.1.schematic
+│   │       │   └── track_terminus_elevated_4.1.schematic
+│   │       ├── Ground
+│   │       │   ├── track_basic_ground_4.1.schematic
+│   │       │   ├── track_chime_ground_4.1.schematic
+│   │       │   ├── track_curve_ground_4.1.schematic
+│   │       │   ├── track_switch_ground_4.1.schematic
+│   │       │   └── track_terminus_ground_4.1.schematic
+│   │       └── Underground
+│   │           ├── track_basic_underground_4.1.schematic
+│   │           ├── track_chime_underground_4.1.schematic
+│   │           ├── track_curve_underground_4.1.schematic
+│   │           ├── track_switch_underground_4.1.schematic
+│   │           └── track_terminus_underground_4.1.schematic
+│   ├── public
+│   │   ├── silent-multi-chest.schematic
+│   │   └── wood-farm.schematic
+│   ├── steinhaus
+│   │   ├── haus2.schematic
+│   │   └── hausbig.schematic
+│   ├── sugar_farm.schematic
+│   ├── tech_auto_furnace.schematic
+│   ├── trainfloorchange.schematic
+│   ├── villagertown.schematic
+│   ├── wall.schematic
+│   ├── wood_farm.schematic
+│   ├── zinnen2.schematic
+│   ├── zinnenreihe.schematic
+│   ├── zinnensingle.schematic
+│   └── zinne.schematic
+└── sylvia
+    └── kirche.schematic
+
+34 directories, 217 files

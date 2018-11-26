@@ -1,0 +1,15 @@
+mc_version: 1.13.2
+pluginset: "noplugins"
+mc_plugin_sets: []
+minecraft_max_memory: 1024M
+minecraft_initial_memory: 1024M
+flavour: cx21
+node_name: mc-minimal
+restic_repos_localbackup_url: /tmp/localbackup
+labels:
+  sage: dev
+  service: minecraft
+hotstorage:
+  attachment: true
+  name: volume_mc_data
+  size: 20

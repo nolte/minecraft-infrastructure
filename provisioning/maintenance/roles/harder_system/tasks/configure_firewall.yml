@@ -1,0 +1,29 @@
+---
+
+- name: install firewalld
+  package:
+    name: firewalld
+    state: present
+
+- include_role:
+    name: robertdebock.fail2ban
+
+#  vars:
+#    _fail2ban_jails:
+#      ssh:
+#        enabled: true
+#        port: 'ssh'
+#        filter: 'sshd'
+#        logpath: '/var/log/secure'
+#        maxretry: 3
+#        findtime: 600
+#        bantime: 3600
+#
+#
+#- name: "set addition sshd config attributes"
+#  lineinfile:
+#    path: /etc/fail2ban/jail.local
+#    regexp: "{{item.regexp}}"
+#    line: "{{item.line}}"
+#  with_items:
+#   - { regexp: "^bantime", line: "bantime = 3600" }

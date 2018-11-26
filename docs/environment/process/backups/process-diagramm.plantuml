@@ -1,0 +1,86 @@
+@startuml
+participant User
+
+box "MC Server Node"
+
+User -> "Backup Process" as BACKUPPROCESS: triggerBackup
+
+activate BACKUPPROCESS
+
+BACKUPPROCESS -> "Disabeld Autosave" as DISABLEDAUTOSAVE: deactivate autosave
+
+
+activate DISABLEDAUTOSAVE
+
+note right
+	**stop** with "rcon save-off & save-all"
+	**restart** with "rcon save-on"
+end note
+
+DISABLEDAUTOSAVE -> "Collect Backupfiles" as BACKUPFILECOLLECTING: collecting files for backup
+activate BACKUPFILECOLLECTING
+
+BACKUPFILECOLLECTING -> BACKUPFILECOLLECTING : find backup files
+activate BACKUPFILECOLLECTING
+deactivate BACKUPFILECOLLECTING
+
+BACKUPFILECOLLECTING -> BACKUPFILECOLLECTING : copy to tmp folder
+activate BACKUPFILECOLLECTING
+deactivate BACKUPFILECOLLECTING
+
+
+
+BACKUPFILECOLLECTING -> DISABLEDAUTOSAVE : reactivate autosave
+
+deactivate DISABLEDAUTOSAVE
+BACKUPFILECOLLECTING -> "Archive Backup" as BACKUPARCHIVING: create Archive
+
+deactivate BACKUPFILECOLLECTING
+
+deactivate BACKUPFILECOLLECTING
+
+
+activate BACKUPARCHIVING
+
+BACKUPARCHIVING -> "Backuparchive" as BACKUPARCHIVE: put to archive
+deactivate BACKUPARCHIVING
+
+activate BACKUPARCHIVE
+BACKUPARCHIVE -> BACKUPARCHIVE:  remove old backups
+
+activate BACKUPARCHIVE
+deactivate BACKUPARCHIVE
+
+BACKUPARCHIVE -> BACKUPPROCESS
+deactivate BACKUPARCHIVE
+
+
+BACKUPPROCESS -> "Archive Publishing" as BACKUPPUBLISH: Publish archive to external storage
+
+activate BACKUPPUBLISH
+
+end box
+
+box "External Storage"
+
+BACKUPPUBLISH -> "Archive Cold Storage" as BACKUPPUBLISHEXTERNAL: Upload with tmp FileName
+
+activate BACKUPPUBLISHEXTERNAL
+BACKUPPUBLISHEXTERNAL -> BACKUPPUBLISHEXTERNAL : rename to final name
+activate BACKUPPUBLISHEXTERNAL
+deactivate BACKUPPUBLISHEXTERNAL
+
+BACKUPPUBLISHEXTERNAL -> BACKUPPUBLISHEXTERNAL : remove old backups
+activate BACKUPPUBLISHEXTERNAL
+deactivate BACKUPPUBLISHEXTERNAL
+
+BACKUPPUBLISHEXTERNAL-> BACKUPPUBLISH
+deactivate BACKUPPUBLISHEXTERNAL
+
+end box
+
+BACKUPPUBLISH -> BACKUPPROCESS
+deactivate BACKUPPUBLISH
+BACKUPPROCESS -> User
+deactivate BACKUPPROCESS
+@enduml

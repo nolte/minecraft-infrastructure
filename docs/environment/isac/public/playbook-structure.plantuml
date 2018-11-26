@@ -1,0 +1,26 @@
+@startuml
+actor user as "User"
+collections playbook_master as "ansible_playbook-setup-env.yml"
+
+collections playbook_infrastructure as "create-infrastructure.yml"
+collections playbook_ecs_instance as "masterplaybook-mc-server.yml"
+
+
+user -> playbook_master
+activate playbook_master
+
+playbook_master -> playbook_infrastructure : create the infrastructure
+activate playbook_infrastructure
+playbook_infrastructure -> playbook_master
+deactivate playbook_infrastructure
+
+playbook_master -> playbook_ecs_instance
+activate playbook_ecs_instance
+
+playbook_ecs_instance -> playbook_master
+deactivate playbook_ecs_instance
+
+playbook_master -> user
+deactivate playbook_master
+
+@enduml

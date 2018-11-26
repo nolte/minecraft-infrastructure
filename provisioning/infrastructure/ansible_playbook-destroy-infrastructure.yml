@@ -1,0 +1,20 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+
+    - name: "destroy the Infrastruktur"
+      terraform:
+        project_path: "{{ playbook_dir }}/hetzner_mc_server"
+        workspace: "{{ terraform_workspace }}"
+        state: absent
+      register: output_delete
+
+    - debug: var=output_delete
+
+    - name: tell the host about our servers it might want to ssh to
+      known_hosts:
+        name: 95.216.203.104
+        state: absent
+
+    - command: "ssh-keygen -f ~/.ssh/known_hosts -R 95.216.203.104"

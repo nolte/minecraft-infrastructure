@@ -1,0 +1,6 @@
+terraform_workspace: prod
+ansible_user: nolte
+ansible_become_method: sudo
+sshd_AllowUsers:
+  - "nolte"
+  - "ansible"

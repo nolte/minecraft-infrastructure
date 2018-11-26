@@ -1,0 +1,5 @@
+mc_version: 1.13.2
+pluginset: "server"
+minecraft_max_memory: 1024M
+minecraft_initial_memory: 1024M
+restic_repos_localbackup_url: /tmp/localbackup

@@ -26,16 +26,10 @@
       when: hotstorage is defined
 
     - include_role:
-        name: robertdebock.bootstrap
-
-    - include_role:
-        name: robertdebock.epel
-
-    - include_role:
         name: harder_system
 
     - include_role:
-        name: paulfantom.restic
+        name: donat-b.restic
 
 
 

@@ -2,7 +2,7 @@ Lokale Entwicklung
 =======================================
 
 
-Für die Lokale Entwicklung kann vagrant und das inventory ``test`` genutzt werden.
+Für die Lokale Entwicklung kann vagrant und das inventory ``test`` genutzt werden. Die Terraform Infrastruktur scripte werden hier nicht verwendet.
 
 .. code-block:: shell
 
@@ -11,4 +11,6 @@ Für die Lokale Entwicklung kann vagrant und das inventory ``test`` genutzt werd
 
 .. code-block:: shell
 
-    export mc_accept_eula=true && vagrant provision
+    export mc_accept_eula=true && \
+      vagrant rsync && \
+      vagrant provision

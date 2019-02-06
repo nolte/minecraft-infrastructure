@@ -1,0 +1,266 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Security &mdash; Minecraft As a Service  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="prev" title="Ablauf Backup Prozess" href="../backups/index.html" />
+ 
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Minecraft As a Service
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../gameworld/index.html">Doku Spielwelt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plugins/index.html">Doku Plugins</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Doku Development/Maintenance</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../isac/index.html">Infrastructure as Code</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Prozess Abläufe</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../backups/index.html">Ablauf Backup Prozess</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Security</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#harder-ssh">Harder SSH</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#firewall-und-zugriffsprotokoll">Firewall und Zugriffsprotokoll</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Minecraft As a Service</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Doku Development/Maintenance</a> &raquo;</li>
+        
+          <li><a href="../index.html">Prozess Abläufe</a> &raquo;</li>
+        
+      <li>Security</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/environment/process/security/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="security">
+<h1>Security<a class="headerlink" href="#security" title="Permalink to this headline">¶</a></h1>
+<p>Als neuer Server im Internet kommt man sich vor wie ein Schnäpchen auf dem Grabbeltisch …
+Die vielen, gut Trainierte, Systeme klopfen alles ab was sie finden können, aus diesen Gründen sollte man sich die Mühe geben die klasschischen Angrifsvektoren abzudecken.</p>
+<div class="section" id="harder-ssh">
+<h2>Harder SSH<a class="headerlink" href="#harder-ssh" title="Permalink to this headline">¶</a></h2>
+<p>Die SSHd Config wurde nach Anleitung von <a class="reference external" href="https://wiki.centos.org/HowTos/Network/SecuringSSH">CentOS Wiki</a> angepasst.</p>
+<ul class="simple">
+<li>SSH Protocol 2</li>
+<li>No Password Auth</li>
+<li>Changed SSH Port</li>
+<li>SSH <code class="docutils literal notranslate"><span class="pre">AllowUsers</span></code></li>
+</ul>
+</div>
+<div class="section" id="firewall-und-zugriffsprotokoll">
+<h2>Firewall und Zugriffsprotokoll<a class="headerlink" href="#firewall-und-zugriffsprotokoll" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">Als Firewall und Audit Log System wird <a class="reference external" href="https://configserver.com/cp/csf.html">ConfigServer Security &amp; Firewall (csf)</a> verwendet.</div>
+<div class="line">Eine etwas abgespeckte version währe <a class="reference external" href="https://www.fail2ban.org/wiki/index.php/Main_Page">fail2ban</a> gewesen.</div>
+</div>
+<div class="section" id="erfahrung-configserver-security-firewall-csf">
+<h3>Erfahrung ConfigServer Security &amp; Firewall (csf)<a class="headerlink" href="#erfahrung-configserver-security-firewall-csf" title="Permalink to this headline">¶</a></h3>
+<p>Leider hat sich das einrichten &amp; installieren über Ansible als komplexer als gedacht erwiesen, aus diesen grund wird erstmal nur fail2ban in Kombination mit firewalld umgesetzt.</p>
+<dl class="docutils">
+<dt>firewall</dt>
+<dd>hier wird der klassiker FirewallD verwendet.</dd>
+<dt>bruteforce detection</dt>
+<dd>Gegen Brute Force wird <a class="reference external" href="https://www.fail2ban.org/wiki/index.php/Main_Page">fail2ban</a> verwendet.</dd>
+<dt>Advanced Intrusion Detection Environment (<a class="reference external" href="https://de.wikipedia.org/wiki/Advanced_Intrusion_Detection_Environment">aide</a>)</dt>
+<dd>Erfasst dabei Prüfsummen, von dateien und vergleicht diese gegen vorherriege läufe. <em>(umsetzung offen)</em></dd>
+<dt><a class="reference external" href="open-scap">OpenSCAP</a></dt>
+<dd>Durchführen von Tests um die Configuration auf bekannte schwachstellen zu untersuchen. <em>(umsetzung offen)</em></dd>
+</dl>
+</div>
+<div class="section" id="blocklisten">
+<h3>Blocklisten<a class="headerlink" href="#blocklisten" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../backups/index.html" class="btn btn-neutral" title="Ablauf Backup Prozess" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+
+
+</body>
+</html>

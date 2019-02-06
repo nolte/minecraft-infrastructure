@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="../../../_static/overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Lokale Entwicklung" href="../local/index.html" />
+    <link rel="next" title="Security" href="../security/index.html" />
     <link rel="prev" title="Prozess Abläufe" href="../index.html" />
  
 
@@ -82,19 +82,18 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../../server/index.html">Der Server</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../plugins/index.html">Used Plugins</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Server Umgebung</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../gameworld/index.html">Doku Spielwelt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plugins/index.html">Doku Plugins</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Doku Development/Maintenance</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../isac/index.html">Infrastructure as Code</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">Prozess Abläufe</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Ablauf Backup Prozess</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../local/index.html">Lokale Entwicklung</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../provision/index.html">Ersteinrichtung</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Ablauf Backup Prozess</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#restic-world-repository">Restic World Repository</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../publisher/index.html">Anbieter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../security/index.html">Security</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../index.html#nutzliche-befehle">Nützliche befehle</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../index.html#genutzte-projekte">Genutzte Projekte</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../security/index.html">Security</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -142,7 +141,7 @@
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../index.html">Server Umgebung</a> &raquo;</li>
+          <li><a href="../../index.html">Doku Development/Maintenance</a> &raquo;</li>
         
           <li><a href="../index.html">Prozess Abläufe</a> &raquo;</li>
         
@@ -166,7 +165,41 @@
            <div itemprop="articleBody">
             
   <div class="section" id="ablauf-backup-prozess">
-<h1>Ablauf Backup Prozess<a class="headerlink" href="#ablauf-backup-prozess" title="Permalink to this headline">¶</a></h1>
+<span id="ref-env-backup"></span><h1>Ablauf Backup Prozess<a class="headerlink" href="#ablauf-backup-prozess" title="Permalink to this headline">¶</a></h1>
+<p>Zum erstellen von Backups wird <a class="reference external" href="https://restic.net/">restic</a> verwendet. Der Lokale Cron wird durch die
+Ansible Role <a class="reference external" href="https://github.com/paulfantom/ansible-restic">paulfantom/ansible-restic</a> konfiguriert.</p>
+<div class="section" id="restic-world-repository">
+<h2>Restic World Repository<a class="headerlink" href="#restic-world-repository" title="Permalink to this headline">¶</a></h2>
+<p>Die Konfiguration der Backups findet über die <a class="reference internal" href="../../isac/public/index.html#ref-env-provision-prod-configuration"><span class="std std-ref">Konfiguration</span></a> der entsprechenden Stage statt.</p>
+<div class="section" id="listen-aller-snapshots">
+<h3>Listen aller snapshots<a class="headerlink" href="#listen-aller-snapshots" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>restic -r /tmp/resticrepo snapshots
+</pre></div>
+</div>
+</div>
+<div class="section" id="cron">
+<h3>Cron<a class="headerlink" href="#cron" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>vagrant@localhost ~<span class="o">]</span>$ sudo cat /etc/cron.d/restic-localbackup
+<span class="c1"># vi: ft=jinja.crontab</span>
+<span class="c1">#</span>
+<span class="c1"># Ansible managed</span>
+<span class="c1">#</span>
+<span class="nv">MAILTO</span><span class="o">=</span><span class="s2">&quot;root&quot;</span>
+<span class="nv">SHELL</span><span class="o">=</span>/bin/sh
+<span class="nv">PATH</span><span class="o">=</span>/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin
+<span class="nv">RESTIC_REPOSITORY</span><span class="o">=</span>/tmp/resticrepo
+<span class="nv">RESTIC_PASSWORD</span><span class="o">=</span>dolphins
+
+<span class="c1"># Apply retention policy</span>
+<span class="m">17</span> <span class="m">5</span> * * * root restic forget --prune --keep-last <span class="m">2</span> --keep-tag special
+<span class="c1"># Check repository</span>
+<span class="m">17</span> <span class="m">4</span> * * * root restic check
+<span class="c1"># Do an actual backup</span>
+<span class="m">0</span> <span class="m">1</span>  * * * root restic backup /opt/minecraft/server/shared
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 
 
@@ -177,7 +210,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../local/index.html" class="btn btn-neutral float-right" title="Lokale Entwicklung" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../security/index.html" class="btn btn-neutral float-right" title="Security" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../index.html" class="btn btn-neutral" title="Prozess Abläufe" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -214,6 +247,7 @@
         <script type="text/javascript" src="../../../_static/jquery.js"></script>
         <script type="text/javascript" src="../../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
     
 
   

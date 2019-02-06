@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Server Umgebung &mdash; Minecraft As a Service  documentation</title>
+  <title>Doku Development/Maintenance &mdash; Minecraft As a Service  documentation</title>
   
 
   
@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="../_static/overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Prozess Abläufe" href="process/index.html" />
+    <link rel="next" title="Infrastructure as Code" href="isac/index.html" />
     <link rel="prev" title="WorldEdit &amp; Co" href="../plugins/worldedit/index.html" />
  
 
@@ -82,14 +82,11 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../server/index.html">Der Server</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Used Plugins</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Server Umgebung</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../gameworld/index.html">Doku Spielwelt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Doku Plugins</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Doku Development/Maintenance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="isac/index.html">Infrastructure as Code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="process/index.html">Prozess Abläufe</a></li>
-<li class="toctree-l2"><a class="reference internal" href="publisher/index.html">Anbieter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="security/index.html">Security</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#nutzliche-befehle">Nützliche befehle</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#genutzte-projekte">Genutzte Projekte</a></li>
 </ul>
 </li>
 </ul>
@@ -137,7 +134,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Server Umgebung</li>
+      <li>Doku Development/Maintenance</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -156,70 +153,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="server-umgebung">
-<h1>Server Umgebung<a class="headerlink" href="#server-umgebung" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="doku-development-maintenance">
+<h1>Doku Development/Maintenance<a class="headerlink" href="#doku-development-maintenance" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="isac/index.html">Infrastructure as Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="process/index.html">Prozess Abläufe</a></li>
-<li class="toctree-l1"><a class="reference internal" href="publisher/index.html">Anbieter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="security/index.html">Security</a></li>
 </ul>
-</div>
-<div class="section" id="nutzliche-befehle">
-<h2>Nützliche befehle<a class="headerlink" href="#nutzliche-befehle" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="docutils">
-<colgroup>
-<col width="75%" />
-<col width="25%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>command</td>
-<td>description</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">spigot</span> <span class="pre">restart</span></code></td>
-<td>server restart</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">tail</span> <span class="pre">-f</span> <span class="pre">/opt/minecraft/server/shared/logs/latest.log</span></code></td>
-<td>show current logs</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="genutzte-projekte">
-<h2>Genutzte Projekte<a class="headerlink" href="#genutzte-projekte" title="Permalink to this headline">¶</a></h2>
-<p>Für die unterschiedlichen Services werden weitere OpenSource Projekte verwendet.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="71%" />
-<col width="29%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>Projekte</td>
-<td>description</td>
-</tr>
-<tr class="row-even"><td><a class="reference external" href="https://github.com/nolte/minecraft-plugin-archivator">minecraft-plugin-archivator</a></td>
-<td>Minecraft Java Plugin</td>
-</tr>
-<tr class="row-odd"><td><a class="reference external" href="https://github.com/nolte/ansible-minecraft">ansible-minecraft</a></td>
-<td>Ansible Role to Controll the Server</td>
-</tr>
-<tr class="row-even"><td><a class="reference external" href="https://github.com/nolte/ansible-minecraft-region-fixer">ansible-minecraft-region-fixer</a></td>
-<td>Ansible Role für den region Fixer</td>
-</tr>
-<tr class="row-odd"><td><a class="reference external" href="https://github.com/itzg/rcon-cli">itzg/rcon-cli</a></td>
-<td>Go Rcon Commandline Interface</td>
-</tr>
-<tr class="row-even"><td><a class="reference external" href="https://github.com/ansiblebit/oracle-java">ansiblebit/oracle-java</a></td>
-<td>Ansible Role for install Oracle Java</td>
-</tr>
-<tr class="row-odd"><td><a class="reference external" href="https://github.com/geerlingguy/ansible-role-certbot">geerlingguy/ansible-role-certbot</a></td>
-<td>Ansible Role for LetsEncrypt CertBot</td>
-</tr>
-<tr class="row-even"><td><a class="reference external" href="https://github.com/geerlingguy/ansible-role-nginx">geerlingguy/ansible-role-nginx</a></td>
-<td>Ansible Role for handle the nginx</td>
-</tr>
-</tbody>
-</table>
 </div>
 </div>
 
@@ -231,7 +171,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="process/index.html" class="btn btn-neutral float-right" title="Prozess Abläufe" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="isac/index.html" class="btn btn-neutral float-right" title="Infrastructure as Code" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../plugins/worldedit/index.html" class="btn btn-neutral" title="WorldEdit &amp; Co" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -268,6 +208,7 @@
         <script type="text/javascript" src="../_static/jquery.js"></script>
         <script type="text/javascript" src="../_static/underscore.js"></script>
         <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
     
 
   

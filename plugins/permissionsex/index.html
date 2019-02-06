@@ -82,8 +82,8 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">Der Server</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Used Plugins</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../gameworld/index.html">Doku Spielwelt</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Doku Plugins</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../DiscordSRV/index.html">DiscordSRV</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../citizens/index.html">citizens</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../craftbook/index.html">CraftBook</a></li>
@@ -97,9 +97,10 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../vault/index.html">Vault</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../worldedit/index.html">WorldEdit &amp; Co</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#clicksort">ClickSort</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../environment/index.html">Server Umgebung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../environment/index.html">Doku Development/Maintenance</a></li>
 </ul>
 
             
@@ -145,7 +146,7 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../index.html">Used Plugins</a> &raquo;</li>
+          <li><a href="../index.html">Doku Plugins</a> &raquo;</li>
         
       <li>PermissionsEx</li>
     
@@ -189,92 +190,6 @@
 </div>
 <div class="section" id="example-permissions-yml">
 <h2>Example permissions.yml<a class="headerlink" href="#example-permissions-yml" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">schema-version</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-<span class="l l-Scalar l-Scalar-Plain">groups</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">default</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">options</span><span class="p p-Indicator">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">default</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-    <span class="l l-Scalar l-Scalar-Plain">permissions</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">multiverse.portal.access.*</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">modifyworld.chat</span>
-
-  <span class="l l-Scalar l-Scalar-Plain">gamers_admins</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">inheritance</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">commons_server_admin</span>
-
-  <span class="l l-Scalar l-Scalar-Plain">gamers_creative_builder</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">worlds</span><span class="p p-Indicator">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">world</span><span class="p p-Indicator">:</span>
-        <span class="l l-Scalar l-Scalar-Plain">inheritance</span><span class="p p-Indicator">:</span>
-          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">commons_world_builder</span>
-        <span class="l l-Scalar l-Scalar-Plain">permissions</span><span class="p p-Indicator">:</span>
-          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">worldedit.*</span>
-
-  <span class="l l-Scalar l-Scalar-Plain">gamers_survival_builder</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">inheritance</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">default</span>
-    <span class="l l-Scalar l-Scalar-Plain">worlds</span><span class="p p-Indicator">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">world_survival</span><span class="p p-Indicator">:</span>
-        <span class="l l-Scalar l-Scalar-Plain">inheritance</span><span class="p p-Indicator">:</span>
-          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">commons_world_builder</span>
-
-
-<span class="c1"># commons Groups Collection of usecase specific Permissions</span>
-
-  <span class="l l-Scalar l-Scalar-Plain">commons_server_admin</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">inheritance</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">commons_world_admins</span>
-    <span class="l l-Scalar l-Scalar-Plain">permissions</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="s">&#39;*&#39;</span>
-
-  <span class="l l-Scalar l-Scalar-Plain">commons_world_builder</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">permissions</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">modifyworld.*</span>
-
-  <span class="l l-Scalar l-Scalar-Plain">commons_world_admins</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">inheritance</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">commons_worldeditor_builder</span>
-    <span class="l l-Scalar l-Scalar-Plain">permissions</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">worldedit.*</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">worldguard.*</span>
-
-
-<span class="l l-Scalar l-Scalar-Plain">users</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">e1e45a60-d375-4fea-a238-91323b5ec11d</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">group</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">gamers_admins</span>
-    <span class="l l-Scalar l-Scalar-Plain">options</span><span class="p p-Indicator">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">nolte07</span>
-  <span class="l l-Scalar l-Scalar-Plain">_superwolle_</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">group</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">gamers_creative_builder</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">gamers_survival_builder</span>
-  <span class="l l-Scalar l-Scalar-Plain">sipsap90</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">group</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">gamers_creative_builder</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">gamers_survival_builder</span>
-  <span class="l l-Scalar l-Scalar-Plain">cd0e9bf2-f2c3-4597-acc5-f1dc06e088e6</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">group</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">gamers_admins</span>
-    <span class="l l-Scalar l-Scalar-Plain">options</span><span class="p p-Indicator">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">_BlueBeaver_</span>
-  <span class="l l-Scalar l-Scalar-Plain">145610ef-63f5-4e69-8898-a096a70f8b78</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">group</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">gamers_survival_builder</span>
-    <span class="l l-Scalar l-Scalar-Plain">options</span><span class="p p-Indicator">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">IvoryMcBong</span>
-  <span class="l l-Scalar l-Scalar-Plain">43a897c7-2a65-49ca-bbda-d05aecfca779</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">group</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">gamers_survival_builder</span>
-    <span class="l l-Scalar l-Scalar-Plain">options</span><span class="p p-Indicator">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Pandamixx</span>
-  <span class="l l-Scalar l-Scalar-Plain">a80e4def-b78c-4a39-a2be-cd82b08b71e1</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">group</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">gamers_admins</span>
-    <span class="l l-Scalar l-Scalar-Plain">options</span><span class="p p-Indicator">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">m4yl0n</span>
-</pre></div>
-</div>
 </div>
 </div>
 
@@ -323,6 +238,7 @@
         <script type="text/javascript" src="../../_static/jquery.js"></script>
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
     
 
   

@@ -15,9 +15,9 @@ Getting Started
 ---------------
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 4
 
-   server/index
+   gameworld/index
    plugins/index
    environment/index
 

@@ -31,6 +31,11 @@
     - include_role:
         name: donat-b.restic
 
+    # usage borgbackup for hetzner storage backup
+    - name: install borgbackup
+      package:
+        name: borgbackup
+        state: present
 
 
   handlers:

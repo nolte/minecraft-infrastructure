@@ -1,0 +1,32 @@
+---
+- hosts: 127.0.0.1
+  connection: local
+  become: true
+  tasks:
+    - debug: msg=fofa
+
+    - set_fact:
+        backup_dirs:
+          - source:
+              basedir: /opt/minecraft/plugins/shared
+              excludes:
+                - dynmap/web/*
+            repo:
+              RESTIC_REPOSITORY: /tmp/localbackup/plugindata
+              RESTIC_PASSWORD: dolphins
+          - source:
+              basedir: /opt/minecraft/server/shared
+              excludes:
+                - plugins/*
+                - logs/*
+            repo:
+              RESTIC_REPOSITORY: /tmp/localbackup/gamedata
+              RESTIC_PASSWORD: dolphins
+
+    - name: configure the mc server
+      include_role:
+        name: backup
+        tasks_from: restore.yml
+      with_items: "{{backup_dirs}}"
+      loop_control:
+        loop_var: backup

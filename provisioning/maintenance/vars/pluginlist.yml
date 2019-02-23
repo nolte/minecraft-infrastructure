@@ -4,8 +4,9 @@ mc_plugin_sets:
     vault:
       src: https://media.forgecdn.net/files/2615/750/Vault.jar
       version: 1.7.1
-#    dynmap:
-#      src: https://github.com/webbukkit/dynmap/releases/download/3.0-beta-1/Dynmap-3.0-beta-1-spigot.jar
+    dynmap:
+      src: https://media.forgecdn.net/files/2645/929/Dynmap-3.0-beta-3-spigot.jar
+      # https://github.com/webbukkit/dynmap/releases/download/3.0-beta-1/Dynmap-3.0-beta-1-spigot.jar
     permissionsEx:
       src: https://media.forgecdn.net/files/909/154/PermissionsEx-1.23.4.jar
     worldedit:
@@ -17,27 +18,36 @@ mc_plugin_sets:
       src: https://media.forgecdn.net/files/2663/457/craftbook-3.10-beta-02.jar
       #http://builds.enginehub.org/job/craftbook/10857/download/craftbook-3.10-SNAPSHOT-dist.jar
     multiverseSignPortals:
-      src: https://ci.onarandombox.com/job/Multiverse-SignPortals/lastSuccessfulBuild/artifact/target/Multiverse-SignPortals-3.0.0-SNAPSHOT.jar
+      src: https://ci.onarandombox.com/job/Multiverse-SignPortals/lastSuccessfulBuild
+      type: "jenkins_latest"
       validate_certs: false
     multiverseNether:
-      src: https://ci.onarandombox.com/job/Multiverse-NetherPortals/lastSuccessfulBuild/artifact/target/Multiverse-NetherPortals-3.0.0-SNAPSHOT.jar
+      src: https://ci.onarandombox.com/job/Multiverse-NetherPortals/lastSuccessfulBuild
+      type: "jenkins_latest"
       validate_certs: false
     multiversePortal:
-      src: https://ci.onarandombox.com/job/Multiverse-Portals/lastSuccessfulBuild/artifact/target/Multiverse-Portals-3.0.0-SNAPSHOT.jar
+      src: https://ci.onarandombox.com/job/Multiverse-Portals/lastSuccessfulBuild
+      type: "jenkins_latest"
       validate_certs: false
     multiverseCore:
-      src: https://ci.onarandombox.com/job/Multiverse-Core/lastSuccessfulBuild/artifact/target/Multiverse-Core-3.0.0-SNAPSHOT.jar
+      src: https://ci.onarandombox.com/job/Multiverse-Core/lastSuccessfulBuild
+      type: "jenkins_latest"
       validate_certs: false
     citizens:
-      src: https://ci.citizensnpcs.co/job/Citizens2/lastSuccessfulBuild/artifact/dist/target/Citizens-2.0.24-b1612.jar
+      src: https://ci.citizensnpcs.co/job/Citizens2/lastSuccessfulBuild
+      type: "jenkins_latest"
+      #https://media.forgecdn.net/files/2661/341/Citizens.jar
     sentinel:
-      src: https://ci.citizensnpcs.co/job/Sentinel/lastSuccessfulBuild/artifact/target/Sentinel-1.7.6-b212.jar
+      src: https://ci.citizensnpcs.co/job/Sentinel/lastSuccessfulBuild
+      type: "jenkins_latest"
     denizen:
-      src: https://ci.citizensnpcs.co/job/Denizen/lastSuccessfulBuild/artifact/target/Denizen-1.0.3-b1660-REL.jar
+      src: https://ci.citizensnpcs.co/job/Denizen/lastSuccessfulBuild
+      type: "jenkins_latest"
 #    shopChest:
 #      src: https://ci.codemc.org/job/EpicEricEE/job/ShopChest/lastSuccessfulBuild/artifact/target/ShopChest-1.13-SNAPSHOT.jar
     blacksmith:
-      src: http://ci.citizensnpcs.co/job/Blacksmith/lastSuccessfulBuild/artifact/target/blacksmith-1.13-SNAPSHOT.jar
+      src: http://ci.citizensnpcs.co/job/Blacksmith/lastSuccessfulBuild
+      type: "jenkins_latest"
     perworldinventory:
       src: https://github.com/EbonJaeger/perworldinventory-kt/releases/download/v2.2.0/perworldinventory-kt-2.2.0.jar
     nuvotifier:

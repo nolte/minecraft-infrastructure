@@ -56,7 +56,5 @@ write_files:
 
       PermitRootLogin no
       AllowGroups ssh-users
-      PasswordAuthentication no
-      ChallengeResponseAuthentication no
       StrictModes yes
       Protocol 2

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; Minecraft As a Service  documentation</title>
+  <title>Backblaze &mdash; Minecraft As a Service  documentation</title>
   
 
   
@@ -36,6 +36,8 @@
     <link rel="stylesheet" href="../../../../../_static/overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="Hetzner" href="../hetzner/index.html" />
+    <link rel="prev" title="Public Stage" href="../../index.html" />
  
 
 </head>
@@ -81,10 +83,26 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../../../gameworld/index.html">Doku Spielwelt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../plugins/index.html">Doku Plugins</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../index.html">Doku Development/Maintenance</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Doku Development/Maintenance</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Infrastructure as Code</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../local/index.html">Lokale Entwicklung</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Public Stage</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../index.html#required">Required</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../index.html#konfiguration">Konfiguration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../index.html#infrastruktur">Infrastruktur</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../index.html#service-konfiguration">Service Konfiguration</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../index.html#evaluierte-anbieter">Evaluierte Anbieter</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tools.html">Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../process/index.html">Prozess Abläufe</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -130,13 +148,19 @@
     
       <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
         
-      <li>&lt;no title&gt;</li>
+          <li><a href="../../../../index.html">Doku Development/Maintenance</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Infrastructure as Code</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Public Stage</a> &raquo;</li>
+        
+      <li>Backblaze</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../../../_sources/environment/isac/public/publisher/hetzner/hetzner_price_calc.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../../../_sources/environment/isac/public/publisher/backblaze/index.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -149,42 +173,26 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <table border="1" class="docutils">
-<colgroup>
-<col width="14%" />
-<col width="17%" />
-<col width="68%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>Element</td>
-<td>Preis</td>
-<td>Nutzen</td>
-</tr>
-<tr class="row-even"><td>Floating IP</td>
-<td>1,19 €/Monat</td>
-<td>Permanenten Zugriff über die Selbe IP, egal welcher Cloud Server Online ist (planed)</td>
-</tr>
-<tr class="row-odd"><td>Cloud Node (CX21)</td>
-<td>5,83 €/Monat</td>
-<td>Minecraft Server Node</td>
-</tr>
-<tr class="row-even"><td>~20 GB Volume</td>
-<td>0,96 €/Monat
-<code class="docutils literal notranslate"><span class="pre">0,0476</span> <span class="pre">€/GB/Monat</span></code></td>
-<td>Permaneter Storage für Backups, wird immer von der Aktiven Minecraft Instanze verwendet.</td>
-</tr>
-<tr class="row-odd"><td><strong>Summe:</strong></td>
-<td>~ 7,98 €/Monat</td>
-<td>Komplettkosten bei Dauerbetrieb</td>
-</tr>
-</tbody>
-</table>
+  <div class="section" id="backblaze">
+<h1>Backblaze<a class="headerlink" href="#backblaze" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://www.backblaze.com/b2/cloud-storage.html">backblaze.com</a> dient als Coldstorage Provider, hier sind die ersten 10gb kostenlos.
+<a class="reference external" href="https://www.backblaze.com/b2/cloud-storage-pricing.html">Preise</a></p>
+</div>
 
 
            </div>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../hetzner/index.html" class="btn btn-neutral float-right" title="Hetzner" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../../index.html" class="btn btn-neutral float-left" title="Public Stage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

@@ -17,13 +17,20 @@
   
 
   
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/overrides.css" type="text/css" />
@@ -33,21 +40,16 @@
     <link rel="prev" title="Prozess Abläufe" href="../index.html" />
  
 
-
-  
-  <script src="../../../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -88,7 +90,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../isac/index.html">Infrastructure as Code</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">Prozess Abläufe</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Ablauf Backup Prozess</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#restic-world-repository">Restic World Repository</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#backups">Backups</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Restic</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../security/index.html">Security</a></li>
@@ -168,9 +171,69 @@
 <span id="ref-env-backup"></span><h1>Ablauf Backup Prozess<a class="headerlink" href="#ablauf-backup-prozess" title="Permalink to this headline">¶</a></h1>
 <p>Zum erstellen von Backups wird <a class="reference external" href="https://restic.net/">restic</a> verwendet. Der Lokale Cron wird durch die
 Ansible Role <a class="reference external" href="https://github.com/paulfantom/ansible-restic">paulfantom/ansible-restic</a> konfiguriert.</p>
-<div class="section" id="restic-world-repository">
-<h2>Restic World Repository<a class="headerlink" href="#restic-world-repository" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="backups">
+<h2>Backups<a class="headerlink" href="#backups" title="Permalink to this headline">¶</a></h2>
 <p>Die Konfiguration der Backups findet über die <a class="reference internal" href="../../isac/public/index.html#ref-env-provision-prod-configuration"><span class="std std-ref">Konfiguration</span></a> der entsprechenden Stage statt.</p>
+<div class="section" id="hotstorage-repositories">
+<h3>Hotstorage Repositories<a class="headerlink" href="#hotstorage-repositories" title="Permalink to this headline">¶</a></h3>
+<p>Als Regelmäßiges Backupsystem wurde ein 20GB (<code class="docutils literal notranslate"><span class="pre">~0,95</span> <span class="pre">€/Mo</span></code>) Volumen an die Produktive Instanze gemounted.</p>
+</div>
+<div class="section" id="coldstorage-repositories">
+<h3>Coldstorage Repositories<a class="headerlink" href="#coldstorage-repositories" title="Permalink to this headline">¶</a></h3>
+<p>Zusätzlich zu dem Volumen, werden die Daten regelmäßig bei <a class="reference external" href="https://www.backblaze.com/b2/cloud-storage.html">backblaze.com</a> archiviert.</p>
+<p>Als Colstorage Buckets dienen <code class="docutils literal notranslate"><span class="pre">b2:mcbackup-plugindata</span></code> und <code class="docutils literal notranslate"><span class="pre">b2:mcbackup-worlddata</span></code>.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="11%" />
+<col width="13%" />
+<col width="14%" />
+<col width="42%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Bucket</td>
+<td>Initiale Größe</td>
+<td>Kosten Pro Monat</td>
+<td>Kosten Pro Restore</td>
+<td>Beschreibung</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">b2:mcbackup-plugindata</span></code></td>
+<td>1.3 Gb</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>Hier liegen alle Plugindaten und Konfigurationen,
+aktuell auch noch die Dynmap daher die größe …</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">b2:mcbackup-worlddata</span></code></td>
+<td>3.9 Gb</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>In diesem Bucket werden alle Weltinformationen Archiviert</td>
+</tr>
+<tr class="row-even"><td><strong>Summe</strong></td>
+<td>~5.2 Gb</td>
+<td>~ 0,026$</td>
+<td>~0,052$</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Weblinks:</strong></p>
+<ul class="simple">
+<li><a class="reference external" href="https://help.backblaze.com/hc/en-us/articles/115002880514-How-to-configure-Backblaze-B2-with-Restic-on-Linux">Restic Integration</a></li>
+<li><a class="reference external" href="https://www.grzegorowski.com/restic-backblaze-b2-backups/">How To</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>Restic<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">B2_ACCOUNT_ID</span><span class="o">=</span><span class="s2">&quot;&quot;</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
+<span class="nb">export</span> <span class="nv">B2_ACCOUNT_KEY</span><span class="o">=</span><span class="s2">&quot;&quot;</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
+<span class="nb">export</span> <span class="nv">RESTIC_REPOSITORY</span><span class="o">=</span><span class="s2">&quot;b2:mcbackup-worlddata&quot;</span>
+restic -r b2:mcbackup-worlddata init
+restic -r b2:mcbackup-worlddata --exclude<span class="o">=</span><span class="s2">&quot;logs/*&quot;</span> backup /opt/minecraft/server/shared
+</pre></div>
+</div>
 <div class="section" id="listen-aller-snapshots">
 <h3>Listen aller snapshots<a class="headerlink" href="#listen-aller-snapshots" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>restic -r /tmp/resticrepo snapshots
@@ -213,7 +276,7 @@ Ansible Role <a class="reference external" href="https://github.com/paulfantom/a
         <a href="../security/index.html" class="btn btn-neutral float-right" title="Security" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../index.html" class="btn btn-neutral" title="Prozess Abläufe" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="Prozess Abläufe" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -239,26 +302,16 @@ Ansible Role <a class="reference external" href="https://github.com/paulfantom/a
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../../_static/language_data.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
+  
  
 
 

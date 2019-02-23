@@ -1,12 +1,10 @@
 ---
-- src: git+https://github.com/nolte/ansible-minecraft
-  name: nolte.minecraft
-  version: develop
+- name: nolte.minecraft
 - name: ypsman.sshd_config
 #- name: mrlesmithjr.ipset
 - name: dev-sec.os-hardening
 - name: robertdebock.fail2ban
 - name: geerlingguy.java
-- name: robertdebock.bootstrap
-- name: robertdebock.epel
-- name: paulfantom.restic
+#- name: robertdebock.bootstrap
+#- name: robertdebock.epel
+- name: donat-b.restic

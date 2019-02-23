@@ -1,0 +1,31 @@
+---
+
+- name: check backup repository is allways exists
+  stat:
+    path: "{{backup.repo.RESTIC_REPOSITORY}}/config"
+  register: registry_check
+
+- set_fact:
+    excludes: "{{ lookup('template', 'restic-exclude-parameters.j2') }}"
+
+- name: init the restic backup
+  shell: "restic init {{backup.source.basedir}}"
+  environment:
+    PATH: /usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin
+    RESTIC_REPOSITORY: "{{backup.repo.RESTIC_REPOSITORY}}"
+    RESTIC_PASSWORD: "{{backup.repo.RESTIC_PASSWORD}}"
+  become_user: root
+  become: true
+  when: registry_check.stat.exists == False
+
+- name: start restic backup
+  shell: "restic backup {{backup.source.basedir}}{{ excludes }}"
+  environment:
+    PATH: /usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin
+    RESTIC_REPOSITORY: "{{backup.repo.RESTIC_REPOSITORY}}"
+    RESTIC_PASSWORD: "{{backup.repo.RESTIC_PASSWORD}}"
+  become_user: root
+  become: true
+  register: backuptask
+
+- debug: var=backuptask

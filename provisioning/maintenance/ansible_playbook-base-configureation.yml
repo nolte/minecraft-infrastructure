@@ -26,17 +26,16 @@
       when: hotstorage is defined
 
     - include_role:
-        name: robertdebock.bootstrap
-
-    - include_role:
-        name: robertdebock.epel
-
-    - include_role:
         name: harder_system
 
     - include_role:
-        name: paulfantom.restic
+        name: donat-b.restic
 
+    # usage borgbackup for hetzner storage backup
+    - name: install borgbackup
+      package:
+        name: borgbackup
+        state: present
 
 
   handlers:

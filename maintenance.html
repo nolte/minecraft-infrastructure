@@ -1,0 +1,303 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Maintenance &mdash; Minecraft As a Service  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Development" href="development/index.html" />
+    <link rel="prev" title="Getting Started" href="configuration/getting_started.html" />
+ 
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Minecraft As a Service
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="configuration/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Maintenance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#handle-the-environment">Handle The Environment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-the-environment">Create the Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#destroy-the-environment">Destroy the Environment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#backup-and-recovery">Backup and Recovery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ansible-cmdb">Ansible CMDB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#open-scap-scan">Open Scap scan</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="development/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture/index.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Minecraft As a Service</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Maintenance</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/maintenance.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="maintenance">
+<h1>Maintenance<a class="headerlink" href="#maintenance" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="handle-the-environment">
+<h2>Handle The Environment<a class="headerlink" href="#handle-the-environment" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="create-the-environment">
+<h3>Create the Environment<a class="headerlink" href="#create-the-environment" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block-wrapper docutils container" id="example-cmd-env-create">
+<div class="code-block-caption"><span class="caption-text">Create the Environment</span><a class="headerlink" href="#example-cmd-env-create" title="Permalink to this code">¶</a></div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ansible-playbook  -i inventories/prod  master_playbook-setup-env.yml --extra-vars <span class="s2">&quot;mc_accept_eula=true&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="destroy-the-environment">
+<h3>Destroy the Environment<a class="headerlink" href="#destroy-the-environment" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block-wrapper docutils container" id="example-cmd-env-destroy">
+<div class="code-block-caption"><span class="caption-text">destroy the Environment</span><a class="headerlink" href="#example-cmd-env-destroy" title="Permalink to this code">¶</a></div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i inventories/prod infrastructure/playbook-destroy-infrastructure.yml
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="backup-and-recovery">
+<h2>Backup and Recovery<a class="headerlink" href="#backup-and-recovery" title="Permalink to this headline">¶</a></h2>
+<p>Manual Starting Backups</p>
+<blockquote>
+<div><div class="literal-block-wrapper docutils container" id="example-cmd-backup-start-manual">
+<div class="code-block-caption"><span class="caption-text">Manual execute a backup.</span><a class="headerlink" href="#example-cmd-backup-start-manual" title="Permalink to this code">¶</a></div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> <span class="nb">cd</span>  provisioning
+ ansible-playbook -i inventories/prod maintenance/playbook-execute-backup.yml --extra-vars <span class="s2">&quot;backup_destination=backblaze&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition">
+<p class="first admonition-title">Basic lookup. Fails if backblaze secrects doesn’t exist</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">module:</th><td class="field-body"><em class="first last">set_fact</em></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code class="first docutils literal notranslate"><span class="pre">B2_ACCOUNT_ID={{</span> <span class="pre">lookup('passwordstore',</span> <span class="pre">password_store_paths.B2_ACCOUNT_ID_PATH</span> <span class="pre">,convert_data=False)</span> <span class="pre">|string}}</span></code></li>
+<li><code class="first docutils literal notranslate"><span class="pre">RESTIC_REPO_PASSWORD={{</span> <span class="pre">lookup('passwordstore',</span> <span class="pre">password_store_paths.RESTIC_REPO_PASSWORD_PATH</span> <span class="pre">,convert_data=False)</span> <span class="pre">|string}}</span></code></li>
+<li><code class="first docutils literal notranslate"><span class="pre">B2_ACCOUNT_KEY={{</span> <span class="pre">lookup('passwordstore',</span> <span class="pre">password_store_paths.B2_ACCOUNT_KEY_PATH</span> <span class="pre">,convert_data=False)</span> <span class="pre">|</span> <span class="pre">b64encode</span> <span class="pre">|string}}</span></code></li>
+</ul>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">condition:</th><td class="field-body"><em class="first">backup_destination is defined and backup_destination == ‘backblaze’</em></td>
+</tr>
+<tr class="field-even field"><th class="field-name">host:</th><td class="field-body"><em class="first last">localhost</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="ansible-cmdb">
+<span id="ref-maintenance-process-cmdb"></span><h2>Ansible CMDB<a class="headerlink" href="#ansible-cmdb" title="Permalink to this headline">¶</a></h2>
+<p>Be sure that you have prepared your local <a class="reference internal" href="configuration/getting_started.html#ref-getting-started-configure-ansible"><span class="std std-ref">Ansible</span></a>.</p>
+<div class="literal-block-wrapper docutils container" id="example-cmd-cmdb-create">
+<div class="code-block-caption"><span class="caption-text">Create A System HTML Overview</span><a class="headerlink" href="#example-cmd-cmdb-create" title="Permalink to this code">¶</a></div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mkdir out
+ansible -i inventories/prod/ -m setup --tree out/ all
+ansible-cmdb -i inventories/prod out &gt; output.html
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="open-scap-scan">
+<h2>Open Scap scan<a class="headerlink" href="#open-scap-scan" title="Permalink to this headline">¶</a></h2>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">destroy the Environment</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i inventories/prod maintenance/playbook-execute-security-open-scap-scan.yml
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="development/index.html" class="btn btn-neutral float-right" title="Development" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="configuration/getting_started.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+ 
+
+
+</body>
+</html>

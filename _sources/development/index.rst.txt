@@ -1,0 +1,84 @@
+Development
+**************************************************
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   tools
+
+
+Project Structure
+==================================================
+
+This Git Repository is Structured in different folders, the :ref:`ref-project-structure-documentation-directory` and the :ref:`ref-project-structure-provision-directory` with the Infrastructure Providing Code.
+
+
+.. _ref-project-structure-documentation-directory:
+
+Documentation Directory
+---------------------------------------------------
+
+``docs``
+
+.. _ref-project-structure-provision-directory:
+
+Provision Directory
+---------------------------------------------------
+
+``provisioning``
+
+.. _ref-project-structure-provision-infrastructure-directory:
+
+Infrastructure Directory
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+``provisioning/infrastructure``
+
+.. _ref-project-structure-provision-maintenance-directory:
+
+Maintenance Directory
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+``provisioning/maintenance``
+
+.. _ref-project-structure-provision-inventories-directory:
+
+Inventories Directory
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+``provisioning/inventories``
+
+Plugindata
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+
+``provisioning/inventories/pluginconfigs``
+
+Test Inventory
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+
+``provisioning/inventories/test``
+
+Prod Inventory
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+
+``provisioning/inventories/prod``
+
+
+Naming Strategy
+==================================================
+
+
+.. list-table:: naming patterns
+   :widths: 25 15 60
+   :header-rows: 1
+
+   * - Naming
+     - Example
+     - description
+   * - ``playbook-{title}.yml``
+     - ``playbook-execute-backup.yml``
+     - Name of Classic Playbooks
+   * - ``master_playbook-{title}.yml``
+     - ``master_playbook-mc-server.yml``
+     - Name of :term:`Ansile Master Playbooks`

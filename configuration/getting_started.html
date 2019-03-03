@@ -1,0 +1,314 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting Started &mdash; Minecraft As a Service  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Maintenance" href="../maintenance.html" />
+    <link rel="prev" title="Minecraft Infrastructure" href="../index.html" />
+ 
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Minecraft As a Service
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#local-usage">Local Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-environment-configuration">Advanced Environment Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configure-ansible">Configure Ansible</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configure-your-local-secrets">Configure your Local Secrets</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../maintenance.html">Maintenance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/index.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Minecraft As a Service</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Getting Started</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/configuration/getting_started.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<div class="last line-block">
+<div class="line">For all steps (Development,starting the Server and executing tests) the User must accept the <a class="reference external" href="https://account.mojang.com/documents/minecraft_eula">Minecraft EULA</a>, by own configured property!</div>
+<div class="line">by example setting a envierment property like <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">mc_accept_eula=true</span></code></div>
+</div>
+</div>
+<div class="section" id="local-usage">
+<h2>Local Usage<a class="headerlink" href="#local-usage" title="Permalink to this headline">¶</a></h2>
+<p>For local Usage you can use the <code class="docutils literal notranslate"><span class="pre">Vagrant</span></code> file, located at the <a class="reference internal" href="../development/index.html#ref-project-structure-provision-directory"><span class="std std-ref">Provision Directory</span></a>.</p>
+<div class="literal-block-wrapper docutils container" id="example-vagrant-start">
+<div class="code-block-caption"><span class="caption-text">Start the Local Vagrant Machine</span><a class="headerlink" href="#example-vagrant-start" title="Permalink to this code">¶</a></div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> <span class="nb">cd</span> provisioning
+ vagrant up
+</pre></div>
+</div>
+</div>
+<p>After successfull starting you can join the server at <code class="docutils literal notranslate"><span class="pre">localhost:25567</span></code></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The original gameport will mapped in the Vagrant file from <code class="docutils literal notranslate"><span class="pre">25565</span></code> to <code class="docutils literal notranslate"><span class="pre">25567</span></code>.</p>
+</div>
+<div class="literal-block-wrapper docutils container" id="example-vagrant-connect">
+<div class="code-block-caption"><span class="caption-text">connect the Local Vagrant Machine</span><a class="headerlink" href="#example-vagrant-connect" title="Permalink to this code">¶</a></div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>   vagrant ssh
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="example-vagrant-recreate">
+<div class="code-block-caption"><span class="caption-text">reinit the Local Vagrant Machine</span><a class="headerlink" href="#example-vagrant-recreate" title="Permalink to this code">¶</a></div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>   vagrant rsync <span class="o">&amp;&amp;</span> <span class="se">\</span>
+   vagrant provision
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="advanced-environment-configuration">
+<h2>Advanced Environment Configuration<a class="headerlink" href="#advanced-environment-configuration" title="Permalink to this headline">¶</a></h2>
+<p>For usage with <a class="reference internal" href="../glossary.html#term-hetzner-cloud"><span class="xref std std-term">Hetzner Cloud</span></a> you must prepare you system a little bit more.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">HCLOUD_TOKEN</span><span class="o">=</span><span class="k">$(</span>pass internet/hetzner.com/projects/minecraft/terraform-token<span class="k">)</span>
+</pre></div>
+</div>
+<div class="section" id="configure-ansible">
+<span id="ref-getting-started-configure-ansible"></span><h3>Configure Ansible<a class="headerlink" href="#configure-ansible" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block-wrapper docutils container" id="example-setup-python-env">
+<div class="code-block-caption"><span class="caption-text">configure ansible python Environment</span><a class="headerlink" href="#example-setup-python-env" title="Permalink to this code">¶</a></div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>virtualenv
+pip install ansible requests ansible-cmdb
+ansible-galaxy install -f -r maintenance/requirements.yml
+</pre></div>
+</div>
+</div>
+<p>You must set your used <code class="docutils literal notranslate"><span class="pre">private_key_file</span></code> and some SSH Extra args <code class="docutils literal notranslate"><span class="pre">-o</span> <span class="pre">IdentitiesOnly=yes</span></code>, otherwise the <a class="reference internal" href="../glossary.html#term-fail2ban"><span class="xref std std-term">fail2ban</span></a> process will block your IP!.</p>
+<div class="literal-block-wrapper docutils container" id="example-config-ansible-cfg">
+<div class="code-block-caption"><span class="caption-text">example ansible.cfg</span><a class="headerlink" href="#example-config-ansible-cfg" title="Permalink to this code">¶</a></div>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[defaults]</span>
+<span class="na">validate_certs</span><span class="o">=</span><span class="s">False</span>
+<span class="na">private_key_file</span><span class="o">=</span><span class="s">~/.ssh/id_ed25519</span>
+
+<span class="k">[ssh_connection]</span>
+<span class="na">ssh_extra_args</span><span class="o">=</span><span class="s">-o IdentitiesOnly=yes</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="configure-your-local-secrets">
+<h3>Configure your Local Secrets<a class="headerlink" href="#configure-your-local-secrets" title="Permalink to this headline">¶</a></h3>
+<p>Infrastructure as Code is a nice stuff but it is not a good idea to publish all stuff at github.</p>
+<table border="1" class="colwidths-given docutils" id="id1">
+<caption><span class="caption-text">Title</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Environment Variable</th>
+<th class="head">Default Pass Path</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Row 1, column 1</td>
+<td>&#160;</td>
+<td>Row 1, column 3</td>
+</tr>
+<tr class="row-odd"><td>Row 2, column 1</td>
+<td>Row 2, column 2</td>
+<td>Row 2, column 3</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../maintenance.html" class="btn btn-neutral float-right" title="Maintenance" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Minecraft Infrastructure" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+ 
+
+
+</body>
+</html>

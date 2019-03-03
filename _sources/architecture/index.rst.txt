@@ -1,0 +1,9 @@
+Architecture
+**************************************************
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   provider/index
+   backups/index

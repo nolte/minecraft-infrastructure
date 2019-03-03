@@ -1,0 +1,250 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>glossary &mdash; Minecraft As a Service  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Backups" href="architecture/backups/index.html" />
+ 
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Minecraft As a Service
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="configuration/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="maintenance.html">Maintenance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture/index.html">Architecture</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Minecraft As a Service</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>glossary</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/glossary.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="glossary">
+<h1>glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h1>
+<dl class="glossary docutils">
+<dt id="term-terraform">Terraform</dt>
+<dd>With <a class="reference external" href="https://terraform.io">Terraform</a> we Create the Infrastructure like Volumes, FloatingIP and Virtual Machines.
+for the Hetzner Intergration wie use the <a class="reference internal" href="architecture/provider/hetzner/index.html#ref-env-provider-hetzner-integration-terraform"><span class="std std-ref">Hetzner Provider</span></a></dd>
+<dt id="term-ansible">Ansible</dt>
+<dd><a class="reference external" href="https://ansible.com">Ansible</a> is used for System configuration.</dd>
+<dt id="term-restic">restic</dt>
+<dd><a class="reference external" href="https://restic.net/">restic</a> is a backup tool.</dd>
+<dt id="term-vagrant">Vagrant</dt>
+<dd><a class="reference external" href="https://www.vagrantup.com">Vagrant</a>, is used for the local Environment.</dd>
+<dt id="term-minecraft-region-fixer">Minecraft-Region-Fixer</dt>
+<dd><a class="reference external" href="https://github.com/Fenixin/Minecraft-Region-Fixer">Fenixin/Minecraft-Region-Fixer</a></dd>
+<dt id="term-rcon">RCON</dt>
+<dd><a class="reference external" href="https://wiki.vg/RCON">RCON</a> <a class="reference external" href="https://developer.valvesoftware.com/wiki/Source_RCON_Protocol">RCON Protocol</a></dd>
+<dt id="term-logrotate">logrotate</dt>
+<dd>Remove old, and rotate the  logs with <a class="reference external" href="https://linux.die.net/man/8/logrotate">logrotate</a>.</dd>
+<dt id="term-fail2ban">fail2ban</dt>
+<dd>Usig <a class="reference external" href="https://www.fail2ban.org/wiki/index.php/Main_Page">fail2ban</a> for block brute force attacks.</dd>
+<dt id="term-extra-packages-for-enterprise-linux">Extra Packages for Enterprise Linux</dt>
+<dd>The <a class="reference external" href="https://fedoraproject.org/wiki/About_EPEL">EPEL</a> repository is used for install extra packages like <a class="reference internal" href="#term-restic"><span class="xref std std-term">restic</span></a>.</dd>
+<dt id="term-open-jdk">Open JDK<dt id="term-pass">pass</dt>
+<dd>The Commandline based <a class="reference external" href="https://www.passwordstore.org/">passwordstore</a>, can integrated to <a class="reference internal" href="#term-pass-ansible-plugin"><span class="xref std std-term">Ansible</span></a> and <a class="reference internal" href="#term-pass-terraform-provider"><span class="xref std std-term">Terraform</span></a>,</dd>
+<dt id="term-pass-ansible-plugin">pass ansible plugin</dt>
+<dd>Used for Secrets lookups <a class="reference external" href="https://docs.ansible.com/ansible/latest/plugins/lookup/passwordstore.html">passwordstore plugin</a></dd>
+<dt id="term-pass-terraform-provider">pass Terraform Provider</dt>
+<dd>For combinate <a class="reference internal" href="#term-terraform"><span class="xref std std-term">Terraform</span></a> and <a class="reference internal" href="#term-pass"><span class="xref std std-term">pass</span></a> we use the custom provider <a class="reference external" href="https://github.com/camptocamp/terraform-provider-pass">camptocamp/terraform-provider-pass</a>.</dd>
+<dt id="term-ansile-master-playbooks">Ansile Master Playbooks</dt>
+<dd><a class="reference external" href="https://docs.ansible.com/ansible/2.4/playbooks_reuse_includes.html#importing-playbooks">importing-playbooks</a></dd>
+<dt id="term-hetzner-cloud">Hetzner Cloud</dt>
+<dd><a class="reference external" href="https://www.hetzner.de/cloud">Hetzner Cloud</a></dd>
+</dl>
+<dl class="docutils">
+<dt>firewall</dt>
+<dd>hier wird der klassiker FirewallD verwendet.</dd>
+<dt>Advanced Intrusion Detection Environment (<a class="reference external" href="https://de.wikipedia.org/wiki/Advanced_Intrusion_Detection_Environment">aide</a>)</dt>
+<dd>Store file . <em>(umsetzung offen)</em></dd>
+<dt>OpenSCAP</dt>
+<dd>System vulnerability scans, see (<a class="reference external" href="https://www.open-scap.org/tools/openscap-base/#documentation">open-scap</a>)</dd>
+<dt>backblaze.com</dt>
+<dd>Cold Storage Provider, see <a class="reference internal" href="architecture/provider/backblaze/index.html#ref-architecture-provider-backblaze"><span class="std std-ref">Backblaze</span></a></dd>
+</dl>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="architecture/backups/index.html" class="btn btn-neutral float-left" title="Backups" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+ 
+
+
+</body>
+</html>

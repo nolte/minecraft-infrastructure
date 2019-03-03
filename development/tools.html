@@ -1,0 +1,292 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tools &mdash; Minecraft As a Service  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Architecture" href="../architecture/index.html" />
+    <link rel="prev" title="Development" href="index.html" />
+ 
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Minecraft As a Service
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../configuration/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../maintenance.html">Maintenance</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Development</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#project-structure">Project Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#naming-strategy">Naming Strategy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/index.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Minecraft As a Service</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Development</a> &raquo;</li>
+        
+      <li>Tools</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/development/tools.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tools">
+<h1>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h1>
+<p>For Handle the Environment we use different OpenSource Tools, <a class="reference internal" href="../glossary.html#term-terraform"><span class="xref std std-term">Terraform</span></a> and <a class="reference internal" href="../glossary.html#term-ansible"><span class="xref std std-term">Ansible</span></a> for provisioning and configuration.</p>
+<table border="1" class="colwidths-given docutils" id="id1">
+<caption><span class="caption-text">used projects</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="25%" />
+<col width="15%" />
+<col width="60%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Projekte</th>
+<th class="head">Type</th>
+<th class="head">description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference external" href="https://github.com/nolte/ansible-minecraft">nolte/ansible-minecraft</a></td>
+<td><em>Ansible Role</em></td>
+<td>Controll the Server</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://github.com/nolte/ansible-minecraft-region-fixer">nolte/ansible-minecraft-region-fixer</a></td>
+<td><em>Ansible Role</em></td>
+<td>für den <span class="xref std std-term">Minecraft Region Fixer</span></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://github.com/itzg/rcon-cli">itzg/rcon-cli</a></td>
+<td><em>commandline tool</em></td>
+<td>Go <a class="reference internal" href="../glossary.html#term-rcon"><span class="xref std std-term">RCon</span></a> Commandline Interface</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://github.com/dev-sec/ansible-os-hardening">dev-sec/ansible-os-hardening</a></td>
+<td><em>Ansible Role</em></td>
+<td>Harder the OS, set file permissions.</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://github.com/ypsman/ansible-sshd-config">ypsman/ansible-sshd-config</a></td>
+<td><em>Ansible Role</em></td>
+<td>Harder the SSH Service, disable password login etc.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://github.com/geerlingguy/ansible-role-java">geerlingguy.java</a></td>
+<td><em>Ansible Role</em></td>
+<td>Used for install a <a class="reference internal" href="../glossary.html#term-open-jdk"><span class="xref std std-term">Open JDK</span></a></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://github.com/robertdebock/ansible-role-bootstrap">robertdebock.bootstrap</a></td>
+<td><em>Ansible Role</em></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://github.com/robertdebock/ansible-role-epel">robertdebock.epel</a></td>
+<td><em>Ansible Role</em></td>
+<td>used for activate the <a class="reference internal" href="../glossary.html#term-extra-packages-for-enterprise-linux"><span class="xref std std-term">Extra Packages for Enterprise Linux</span></a> repository</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://github.com/robertdebock/ansible-role-fail2ban">robertdebock.fail2ban</a></td>
+<td><em>Ansible Role</em></td>
+<td>used for configure <a class="reference internal" href="../glossary.html#term-fail2ban"><span class="xref std std-term">fail2ban</span></a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://github.com/paulfantom/ansible-restic">paulfantom.restic</a></td>
+<td><em>Ansible Role</em></td>
+<td>used for configure the <a class="reference internal" href="../glossary.html#term-restic"><span class="xref std std-term">restic</span></a> backups</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://github.com/arillso/ansible.logrotate">arillso.logrotate</a></td>
+<td><em>Ansible Role</em></td>
+<td>used for handle the <a class="reference internal" href="../glossary.html#term-logrotate"><span class="xref std std-term">logrotate</span></a> configuration</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.passwordstore.org/">passwordstore</a></td>
+<td><em>commandline tool</em></td>
+<td><a class="reference internal" href="../glossary.html#term-pass"><span class="xref std std-term">pass</span></a> is a Commandline Passwordstore</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://github.com/camptocamp/terraform-provider-pass">camptocamp/terraform-provider-pass</a></td>
+<td><em>Terraform Provider</em></td>
+<td>Used for <a class="reference internal" href="../glossary.html#term-pass"><span class="xref std std-term">pass</span></a> secret lookups.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://github.com/fboender/ansible-cmdb">fboender/ansible-cmdb</a></td>
+<td><em>Ansible Extention</em></td>
+<td>Generate a Simple system Overview, see: <a class="reference internal" href="../maintenance.html#ref-maintenance-process-cmdb"><span class="std std-ref">Ansible CMDB</span></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../architecture/index.html" class="btn btn-neutral float-right" title="Architecture" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Development" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+ 
+
+
+</body>
+</html>

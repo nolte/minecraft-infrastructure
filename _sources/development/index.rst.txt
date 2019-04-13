@@ -19,14 +19,14 @@ This Git Repository is Structured in different folders, the :ref:`ref-project-st
 Documentation Directory
 ---------------------------------------------------
 
-``docs``
+The :term:`Sphinx` Documentation is located at the ``docs`` subdirectory.
 
 .. _ref-project-structure-provision-directory:
 
 Provision Directory
 ---------------------------------------------------
 
-``provisioning``
+The Scripts for configure the :ref:`ref-architecture-env-local-test` and :ref:`ref-architecture-env-public` are structured under ``provisioning``.
 
 .. _ref-project-structure-provision-infrastructure-directory:
 

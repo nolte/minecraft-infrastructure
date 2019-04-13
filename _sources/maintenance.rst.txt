@@ -23,7 +23,7 @@ Destroy the Environment
    :caption: destroy the Environment
    :name: example-cmd-env-destroy
 
-   ansible-playbook -i inventories/prod infrastructure/playbook-destroy-infrastructure.yml
+   ansible-playbook -i inventories/prod infrastructure/playbook-destroy-infrastructure.yml --tags "backupnode"
 
 
 Backup and Recovery

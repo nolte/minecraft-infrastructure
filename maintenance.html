@@ -181,7 +181,7 @@
 <h3>Destroy the Environment<a class="headerlink" href="#destroy-the-environment" title="Permalink to this headline">¶</a></h3>
 <div class="literal-block-wrapper docutils container" id="example-cmd-env-destroy">
 <div class="code-block-caption"><span class="caption-text">destroy the Environment</span><a class="headerlink" href="#example-cmd-env-destroy" title="Permalink to this code">¶</a></div>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i inventories/prod infrastructure/playbook-destroy-infrastructure.yml
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i inventories/prod infrastructure/playbook-destroy-infrastructure.yml --tags <span class="s2">&quot;backupnode&quot;</span>
 </pre></div>
 </div>
 </div>

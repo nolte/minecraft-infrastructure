@@ -49,18 +49,23 @@ glossary
   Hetzner Cloud
     `Hetzner Cloud <https://www.hetzner.de/cloud>`_
 
-firewall
-  hier wird der klassiker FirewallD verwendet.
+  firewall
+    hier wird der klassiker FirewallD verwendet.
 
-Advanced Intrusion Detection Environment (`aide`_)
-  Store file . *(umsetzung offen)*
+  Advanced Intrusion Detection Environment (`aide`_)
+    Store file see `install-aide-centos-7 <https://linoxide.com/monitoring-2/install-aide-centos-7/>`_. *(umsetzung offen)*
 
-OpenSCAP
-  System vulnerability scans, see (`open-scap`_)
+  OpenSCAP
+    System vulnerability scans, see (`open-scap`_)
 
-backblaze.com
-  Cold Storage Provider, see :ref:`ref-architecture-provider-backblaze`
+  backblaze.com
+    Cold Storage Provider, see :ref:`ref-architecture-provider-backblaze`
 
+  Sphinx
+    `Sphinx <http://www.sphinx-doc.org/en/master/>`_, is a tool that makes it easy to create documentation
+
+  reStructuredText
+    `reStructuredText <http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`_ Markdown alternative.
 
 .. _aide: https://de.wikipedia.org/wiki/Advanced_Intrusion_Detection_Environment
 .. _open-scap: https://www.open-scap.org/tools/openscap-base/#documentation

@@ -1,0 +1,87 @@
+mc_plugin_sets:
+  noplugins: []
+  server:
+    vault:
+      src: https://media.forgecdn.net/files/2615/750/Vault.jar
+      dest: Vault.jar
+    dynmap:
+      src: https://media.forgecdn.net/files/2645/929/Dynmap-3.0-beta-3-spigot.jar
+      dest: Dynmap.jar
+      # https://github.com/webbukkit/dynmap/releases/download/3.0-beta-1/Dynmap-3.0-beta-1-spigot.jar
+    permissionsEx:
+      src: https://media.forgecdn.net/files/909/154/PermissionsEx-1.23.4.jar
+      dest: PermissionsEx.jar
+    EssentialsX:
+      src: https://github.com/EssentialsX/Essentials/releases/download/2.16.0/EssentialsX-2.16.0.3.jar
+      dest: EssentialsX.jar
+      config:
+        - src: "{{ playbook_dir }}/templates/essentials/motd.txt.j2"
+          dest: Essentials/motd.txt
+      #provisioning/maintenance/templates/essentials/motd.txt.j2
+    worldedit:
+      src: https://media.forgecdn.net/files/2663/452/worldedit-bukkit-7.0.0-beta-05.jar
+      dest: worldedit-bukkit.jar
+#    https://www.spigotmc.org/resources/worldeditselectionvisualizer.17311/download?version=244912
+    worldguard:
+      src: https://media.forgecdn.net/files/2663/455/worldguard-legacy-7.0.0-beta-03.jar
+      dest: worldguard-legacy.jar
+    craftbook:
+      src: https://media.forgecdn.net/files/2663/457/craftbook-3.10-beta-02.jar
+      dest: craftbook.jar
+      #http://builds.enginehub.org/job/craftbook/10857/download/craftbook-3.10-SNAPSHOT-dist.jar
+    multiverseSignPortals:
+      src: https://ci.onarandombox.com/job/Multiverse-SignPortals/lastSuccessfulBuild
+      type: "jenkins_latest"
+      validate_certs: false
+      dest: "Multiverse-SignPortals.jar"
+    multiverseNether:
+      src: https://ci.onarandombox.com/job/Multiverse-NetherPortals/lastSuccessfulBuild
+      type: "jenkins_latest"
+      validate_certs: false
+      dest: "Multiverse-NetherPortals.jar"
+    multiversePortal:
+      src: https://ci.onarandombox.com/job/Multiverse-Portals/lastSuccessfulBuild
+      type: "jenkins_latest"
+      validate_certs: false
+      dest: "Multiverse-Portals.jar"
+    multiverseCore:
+      src: https://ci.onarandombox.com/job/Multiverse-Core/lastSuccessfulBuild
+      type: "jenkins_latest"
+      validate_certs: false
+      dest: "Multiverse-Core.jar"
+    citizens:
+      src: https://ci.citizensnpcs.co/job/Citizens2/lastSuccessfulBuild
+      type: "jenkins_latest"
+      jenkins_artefact_path: "/artifact/dist/target"
+      dest: "Citizens2.jar"
+      #https://media.forgecdn.net/files/2661/341/Citizens.jar
+    sentinel:
+      src: https://ci.citizensnpcs.co/job/Sentinel/lastSuccessfulBuild
+      type: "jenkins_latest"
+      dest: "Sentinel.jar"
+    denizen:
+      src: https://ci.citizensnpcs.co/job/Denizen/lastSuccessfulBuild
+      type: "jenkins_latest"
+      dest: "Denizen.jar"
+#    shopChest:
+#      src: https://ci.codemc.org/job/EpicEricEE/job/ShopChest/lastSuccessfulBuild/artifact/target/ShopChest-1.13-SNAPSHOT.jar
+    blacksmith:
+      src: http://ci.citizensnpcs.co/job/Blacksmith/lastSuccessfulBuild
+      type: "jenkins_latest"
+      dest: "blacksmith.jar"
+    perworldinventory:
+      src: https://github.com/EbonJaeger/perworldinventory-kt/releases/download/v2.2.0/perworldinventory-kt-2.2.0.jar
+      dest: perworldinventory-kt.jar
+    nuvotifier:
+      src: https://github.com/parallelblock/NuVotifier/releases/download/v2.5.0/nuvotifier-2.5.0.jar
+      dest: nuvotifier.jar
+    votingplugin:
+      src: http://ben12345rocks.com/job/VotingPlugin/lastSuccessfulBuild/artifact/VotingPlugin/target/VotingPlugin.jar
+      dest: VotingPlugin.jar
+    prometheus:
+      src: https://github.com/sladkoff/minecraft-prometheus-exporter/releases/download/v1.2.0/minecraft-prometheus-exporter-1.2.0.jar
+      dest: minecraft-prometheus-exporter.jar
+#    discordSRV:
+#      src: https://github.com/DiscordSRV/DiscordSRV/releases/download/v1.16.4/DiscordSRV-Build-1.16.4.jar
+#    clicksort:
+#      src: https://github.com/NewbieOrange/clicksort/releases/download/v1.3.6/ClickSort.jar

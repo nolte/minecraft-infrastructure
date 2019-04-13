@@ -1,0 +1,13 @@
+---
+# convert the config structure to a cronable config for `paulfantom.restic`
+- set_fact:
+    restic_repos_mc: "{{ ( restic_repos_mc | default([]) ) +
+     [ lookup('template', 'cron_parameter_template.yml.j2',template_vars=dict(backup=item))
+     | from_yaml ]  }}"
+  with_items: "{{ backup_dirs }}"
+
+# configure restic backups
+- include_role:
+    name: paulfantom.restic
+  vars:
+    restic_repos: "{{ restic_repos_mc }}"

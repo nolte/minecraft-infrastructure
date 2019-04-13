@@ -1,0 +1,36 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+
+#    - set_fact:
+#        node_attributes: "{{ lookup('file', ansible_inventory_sources[0] +'/group_vars/minecraftgameserver.yml') | from_yaml }}"
+#
+#    - name: "destroy the Infrastruktur"
+#      terraform:
+#        project_path: "{{ playbook_dir }}/hetzner_mc_server"
+#        state_file: "{{ terraform_stats_base }}/{{ terraform_workspace }}/mc-gameserver/terraform.tfstate"
+#        state: absent
+#        variables:
+#          node_name: "{{ node_attributes.node_name }}"
+
+    - set_fact:
+        state_file_backup_node: "{{ terraform_stats_base }}/{{ terraform_workspace }}/mc-backupnode/terraform.tfstate"
+        plan_backup_node: "{{ terraform_stats_base }}/{{ terraform_workspace }}/mc-backupnode/terraform.tfplan"
+        node_attributes: "{{ lookup('file', ansible_inventory_sources[0] +'/group_vars/mcbackupnode.yml') | from_yaml }}"
+      tags:
+         - backupnode
+
+
+    - name: "destroy the Infrastruktur"
+      terraform:
+        project_path: "{{ playbook_dir }}/hetzner_mc_server"
+        state_file: "{{ terraform_stats_base }}/{{ terraform_workspace }}/mc-backupnode/terraform.tfstate"
+        state: absent
+        variables:
+          node_name: "{{ node_attributes.node_name }}"        
+      register: output_delete
+      tags:
+         - backupnode
+
+    - debug: var=output_delete

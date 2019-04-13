@@ -1,0 +1,85 @@
+---
+- hosts: minecraftgameserver
+  vars_files:
+    - ./../vars/facts_mc_node.yml
+  become: true
+  tasks:
+
+    - set_fact:
+        mc_plugin_sets: "{{ lookup('file', mc_plugins_file) | from_yaml }}"
+
+    - include_role:
+        name: geerlingguy.java
+      vars:
+        java_packages:
+          - java-11-openjdk
+
+    - include_role:
+        name: install_rcon
+
+    - name: configure the mc server
+      include_role:
+        name: nolte.minecraft
+      vars:
+        minecraft_version: "{{ mc_version }}"
+        minecraft_server: spigot
+        minecraft_eula_accept: "{{ mc_accept_eula }}"
+        minecraft_plugins_set_version: "{{ pluginset }}"
+        minecraft_plugin_sets: "{{ mc_plugin_sets }}"
+        minecraft_max_memory: 1024M
+        minecraft_initial_memory: 1024M
+        minecraft_external_log_conf:
+          conf_file: log4j2.xml
+          fileName: /var/log/minecraft/server.log
+          filePattern: /var/log/minecraft/server_%d{yyyy-MM-dd}-%i.log.gz
+          rollover: 5
+          sizeBased: "10 MB"
+        minecraft_server_properties:
+          server-port: "{{ minecraft_port_gameserver | default(25565) }}"
+          rcon.port: 25564
+          enable-rcon: true
+          rcon.password: "{{ mc_rcon_password | default(lookup('password', '/tmp/passwordfile chars=ascii_letters,digits,hexdigits,punctuation')) }}"
+          white-list: true
+          enable-command-block: true
+          motd: "{{ minecraft_motd | default('Amazing Minecraft Server')}}"
+          online-mode: true
+          resource-pack: http://backup.just-mfg.de/Gerudoku_Faithful_3D_Models_Add-on.zip
+
+    - name: configure the restic crons
+      include_role:
+        name: backup
+        tasks_from: configure_backup_jobs.yml
+      when: restic_active | default(false)
+
+
+    - name: open the gameport for external usage
+      firewalld:
+        port: 25565/tcp
+        permanent: true
+        state: enabled
+      notify: restart firewalld
+    - name: close the rcon for external usage
+      firewalld:
+        port: 25564/tcp
+        permanent: true
+        state: disabled
+      notify: restart firewalld
+
+    - name: open the dynmapport for external usage
+      firewalld:
+        port: 8123/tcp
+        permanent: true
+        state: enabled
+      notify: restart firewalld
+
+  handlers:
+    - name: restart sshd
+      service:
+        name: sshd
+        state: restarted
+
+    - name: restart firewalld
+      service:
+        name: firewalld
+        state: restarted
+#

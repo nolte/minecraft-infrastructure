@@ -1,0 +1,26 @@
+# full example: https://github.com/lucko/LuckPerms/blob/master/bukkit/src/main/resources/config.yml
+
+storage-method: YAML
+vault-unsafe-lookups: true
+default-assignments:
+  rule1:
+    if:
+      has-true: <group.default>
+    give:
+      - group.visitors
+    take:
+      - group.default
+    set-primary-group: visitors
+#  rule2:
+#    if:
+#      lacks: <skyblock/group.sb_level1> & <skyblock/group.sb_level2> & <skyblock/group.sb_level3>
+#    give:
+#      - skyblock/group.sb_level1
+#  rule3:
+#    if:
+#      has-true: <group.default>
+#    take:
+#      - group.default
+#    give:
+#      - group.member
+#    set-primary-group: member

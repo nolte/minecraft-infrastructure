@@ -1,0 +1,184 @@
+# Citizens NPC Storage
+
+last-created-npc-id: 1
+npc:
+  '0':
+    name: citizen-zero
+    uuid: ef1a57a5-3a78-4a14-9e83-196e1bc49ece
+    traits:
+      gravity:
+        enabled: false
+      text:
+        delay: -1
+        talk-close: true
+        random-talker: false
+        realistic-looking: false
+        range: '1.0'
+        talkitem: default
+        text:
+          '0': Hallo
+          '1': Sorry... Keine Zeit...
+          '2': '... Ich bin etwas in Eile'
+          '3': '... warum ich? ...'
+          '4': was soll ich hier?
+      type: PLAYER
+      location:
+        world: world
+        x: '2683.5604'
+        y: '29.0'
+        z: '-5951.657'
+        yaw: '178.7825927734375'
+        pitch: '0.0'
+      waypoints:
+        linear:
+          points:
+            '0':
+              location:
+                world: world
+                x: '2690.0'
+                y: '28.0'
+                z: '-5944.0'
+                yaw: '0.0'
+                pitch: '0.0'
+            '1':
+              location:
+                world: world
+                x: '2683.0'
+                y: '28.0'
+                z: '-5944.0'
+                yaw: '0.0'
+                pitch: '0.0'
+            '2':
+              location:
+                world: world
+                x: '2683.0'
+                y: '28.0'
+                z: '-5955.0'
+                yaw: '0.0'
+                pitch: '0.0'
+            '3':
+              location:
+                world: world
+                x: '2695.0'
+                y: '28.0'
+                z: '-5952.0'
+                yaw: '0.0'
+                pitch: '0.0'
+            '4':
+              location:
+                world: world
+                x: '2704.0'
+                y: '26.0'
+                z: '-5955.0'
+                yaw: '0.0'
+                pitch: '0.0'
+            '5':
+              location:
+                world: world
+                x: '2714.0'
+                y: '26.0'
+                z: '-5953.0'
+                yaw: '0.0'
+                pitch: '0.0'
+            '6':
+              location:
+                world: world
+                x: '2717.0'
+                y: '26.0'
+                z: '-5943.0'
+                yaw: '0.0'
+                pitch: '0.0'
+            '7':
+              location:
+                world: world
+                x: '2718.0'
+                y: '26.0'
+                z: '-5936.0'
+                yaw: '0.0'
+                pitch: '0.0'
+            '8':
+              location:
+                world: world
+                x: '2716.0'
+                y: '28.0'
+                z: '-5931.0'
+                yaw: '0.0'
+                pitch: '0.0'
+            '9':
+              location:
+                world: world
+                x: '2708.0'
+                y: '27.0'
+                z: '-5931.0'
+                yaw: '0.0'
+                pitch: '0.0'
+            '10':
+              location:
+                world: world
+                x: '2700.0'
+                y: '27.0'
+                z: '-5938.0'
+                yaw: '0.0'
+                pitch: '0.0'
+            '11':
+              location:
+                world: world
+                x: '2701.0'
+                y: '27.0'
+                z: '-5940.0'
+                yaw: '0.0'
+                pitch: '0.0'
+        provider: linear
+      spawned: true
+      speech: chat
+      owner:
+        owner: m4yl0n
+        uuid: a80e4def-b78c-4a39-a2be-cd82b08b71e1
+    traitnames: waypoints,location,mounttrait,text,type,gravity,poses,spawned,speech,owner,inventory,equipment
+    navigator:
+      speedmodifier: '1.0'
+      avoidwater: false
+      usedefaultstuckaction: true
+  '1':
+    metadata:
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1NDAxMzIwODQwODQsInByb2ZpbGVJZCI6ImUzMWQyZGNmZTc1ZDQzZTdiM2U3NjdkNmViOGU0MzIxIiwicHJvZmlsZU5hbWUiOiJKZW5uYSIsInNpZ25hdHVyZVJlcXVpcmVkIjp0cnVlLCJ0ZXh0dXJlcyI6e319
+      cached-skin-uuid-name: jenna
+      cached-skin-uuid: e31d2dcf-e75d-43e7-b3e7-67d6eb8e4321
+      player-skin-signature: jBe4uyQgcl/I6aS9AGgKQ8o2BDuaPe67NmVcb2/QegiDVz7seeiLl1K08vktXQQB1D6v2q8Z0Gmqq43KZFnB8icGbQCJhTplzNHu9YCtP0c9ek9G6f/E92gThUwuf+E3FyJlomEGryhNw6xMdS518pNyqJr7Tari0lBbsxOk5euR+AH1k5aNCbHidk8V75sqV5ztOAix4lmuSEt7ZTFFuYPTfUc4hM6JKf/IkuZbQVB8vG2KA4VGnG2Ue/KsmOAik/NFUvMg7xIVKvgCqkad4ytf30CgN/TpZxTmuRO6zoTM+YWw3FCS4eTlfsqbM6RrJeZZHVpwCXHU1BQRmzmh9PHgzWL3cetVawRmfyf1Urc4y4PhOdTD2CrqkYVjshz0Xqyr+bi7+8nqGM8pmeeNRubRuvYd94fC4DiiXomV7Ax7U9qnCyMAq0RDJNa//4jfDJlPudl5H+XB1ikTy3II7mkZgI2kwAw0P8A+PGi4jPtC96mJDLxqmsxneIPptALT0ErCzJG3dfvtgHQbbc0oh8H3YNwGbPIZHEvgGqUEjWcq1R/X6hOmWZp7i6Lqf2AtG29bAZ9cTX8KucL11p2NmzV5VeLcBCC6YWPAYWaYWa3iFGjc8elmtiA2BOMtG5S0JMMm6hilJPyOPSkjriHR9UF/92254XHTcAjTcjBlMfQ=
+    name: Jenna
+    uuid: d0dea0cc-1938-43db-b194-bcc525efa591
+    traits:
+      gravity:
+        enabled: false
+      type: PLAYER
+      location:
+        world: world
+        x: '2695.5327'
+        y: '29.0'
+        z: '-5948.5743'
+        yaw: '-57.041358947753906'
+        pitch: '3.7025625705718994'
+      lookclose:
+        range: '5.0'
+        enabled: true
+        realisticlooking: false
+      spawned: true
+      speech: chat
+      text:
+        delay: -1
+        talk-close: false
+        random-talker: true
+        realistic-looking: false
+        range: '2.0'
+        talkitem: '*'
+        text:
+          '0': Hallo!
+          '1': Leider ist uns gerade die Wahre ausgegangen.
+      owner:
+        owner: m4yl0n
+        uuid: a80e4def-b78c-4a39-a2be-cd82b08b71e1
+    traitnames: lookclose,location,mounttrait,text,type,gravity,spawned,owner,speech,inventory,equipment
+    navigator:
+      speedmodifier: '1.0'
+      avoidwater: false
+      usedefaultstuckaction: true

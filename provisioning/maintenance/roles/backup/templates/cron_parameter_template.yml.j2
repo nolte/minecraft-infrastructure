@@ -1,0 +1,17 @@
+{% set backup_excludes = lookup('template', 'restic-exclude-parameters.j2') -%}
+name: "{{ backup.name }}"
+url: "{{ backup.repo.RESTIC_REPOSITORY }}"
+password: "{{ backup.repo.RESTIC_PASSWORD }}"
+jobs:
+  - command: "restic backup {{ backup_excludes }} {{ backup.source.basedir }}"
+    at: '0 1  * * *'
+retention_time: '17 5 * * *'
+retention:
+  last: 2
+  hourly: 4
+  daily: 10
+  weekly: 9
+  monthly: 3
+  yearly: 10
+  tags:
+    - special

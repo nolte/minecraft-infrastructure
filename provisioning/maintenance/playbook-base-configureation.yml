@@ -1,0 +1,96 @@
+---
+- hosts: all
+  become: true
+#  vars_files:
+#    - ./../vars/facts_mc_node.yml
+  tasks:
+
+    - set_fact:
+        restic_repos_localbackup_url: /mnt/hotstoarge/mcbackup
+      when: hotstorage is defined
+
+    - file:
+        path: /mnt/hotstoarge
+        state: directory
+        owner: root
+        group: root
+      when: hotstorage is defined
+
+    - name: Mount the hotstorage
+      mount:
+        path: /mnt/hotstoarge
+        src: UUID={{ansible_facts.devices.sdb.links.uuids[0]}}
+        fstype: ext4
+        opts: discard,defaults
+        state: mounted
+      when: hotstorage is defined
+
+    - include_role:
+        name: robertdebock.bootstrap
+
+    - include_role:
+        name: robertdebock.epel
+
+    - include_role:
+        name: harder_system
+
+    - package:
+        name: bzip2
+
+    - include_role:
+        name: paulfantom.restic
+
+    - include_role:
+        name: arillso.logrotate
+      vars:
+        logrotate_applications:
+          - name: fail2ban
+            definitions:
+              - logs:
+                  - '/var/log/fail2ban.log'
+                postrotate:
+                  - /usr/bin/fail2ban-client flushlogs >/dev/null || true
+                options:
+                  - compress
+                  - missingok
+                  - daily
+                  - rotate 7
+                  - maxage 7
+                  - maxsize 10M
+                  - notifempty
+                  - create
+          - name: syslog
+            definitions:
+              - logs:
+                  - '/var/log/cron'
+                  - '/var/log/maillog'
+                  - '/var/log/messages'
+                  - '/var/log/secure'
+                  - '/var/log/spooler'
+                postrotate:
+                  - /bin/kill -HUP `cat /var/run/syslogd.pid 2> /dev/null` 2> /dev/null || true
+                options:
+                  - compress
+                  - missingok
+                  - sharedscripts
+                  - daily
+                  - rotate 7
+                  - maxage 7
+                  - maxsize 10M
+                  - notifempty
+                  - create
+  handlers:
+
+    - name: restart fail2ban
+      service:
+        name: fail2ban
+        state: restarted
+    - name: restart sshd
+      service:
+        name: sshd
+        state: restarted
+
+    - name: restart firewalld
+      service:
+        name: firewalld
+        state: restarted

@@ -1,0 +1,73 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: true
+  tasks:
+
+    # load the facts from the mc node
+    - set_fact:
+        node_attributes: "{{ lookup('file', ansible_inventory_sources[0] +'/group_vars/minecraftgameserver.yml') | from_yaml }}"
+
+    - name: "configure the Cloud Project Base"
+      terraform:
+        project_path: "{{ playbook_dir}}/hetzner_project"
+        force_init: true
+        state_file: "{{ terraform_stats_base }}/{{ terraform_workspace }}/project/terraform.tfstate"
+        state: present
+
+    - set_fact:
+        hotstorage_labels:
+          hotstorage: "true"
+
+    - name: "configure the hot storage"
+      terraform:
+        project_path: "{{ playbook_dir}}/hetzner_hotstorage"
+        force_init: true
+        state_file: "{{ terraform_stats_base }}/{{ terraform_workspace }}/hotstorage/terraform.tfstate"
+        state: present
+        variables:
+          volume_name: "{{ node_attributes.hotstorage.name }}"
+          volume_size: "{{ node_attributes.hotstorage.size }}"
+      when: node_attributes.hotstorage is defined
+      register: infrastrukturhotstorage
+
+    - name: "configure the Infrastruktur"
+      terraform:
+        project_path: "{{ playbook_dir}}/hetzner_mc_server"
+        state: present
+        variables_file: "{{ playbook_dir}}/vars-label-mc-gameserver.tfvars"
+        force_init: true
+        state_file: "{{ terraform_stats_base }}/{{ terraform_workspace }}/mc-gameserver/terraform.tfstate"
+        variables:
+          node_name: "{{ node_attributes.node_name }}"
+          flavour: "{{ node_attributes.flavour }}"
+          volume_hotstorage: "true"
+          volume_hotstorage_name: "{{ node_attributes.hotstorage.name }}"
+
+    - set_fact:
+        node_attributes: "{{ lookup('file', ansible_inventory_sources[0] +'/group_vars/mcbackupnode.yml') | from_yaml }}"
+
+    - name: "configure the Infrastruktur for the backup node"
+      terraform:
+        project_path: "{{ playbook_dir}}/hetzner_mc_server"
+        #workspace: "{{ terraform_workspace }}-backup"
+        state: present
+        force_init: true
+        variables_file: "{{ playbook_dir}}/vars-label-mc-backup-node.tfvars"
+        state_file: "{{ terraform_stats_base }}/{{ terraform_workspace }}/mc-backupnode/terraform.tfstate"
+        variables:
+          node_name: "{{ node_attributes.node_name }}"
+      when: true
+
+    - meta: refresh_inventory
+
+    - name: Wait for SSH to start the installation
+      wait_for:
+        host: "{{ hostvars[item]['ansible_host'] }}"
+        port: 22
+        timeout: 600
+      with_items: "{{ groups['all'] }}"
+
+- hosts: "all"
+  tasks:
+    - ping:

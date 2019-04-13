@@ -1,0 +1,152 @@
+regions:
+    teleporter_hill_village:
+        min:
+            x: 24
+            y: 9
+            z: 11
+        max:
+            x: 11
+            y: 15
+            z: 1
+        members: {}
+        flags:
+            greeting: 'Portal to the Hill Village'
+        owners: {}
+        type: cuboid
+        priority: 10
+    commandbook:
+        min:
+            x: 100
+            y: 1
+            z: 100
+        max:
+            x: 200
+            y: 100
+            z: 200
+        members: {}
+        flags:
+            greeting: 'Command Book Plugin Test Area'
+        owners: {}
+        type: cuboid
+        priority: 0
+    railway:
+        min:
+            x: -100
+            y: 1
+            z: -100
+        max:
+            x: -400
+            y: 100
+            z: -400
+        members: {}
+        flags:
+            greeting: 'Railway Test Area'
+        owners: {}
+        type: cuboid
+        priority: 0
+    logicpart:
+        min:
+            x: -100
+            y: 1
+            z: 300
+        max:
+            x: -400
+            y: 100
+            z: 0
+        members: {}
+        flags:
+            greeting: 'logic Restone Test Area'
+        owners: {}
+        type: cuboid
+        priority: 0
+    farmworld:
+        min:
+            x: -1
+            y: 1
+            z: -400
+        max:
+            x: 300
+            y: 100
+            z: -100
+        members: {}
+        flags:
+            lightning: deny
+            creeper-explosion: deny
+            mob-damage: deny
+            passthrough: allow
+            deny-spawn: []
+            greeting: 'armworld Test Area'
+            fire-spread: deny
+            mob-spawning: allow
+            enderdragon-block-damage: deny
+        owners: {}
+        type: cuboid
+        priority: 10
+    sklelet_wolf_battle:
+        min:
+            x: 131
+            y: 19
+            z: -142
+        max:
+            x: 113
+            y: 23
+            z: -126
+        members: {}
+        flags:
+            greeting: 'Skalet Area'
+            mob-damage: deny
+            creeper-explosion: deny
+            mob-spawning: allow
+        owners: {}
+        type: cuboid
+        priority: 5
+    schematic:
+        min:
+            x: -450
+            y: 1
+            z: -400
+        max:
+            x: -1000
+            y: 100
+            z: 300
+        members: {}
+        flags:
+            greeting: 'Schematic Test Area'
+        owners: {}
+        type: cuboid
+        priority: 0
+    farmlandv2:
+        min:
+            x: -1031
+            y: 1
+            z: 300
+        max:
+            x: -1581
+            y: 100
+            z: -400
+        members: {}
+        flags:
+            lightning: deny
+            creeper-explosion: deny
+            mob-damage: deny
+            passthrough: allow
+            deny-spawn: []
+            greeting: 'Farwmworld v2 Testarea'
+            fire-spread: deny
+            mob-spawning: allow
+            enderdragon-block-damage: deny
+        owners: {}
+        type: cuboid
+        priority: 10
+    __global__:
+        members:
+            groups: [gamers_creative_builder, gamers_survival_builder]
+        owners: {}
+        type: global
+        flags:
+            lightning: deny
+            creeper-explosion: deny
+            mob-damage: deny
+            passthrough: allow
+            mob-spawning: deny
+        priority: 0

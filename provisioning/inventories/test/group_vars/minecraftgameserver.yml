@@ -1,0 +1,12 @@
+mc_version: 1.13.2
+pluginset: "server"
+restic_repos_localbackup_url: /tmp/localbackup
+restic_active: true
+mc_plugins_file: "{{ inventory_dir }}/../pluginlist.yml"
+mc_rcon_password: "password"
+minecraft_port_gameserver: 25565
+minecraft_motd: '\u00A7cAmazi\u00A76neg Mi\u00A7anecr\u00A7aft S\u00A79erv\u00A71er\n\u00A78(\u00A7nhttps\://nolte.github.io/minecraft-gameserver\u00A78\u00A7r)'
+#minecraft_ops:
+#  - nolte07
+minecraft_whitelist:
+  - nolte07

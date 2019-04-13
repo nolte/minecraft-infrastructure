@@ -1,0 +1,7 @@
+---
+
+- name: install rcon client to path
+  unarchive:
+    src: https://github.com/itzg/rcon-cli/releases/download/{{ rcon_cli_version }}/rcon-cli_{{ rcon_cli_version }}_linux_amd64.tar.gz
+    dest: /usr/local/bin
+    remote_src: yes

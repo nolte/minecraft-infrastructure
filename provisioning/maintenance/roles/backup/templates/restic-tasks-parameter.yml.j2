@@ -1,0 +1,19 @@
+{% if backup_dest is defined and backup_dest == 'backblaze' -%}
+{% set RESTIC_REPO = backup.repo.RESTIC_REPOSITORY_COLD_STORAGE -%}
+{% else -%}
+{% set RESTIC_REPO = backup.repo.RESTIC_REPOSITORY -%}
+{% endif -%}
+
+
+name: "{{ backup.name }}"
+source:
+  basedir: "{{ backup.source.basedir }}"
+  excludes:
+   {{ backup.source.excludes | to_nice_yaml | indent(width=3) }}
+repo:
+    RESTIC_REPOSITORY: "{{ RESTIC_REPO }}"
+    RESTIC_PASSWORD: "{{ RESTIC_REPO_PASSWORD | default(backup.repo.RESTIC_PASSWORD) }}"
+{% if B2_ACCOUNT_ID is defined %}    B2_ACCOUNT_ID: "{{ B2_ACCOUNT_ID }}"
+{% endif %}
+{% if B2_ACCOUNT_KEY is defined %}    B2_ACCOUNT_KEY: "{{ B2_ACCOUNT_KEY }}"
+{% endif %}

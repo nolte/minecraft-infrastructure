@@ -1,0 +1,20 @@
+backup_dirs:
+  - name: "localbackup-plugins"
+    source:
+      basedir: /opt/minecraft/plugins
+      excludes:
+        - shared/dynmap/*
+    repo:
+      RESTIC_REPOSITORY: "{{ restic_repos_localbackup_url }}/plugindata"
+      RESTIC_REPOSITORY_COLD_STORAGE: "b2:mcbackup-plugindata"
+      RESTIC_PASSWORD: dolphins
+  - name: "localbackup-worlddata"
+    source:
+      basedir: /opt/minecraft/server/shared
+      excludes:
+        - plugins/*
+        - logs/*
+    repo:
+      RESTIC_REPOSITORY: "{{ restic_repos_localbackup_url }}/gamedata"
+      RESTIC_REPOSITORY_COLD_STORAGE: "b2:mcbackup-worlddata"
+      RESTIC_PASSWORD: dolphins

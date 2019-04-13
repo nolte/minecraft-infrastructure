@@ -1,0 +1,84 @@
+schema-version: 1
+groups:
+  default:
+    options:
+      default: true
+    permissions:
+      - multiverse.portal.access.*
+      - modifyworld.chat
+
+  gamers_admins:
+    inheritance:
+      - commons_server_admin
+
+  gamers_creative_builder:
+    worlds:
+      world:
+        inheritance:
+          - commons_world_builder
+        permissions:
+          - worldedit.*
+
+  gamers_survival_builder:
+    inheritance:
+      - default
+    worlds:
+      world_survival:
+        inheritance:
+          - commons_world_builder
+
+
+# commons Groups Collection of usecase specific Permissions
+
+  commons_server_admin:
+    inheritance:
+      - commons_world_admins
+    permissions:
+      - '*'
+
+  commons_world_builder:
+    permissions:
+      - modifyworld.*
+
+  commons_world_admins:
+    inheritance:
+      - commons_worldeditor_builder
+    permissions:
+      - worldedit.*
+      - worldguard.*
+
+
+users:
+  e1e45a60-d375-4fea-a238-91323b5ec11d:
+    group:
+      - gamers_admins
+    options:
+      name: nolte07
+  _superwolle_:
+    group:
+      - gamers_creative_builder
+      - gamers_survival_builder
+  sipsap90:
+    group:
+      - gamers_creative_builder
+      - gamers_survival_builder
+  cd0e9bf2-f2c3-4597-acc5-f1dc06e088e6:
+    group:
+      - gamers_admins
+    options:
+      name: _BlueBeaver_
+  145610ef-63f5-4e69-8898-a096a70f8b78:
+    group:
+      - gamers_survival_builder
+    options:
+      name: IvoryMcBong
+  43a897c7-2a65-49ca-bbda-d05aecfca779:
+    group:
+      - gamers_survival_builder
+    options:
+      name: Pandamixx
+  a80e4def-b78c-4a39-a2be-cd82b08b71e1:
+    group:
+      - gamers_admins
+    options:
+      name: m4yl0n

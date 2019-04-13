@@ -1,0 +1,35 @@
+flavour: cx21
+node_name: mc-minimal
+labels:
+  sage: dev
+  service: minecraft
+mc_version: 1.13.2
+pluginset: "server"
+discord_bot_token: "{{ lookup('passwordstore', 'internet/project/minecraft/discord/bot-token' ,convert_data=False) |string}}"
+mc_plugin_sets: []
+mc_plugins_file: "{{inventory_dir}}/../pluginlist.yml"
+mc_rcon_password: "{{ lookup('passwordstore', 'internet/project/minecraft/rcon/password' ,convert_data=False) |string}}"
+minecraft_port_gameserver: 25565
+minecraft_max_memory: 1024M
+minecraft_initial_memory: 1024M
+minecraft_motd: '\u00A7cAmazi\u00A76neg Mi\u00A7anecr\u00A7aft S\u00A79erv\u00A71er\n\u00A78(\u00A7nhttps\://nolte.github.io/minecraft-gameserver\u00A78\u00A7r)'
+minecraft_ops:
+  - nolte07
+  - _BlueBeaver_
+  - m4yl0n
+minecraft_whitelist:
+  - nolte07
+  - _BlueBeaver_
+  - m4yl0n
+  - sipsap90
+  - IvoryMcBong
+  - Pandamixx
+  - _superwolle_
+minecraft_hook_before_setup: "{{ playbook_dir }}/roles/server_init/tasks/main.yml"
+restic_active: true
+restic_repos_localbackup_url: /mnt/hotstoarge/mcbackup
+#restic_repos_localbackup_url: /tmp/mcbackup
+hotstorage:
+  attachment: true
+  name: volume_mc_data
+  size: 20

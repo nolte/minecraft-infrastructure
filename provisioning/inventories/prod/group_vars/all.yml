@@ -1,0 +1,9 @@
+terraform_stats_base: /home/nolte/repos-ansible/minecraft-server-project-repos/minecraft-environment-state
+terraform_workspace: prod
+server_page: https://nolte.github.io/minecraft-gameserver
+restic_version: 0.9.4
+ansible_user: nolte
+ansible_become_method: sudo
+sshd_AllowUsers:
+  - "nolte"
+  - "ansible"

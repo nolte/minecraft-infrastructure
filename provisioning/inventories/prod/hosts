@@ -1,0 +1,5 @@
+# hcloud not works with yml inventory ....
+[minecraftgameserver:children]
+service-minecraft
+
+[service-minecraft]

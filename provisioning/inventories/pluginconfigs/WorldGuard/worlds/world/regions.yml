@@ -1,0 +1,240 @@
+regions:
+    capital:
+        min:
+            x: 2860
+            y: 0
+            z: -5805
+        max:
+            x: 2405
+            y: 199
+            z: -6111
+        members: {}
+        flags:
+            lightning: deny
+            mob-damage: deny
+            greeting: 'Hier entsteht eine Hautstadt!'
+            mob-spawning: deny
+            fire-spread: deny
+        owners: {}
+        type: cuboid
+        priority: 20
+    beforecapital:
+        min:
+            x: 2160
+            y: 0
+            z: -6170
+        max:
+            x: 2930
+            y: 199
+            z: -5665
+        members: {}
+        flags:
+            lightning: deny
+            mob-damage: deny
+            greeting: 'Hautstadt Vorort!'
+            mob-spawning: deny
+            fire-spread: deny
+        owners: {}
+        type: cuboid
+        priority: 20
+    capitalland:
+        min:
+            x: 2155
+            y: 0
+            z: -5550
+        max:
+            x: 3000
+            y: 199
+            z: -6400
+        members: {}
+        flags:
+            lightning: deny
+            mob-damage: deny
+            greeting: 'Hautstadt Land!'
+            mob-spawning: deny
+            fire-spread: deny
+        owners: {}
+        type: cuboid
+        priority: 20
+    burg:
+        min:
+            x: 3811
+            y: 2
+            z: -5874
+        max:
+            x: 4300
+            y: 207
+            z: -5400
+        members: {}
+        flags:
+            lightning: deny
+            creeper-explosion: deny
+            mob-damage: deny
+            passthrough: allow
+            deny-spawn: []
+            fire-spread: deny
+            enderdragon-block-damage: deny
+        owners:
+            unique-ids: [e1e45a60-d375-4fea-a238-91323b5ec11d]
+        type: cuboid
+        priority: 100
+    koehler:
+        parent: darwintale
+        min:
+            x: 3522
+            y: 18
+            z: -5404
+        max:
+            x: 3536
+            y: 29
+            z: -5391
+        members: {}
+        flags:
+            greeting: "Hier wohnt der Köhler des Dorfes, er ist ein einfacher\nMann."
+        owners: {}
+        type: cuboid
+        priority: 0
+    darwintale:
+        min:
+            x: 3442
+            y: 16
+            z: -5459
+        max:
+            x: 3583
+            y: 56
+            z: -5364
+        members: {}
+        flags:
+            lava-fire: deny
+            water-flow: deny
+            mob-damage: deny
+            greeting: 'Reisender Ihr seit nun in Darwintale!'
+            pvp: deny
+            tnt: deny
+            lava-flow: deny
+            mob-spawning: deny
+            fire-spread: deny
+            farewell: 'Reisender gebt auf euch acht und bis bald.'
+        owners: {}
+        type: cuboid
+        priority: 0
+    burgportal:
+        min:
+            x: 4070
+            y: 131
+            z: -5825
+        max:
+            x: 4077
+            y: 236
+            z: -5821
+        members: {}
+        flags:
+            lightning: deny
+            creeper-explosion: deny
+            mob-damage: deny
+            greeting: 'Ab in die Konstruktions Welt!'
+            passthrough: allow
+            deny-spawn: []
+            fire-spread: deny
+            enderdragon-block-damage: deny
+        owners:
+            unique-ids: [e1e45a60-d375-4fea-a238-91323b5ec11d]
+        type: cuboid
+        priority: 5
+    warenhaus:
+        parent: darwintale
+        min:
+            x: 3532
+            y: 17
+            z: -5423
+        max:
+            x: 3550
+            y: 33
+            z: -5404
+        members: {}
+        flags:
+            greeting: "Hier ist der Warenumschlagplatz von Darfintale, Ihr findet\nhier allerlei nützliches."
+        owners: {}
+        type: cuboid
+        priority: 0
+    capitalregion:
+        min:
+            x: 2279
+            y: 0
+            z: -6430
+        max:
+            x: 3017
+            y: 199
+            z: -5583
+        members:
+            unique-ids: [e1e45a60-d375-4fea-a238-91323b5ec11d, 8a79fdde-b308-4dcc-ab9e-a7510254df0d, 5414a759-f6bf-49e6-be23-5054602ed2f9]
+        flags:
+            lightning: deny
+            creeper-explosion: deny
+            mob-damage: deny
+            passthrough: allow
+            deny-spawn: []
+            mob-spawning: deny
+            fire-spread: deny
+            enderdragon-block-damage: deny
+        owners:
+            unique-ids: [8e217dac-bf97-4f04-b484-7137425c91f8]
+        type: cuboid
+        priority: 30
+    stadt:
+        min:
+            x: 3064
+            y: 29
+            z: -2342
+        max:
+            x: 3217
+            y: 140
+            z: -2206
+        members: {}
+        flags:
+            greeting: 'Willkommen im Reich der Elben!'
+            pvp: deny
+            tnt: deny
+            mob-spawning: deny
+            fire-spread: deny
+        owners:
+            unique-ids: [cd0e9bf2-f2c3-4597-acc5-f1dc06e088e6]
+        type: cuboid
+        priority: 0
+    capitalfarmland:
+        min:
+            x: 2279
+            y: 0
+            z: -5793
+        max:
+            x: 3017
+            y: 199
+            z: -5583
+        members: {}
+        flags: {}
+        owners: {}
+        type: cuboid
+        priority: 20
+    kirche:
+        parent: darwintale
+        min:
+            x: 3503
+            y: 18
+            z: -5433
+        max:
+            x: 3527
+            y: 42
+            z: -5410
+        members: {}
+        flags:
+            greeting: 'Tretet ein und Betet!'
+        owners: {}
+        type: cuboid
+        priority: 0
+    __global__:
+        members:
+            groups: [gamers_creative_builder]
+        flags: {}
+        owners: {}
+        type: global
+        priority: 0

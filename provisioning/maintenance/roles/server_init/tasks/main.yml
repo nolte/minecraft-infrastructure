@@ -1,0 +1,14 @@
+---
+- name: check minecraft basedir state
+  stat:
+    path: /opt/minecraft
+  register: p
+
+- name: restore the backup from restic repo if not exists
+  include_role:
+    name: backup
+    tasks_from: restore.yml
+  with_items: "{{ backup_dirs }}"
+  loop_control:
+    loop_var: backup
+  when: not p.stat.exists

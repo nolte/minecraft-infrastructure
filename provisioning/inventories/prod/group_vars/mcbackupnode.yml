@@ -1,0 +1,4 @@
+node_name: mc-backupnode
+labels:
+  sage: dev
+  service: backupnode

@@ -1,0 +1,8 @@
+serverdata
+generated_reports
+.tox
+*.retry
+*.vagrant
+*.terraform
+*.tfstate
+*.tfstate.*

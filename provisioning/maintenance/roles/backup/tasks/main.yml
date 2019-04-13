@@ -1,0 +1,52 @@
+---
+
+- name: define restic path
+  set_fact:
+    restic_base:
+      PATH: /usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin
+
+- name: define restic env variable set
+  set_fact:
+    RESTIC_ENVS: "{{ backup.repo | combine(restic_base) }}"
+
+- name: check backup repository is allways exists
+  stat:
+    path: "{{backup.repo.RESTIC_REPOSITORY}}/config"
+  register: registry_check
+  when: ( backup.repo.RESTIC_REPOSITORY  | search("b2") ) == false
+
+- set_fact:
+    excludes: "{{ lookup('template', 'restic-exclude-parameters.j2') }}"
+
+- set_fact:
+    RESTIC_ENVS_ENCODED:
+      B2_ACCOUNT_KEY: "{{RESTIC_ENVS.B2_ACCOUNT_KEY | b64decode}}"
+  when:
+    ( backup.repo.RESTIC_REPOSITORY  | search("b2") ) and
+    RESTIC_ENVS.B2_ACCOUNT_KEY is defined
+
+- name: define restic env variable set
+  set_fact:
+    RESTIC_ENVS: "{{ RESTIC_ENVS | combine(RESTIC_ENVS_ENCODED) }}"
+  when:
+    ( backup.repo.RESTIC_REPOSITORY  | search("b2") ) and
+    RESTIC_ENVS.B2_ACCOUNT_KEY is defined
+
+- debug: var=RESTIC_ENVS
+- name: init the restic backup
+  shell: "restic init {{backup.source.basedir}}"
+  environment: "{{ RESTIC_ENVS }}"
+  become_user: root
+  become: true
+  when:
+    registry_check.stat is defined and
+    registry_check.stat.exists == False
+
+- name: start restic backup
+  shell: "restic backup {{backup.source.basedir}}{{ excludes }}"
+  environment: "{{ RESTIC_ENVS }}"
+  become_user: root
+  become: true
+  register: backuptask
+
+- debug: var=backuptask

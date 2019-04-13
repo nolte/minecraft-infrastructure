@@ -67,3 +67,6 @@ todo_include_todos = True
 html_theme = 'sphinx_rtd_theme'
 # Output file base name for HTML help builder.
 html_static_path = ['_static']
+
+def setup(app):
+   app.add_css_file("css/custome.css")

@@ -21,6 +21,7 @@ Vagrant.configure(2) do |config|
     ansible.galaxy_role_file = 'maintenance/requirements.yml'
     ansible.inventory_path = "inventories/test"
     ansible.limit = "minecraftgameserver"
+    ansible.skip_tags = ["harder_sshd"]
     ansible.extra_vars = {
       mc_accept_eula: ENV['mc_accept_eula']
     }

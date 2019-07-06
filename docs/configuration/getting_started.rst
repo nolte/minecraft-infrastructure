@@ -58,8 +58,9 @@ Configure Ansible
     :caption: configure ansible python Environment
     :name: example-setup-python-env
 
-    virtualenv
-    pip install ansible requests ansible-cmdb
+    virtualenv -p python3 ~/venvs/usage-ansible
+    source ~/venvs/usage-ansible/bin/activate
+    pip install -r requirementsDev.txt
     ansible-galaxy install -f -r maintenance/requirements.yml
 
 

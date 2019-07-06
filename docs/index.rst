@@ -6,7 +6,7 @@
    :maxdepth: 2
 
    configuration/getting_started
-   maintenance
+   maintenance/index
    development/index
    architecture/index
    glossary

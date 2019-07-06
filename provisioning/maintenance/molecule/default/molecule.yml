@@ -1,0 +1,61 @@
+---
+dependency:
+  name: galaxy
+  options:
+    role-file: ./requirements.yml
+driver:
+  name: vagrant
+  provider:
+    name: parallels
+lint:
+  name: yamllint
+  enabled: false
+platforms:
+  - name: instance-1
+    box: centos/7
+    memory: 4096
+    cpus: 2
+    groups:
+      - minecraftgameserver    
+    #box_version: v1902.01
+provisioner:
+  name: ansible
+#  inventory:
+#    links:
+#      hosts: ../../../inventories/test/hosts.yml
+#      group_vars: ../../../inventories/test/group_vars/
+#      #host_vars: ../../../inventory/host_vars/
+
+  inventory:
+    group_vars:
+      minecraftgameserver:        
+        plugin_config_dir: "/home/nolte/repos-ansible/minecraft-server-project-repos/minecraft-infrastructure/provisioning/inventories/pluginconfigs"
+        pluginset: "server"
+        mc_accept_eula: ${mc_accept_eula}
+        mc_version: 1.14.3
+        pluginset: "server"
+        restic_repos_localbackup_url: /tmp/localbackup
+        restic_active: true
+        mc_plugins_file: "/home/nolte/repos-ansible/minecraft-server-project-repos/minecraft-infrastructure/provisioning/inventories/pluginlist.yml"
+        mc_rcon_password: "password"
+        sshd_AllowUsers: 
+          - vagrant
+  playbooks:
+    #converge: ../../master_playbook-mc-server.yml
+    converge: ../../playbook-provision-minecraft-master.yml
+  lint:
+    name: ansible-lint
+    enabled: false
+    options:
+      x:
+        - ANSIBLE0006
+        - ANSIBLE0010
+        - ANSIBLE0011
+        - ANSIBLE0016
+scenario:
+  name: default
+verifier:
+  name: testinfra
+  directory: ../../../maintenance-test
+  lint:
+    name: flake8

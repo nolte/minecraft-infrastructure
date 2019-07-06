@@ -1,7 +1,7 @@
 ---
 - src: git+https://github.com/nolte/ansible-minecraft
   name: nolte.minecraft
-  version: develop
+  version: feature/java_config_for_spigot_build
 - name: ypsman.sshd_config
 #- name: mrlesmithjr.ipset
 - name: dev-sec.os-hardening

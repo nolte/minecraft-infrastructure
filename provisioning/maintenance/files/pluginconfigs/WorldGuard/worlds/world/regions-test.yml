@@ -1,0 +1,32 @@
+regions:
+    capitol:
+        min:
+            x: 0
+            y: 0
+            z: 0
+        max:
+            x: 120
+            y: 120
+            z: 300
+        members: {}
+        flags:
+            lightning: deny
+            mob-damage: deny
+            greeting: 'Hier entsteht eine Hautstadt!'
+            mob-spawning: deny
+            fire-spread: deny
+        owners: {}
+        type: cuboid
+        priority: 20
+
+    __global__:
+        members:
+          groups:
+            - gamers_creative_builder
+        flags: {}
+        owners: {}
+        type: global
+        priority: 0
+        build-permission-nodes:
+            enable: false
+            deny-message: 'test msg'

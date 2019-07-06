@@ -1,0 +1,31 @@
+regions:
+    survivalstartarea:
+        min:
+            x: -85
+            y: 20
+            z: -30
+        max:
+            x: 92
+            y: 110
+            z: 45
+        members: {}
+        flags:
+            lightning: deny
+            creeper-explosion: deny
+            mob-damage: deny
+            passthrough: allow
+            deny-spawn: []
+            greeting: 'Survival Spawn Area'
+            fire-spread: deny
+            mob-spawning: allow
+            enderdragon-block-damage: deny
+        owners: {}
+        type: cuboid
+        priority: 10
+    __global__:
+        members:
+            groups: [gamers_survival_builder]
+        flags: {}
+        owners: {}
+        type: global
+        priority: 0

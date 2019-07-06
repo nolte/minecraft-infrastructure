@@ -6,9 +6,8 @@ Infrastructure Repostory for hosting a Minecraft Server at [hetzner.de](https://
 
 ## Montivation
 
-We play Minecraft since many years, on the same world, mostly on the latest Spigot Version. Sometimes with more players, some time many users.
-So we need a scalable environment with mininmal cost at not used Time, lets go in the Cloud! ;).
-
+We play Minecraft since many years, on the same world, mostly on the latest Spigot Version. Sometimes with more players, othertimes with not so many.
+So we need a scalable environment with mininmal cost, at not used Time, lets go in the Cloud! ;).
 
 ## Features
 
@@ -35,4 +34,4 @@ As Provide for the Production we use [hetzner.de](https://hetzner.de/cloud), it 
 
 ## Advanced Informations
 
-This Repository is part of the "Host your own Minecraft Server" Project, other parts of the project are [nolte/minecraft-gameserver](https://github.com/nolte/minecraft-gameserver) for public WebPresentation and [nolte/ansible-minecraft](https://github.com/nolte/ansible-minecraft).
+This Repository is part of the "Host your own Minecraft Server" Project, other parts of the project are [nolte/minecraft-gameserver](https://github.com/nolte/minecraft-gameserver) for public WebPresentation and [nolte/ansible-minecraft](https://github.com/nolte/ansible-minecraft) a Ansible Role for install and configure the Minecraft Server.

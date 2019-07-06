@@ -3,10 +3,13 @@
   vars_files:
     - ./../vars/facts_mc_node.yml
   become: true
+  vars:
+    plugin_config_dir: "/home/nolte/repos-ansible/minecraft-server-project-repos/minecraft-infrastructure/provisioning/inventories/pluginconfigs"
   tasks:
 
     - set_fact:
-        mc_plugin_sets: "{{ lookup('file', mc_plugins_file) | from_yaml }}"
+        mc_plugin_sets: "{{ lookup('template', mc_plugins_file) | from_yaml }}"
+      when: mc_plugins_file is defined
 
     - include_role:
         name: geerlingguy.java

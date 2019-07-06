@@ -13,6 +13,7 @@ storage hotstorage as "<b>HotStorage</b> \n Backup"
 note right of [hotstorage]
   Mounted <b>20GB</b> Volume
   for restic repository
+  ~$0.048/GB/Month
 end note
 
 node <--> hotstorage

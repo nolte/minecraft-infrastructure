@@ -14,13 +14,13 @@ server:
     dest: LuckPerms.jar
     force: true
     config:
-      - src_dir: "{{ plugin_config_dir }}/LuckPerms/yaml-storage/groups/"
+      - src_dir: "{{ inventory_dir }}//pluginconfigs/LuckPerms/yaml-storage/groups/"
         dest: LuckPerms/yaml-storage/groups/
         force: true
-      - src_dir: "{{ plugin_config_dir }}/LuckPerms/yaml-storage/users/"
+      - src_dir: "{{ inventory_dir }}//pluginconfigs/LuckPerms/yaml-storage/users/"
         dest: LuckPerms/yaml-storage/users/
         force: true
-      - src: "{{ plugin_config_dir }}/LuckPerms/config.yml.j2"
+      - src: "{{ inventory_dir }}//pluginconfigs/LuckPerms/config.yml.j2"
         dest: LuckPerms/config.yml
         force: true
   EssentialsX:
@@ -32,7 +32,7 @@ server:
     dest: "EssentialsX.jar"
     force: true
     config:
-      - src: "{{ plugin_config_dir }}/essentials/motd.txt.j2"
+      - src: "{{ inventory_dir }}//pluginconfigs/essentials/motd.txt.j2"
         dest: Essentials/motd.txt
         force: true
   worldedit:
@@ -42,16 +42,16 @@ server:
     src: https://media.forgecdn.net/files/2663/455/worldguard-legacy-7.0.0-beta-03.jar
     dest: worldguard-legacy.jar
     config:
-    - src: "{{ plugin_config_dir }}/WorldGuard/worlds/world/regions.yml"
+    - src: "{{ inventory_dir }}//pluginconfigs/WorldGuard/worlds/world/regions.yml"
       dest: WorldGuard/worlds/world/regions.yml
       force: true
-    - src: "{{ plugin_config_dir }}/WorldGuard/worlds/world_flat/regions.yml"
+    - src: "{{ inventory_dir }}//pluginconfigs/WorldGuard/worlds/world_flat/regions.yml"
       dest: WorldGuard/worlds/world_flat/regions.yml
       force: true
-    - src: "{{ plugin_config_dir }}/WorldGuard/worlds/world_survival/regions.yml"
+    - src: "{{ inventory_dir }}//pluginconfigs/WorldGuard/worlds/world_survival/regions.yml"
       dest: WorldGuard/worlds/world_survival/regions.yml
       force: true
-    - src: "{{ plugin_config_dir }}/WorldGuard/worlds/world/config.yml"
+    - src: "{{ inventory_dir }}//pluginconfigs/WorldGuard/worlds/world/config.yml"
       dest: WorldGuard/worlds/world/config.yml
       force: true
   craftbook:
@@ -73,7 +73,7 @@ server:
     validate_certs: false
     dest: "Multiverse-Portals.jar"
     config:
-    - src: "{{ plugin_config_dir }}/Multiverse-Portals/portals.yml.j2"
+    - src: "{{ inventory_dir }}//pluginconfigs/Multiverse-Portals/portals.yml.j2"
       dest: Multiverse-Portals/portals.yml
       force: true
   multiverseCore:
@@ -99,7 +99,7 @@ server:
     type: "jenkins_latest"
     dest: "blacksmith.jar"
     config:
-      - src: "{{ plugin_config_dir }}/Blacksmith/config.yml.j2"
+      - src: "{{ inventory_dir }}//pluginconfigs/Blacksmith/config.yml.j2"
         dest: Blacksmith/config.yml
         force: true
   perworldinventory:
@@ -120,7 +120,7 @@ server:
     dest: DiscordSRV.jar
     force: true
     config:
-      - src: "{{ plugin_config_dir }}/DiscordSRV/config.yml.j2"
+      - src: "{{ inventory_dir }}//pluginconfigs/DiscordSRV/config.yml.j2"
         dest: DiscordSRV/config.yml
         force: true
 #  tne:
@@ -128,7 +128,7 @@ server:
 #    type: "archive"
 #    force: false
 #    config:
-#      - src: "{{ plugin_config_dir }}/TheNewEconomy/config.yml.j2"
+#      - src: "{{ inventory_dir }}//pluginconfigs/TheNewEconomy/config.yml.j2"
 #        dest: TheNewEconomy/config.yml
 #        force: true
 #

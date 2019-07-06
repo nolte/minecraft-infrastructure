@@ -1,6 +1,12 @@
 Maintenance
 **************************************************
 
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   testing
+
 Handle The Environment
 ==================================================
 

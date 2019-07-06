@@ -6,7 +6,6 @@
     sshd_PermitRootLogin: 'no'
     sshd_PasswordAuthentication: 'no'
 #    sshd_ListenAddress: '0.0.0.0'
-  notify: restart sshd
   tags:
     - harder_sshd
 

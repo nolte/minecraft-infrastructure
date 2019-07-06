@@ -1,12 +1,159 @@
-mc_version: 1.13.2
+mc_version: 1.14.1
 pluginset: "server"
 restic_repos_localbackup_url: /tmp/localbackup
 restic_active: true
-mc_plugins_file: "{{ inventory_dir }}/../pluginlist.yml"
+mc_accept_eula: true
+#mc_plugins_file: "{{ inventory_dir }}/pluginlist.yml"
 mc_rcon_password: "password"
 minecraft_port_gameserver: 25565
+minecraft_max_memory: 1024M
+minecraft_initial_memory: 1024M
 minecraft_motd: '\u00A7cAmazi\u00A76neg Mi\u00A7anecr\u00A7aft S\u00A79erv\u00A71er\n\u00A78(\u00A7nhttps\://nolte.github.io/minecraft-gameserver\u00A78\u00A7r)'
 #minecraft_ops:
 #  - nolte07
 minecraft_whitelist:
   - nolte07
+
+
+
+mc_plugin_sets:
+  noplugins: []
+  server:
+    vault:
+      src: https://media.forgecdn.net/files/2615/750/Vault.jar
+      dest: Vault.jar
+    dynmap:
+      #src: https://media.forgecdn.net/files/2645/929/Dynmap-3.0-beta-3-spigot.jar
+      src: https://media.forgecdn.net/files/2722/431/Dynmap-3.0-beta-4-spigot.jar
+
+      dest: Dynmap.jar
+    LuckPerms:
+      src: https://ci.lucko.me/job/LuckPerms/lastSuccessfulBuild/
+      type: "jenkins_latest"
+      jenkins_artefact_path: "/artifact/bukkit/build/libs"
+      #src: https://ci.lucko.me/job/LuckPerms/875/artifact/bukkit/build/libs/LuckPerms-Bukkit-4.3.99.jar
+      dest: LuckPerms.jar
+      force: true
+      config:
+        - src_dir: "{{ playbook_dir }}/files/pluginconfigs/LuckPerms/yaml-storage/groups/"
+          dest: LuckPerms/yaml-storage/groups/
+          force: true
+        - src_dir: "{{ playbook_dir }}/files/pluginconfigs/LuckPerms/yaml-storage/users/"
+          dest: LuckPerms/yaml-storage/users/
+          force: true
+        - src: "{{ playbook_dir }}/files/pluginconfigs/LuckPerms/config.yml.j2"
+          dest: LuckPerms/config.yml
+          force: true
+    EssentialsX:
+      #src: https://github.com/EssentialsX/Essentials/releases/download/2.16.0/EssentialsX-2.16.0.3.jar
+      #dest: EssentialsX.jar
+      src: https://ci.ender.zone/job/EssentialsX/lastSuccessfulBuild/
+      type: "jenkins_latest"
+      jenkins_artefact_path: "/artifact/Essentials/target"
+      dest: "EssentialsX.jar"
+      force: true
+      config:
+        - src: "{{ playbook_dir }}/files/pluginconfigs/essentials/motd.txt.j2"
+          dest: Essentials/motd.txt
+          force: true
+    worldedit:
+      #src: https://media.forgecdn.net/files/2663/452/worldedit-bukkit-7.0.0-beta-05.jar
+      src: https://media.forgecdn.net/files/2723/275/worldedit-bukkit-7.0.0.jar
+      dest: worldedit-bukkit.jar
+    worldguard:
+      #src: https://media.forgecdn.net/files/2663/455/worldguard-legacy-7.0.0-beta-03.jar
+      src: https://media.forgecdn.net/files/2723/606/worldguard-bukkit-7.0.0.jar
+      dest: worldguard-bukkit.jar
+      config:
+      - src: "{{ playbook_dir }}/files/pluginconfigs/WorldGuard/worlds/world/regions.yml"
+        dest: WorldGuard/worlds/world/regions.yml
+        force: true
+      - src: "{{ playbook_dir }}/files/pluginconfigs/WorldGuard/worlds/world_flat/regions.yml"
+        dest: WorldGuard/worlds/world_flat/regions.yml
+        force: true
+      - src: "{{ playbook_dir }}/files/pluginconfigs/WorldGuard/worlds/world_survival/regions.yml"
+        dest: WorldGuard/worlds/world_survival/regions.yml
+        force: true
+      - src: "{{ playbook_dir }}/files/pluginconfigs/WorldGuard/worlds/world/config.yml"
+        dest: WorldGuard/worlds/world/config.yml
+        force: true
+    craftbook:
+      #src: https://media.forgecdn.net/files/2663/457/craftbook-3.10-beta-02.jar
+      src: https://media.forgecdn.net/files/2720/355/craftbook-3.10-rc-2.jar
+      dest: craftbook.jar
+    multiverseSignPortals:
+      src: https://ci.onarandombox.com/job/Multiverse-SignPortals/lastSuccessfulBuild
+      type: "jenkins_latest"
+      validate_certs: false
+      dest: "Multiverse-SignPortals.jar"
+    multiverseNether:
+      src: https://ci.onarandombox.com/job/Multiverse-NetherPortals/lastSuccessfulBuild
+      type: "jenkins_latest"
+      validate_certs: false
+      dest: "Multiverse-NetherPortals.jar"
+    multiversePortal:
+      src: https://ci.onarandombox.com/job/Multiverse-Portals/lastSuccessfulBuild
+      type: "jenkins_latest"
+      validate_certs: false
+      dest: "Multiverse-Portals.jar"
+      config:
+      - src: "{{ playbook_dir }}/files/pluginconfigs/Multiverse-Portals/portals.yml.j2"
+        dest: Multiverse-Portals/portals.yml
+        force: true
+    multiverseCore:
+      src: https://ci.onarandombox.com/job/Multiverse-Core/lastSuccessfulBuild
+      type: "jenkins_latest"
+      validate_certs: false
+      dest: "Multiverse-Core.jar"
+    citizens:
+      src: https://ci.citizensnpcs.co/job/Citizens2/lastSuccessfulBuild
+      type: "jenkins_latest"
+      jenkins_artefact_path: "/artifact/dist/target"
+      dest: "Citizens2.jar"
+    sentinel:
+      src: https://ci.citizensnpcs.co/job/Sentinel/lastSuccessfulBuild
+      type: "jenkins_latest"
+      dest: "Sentinel.jar"
+    denizen:
+      src: https://ci.citizensnpcs.co/job/Denizen/lastSuccessfulBuild
+      type: "jenkins_latest"
+      dest: "Denizen.jar"
+    blacksmith:
+      src: http://ci.citizensnpcs.co/job/Blacksmith/lastSuccessfulBuild
+      type: "jenkins_latest"
+      dest: "blacksmith.jar"
+      config:
+        - src: "{{ playbook_dir }}/files/pluginconfigs/Blacksmith/config.yml.j2"
+          dest: Blacksmith/config.yml
+          force: true
+    perworldinventory:
+      src: https://github.com/EbonJaeger/perworldinventory-kt/releases/download/v2.3.1/perworldinventory-kt-2.3.1.jar
+      dest: perworldinventory-kt.jar
+      force: true
+    nuvotifier:
+      src: https://github.com/parallelblock/NuVotifier/releases/download/v2.5.3/nuvotifier-2.5.3.jar
+      dest: nuvotifier.jar
+    votingplugin:
+      src: http://ben12345rocks.com/job/VotingPlugin/lastSuccessfulBuild/artifact/VotingPlugin/target/VotingPlugin.jar
+      dest: VotingPlugin.jar
+    prometheus:
+      src: https://github.com/sladkoff/minecraft-prometheus-exporter/releases/download/v1.3.0/minecraft-prometheus-exporter-1.3.0.jar
+      dest: minecraft-prometheus-exporter.jar
+    DiscordSRV:
+      src: https://github.com/DiscordSRV/DiscordSRV/releases/download/v1.16.9/DiscordSRV-Build-1.16.9.jar
+      dest: DiscordSRV.jar
+      force: true
+      config:
+        - src: "{{ playbook_dir }}/files/pluginconfigs/DiscordSRV/config.yml.j2"
+          dest: DiscordSRV/config.yml
+          force: true
+  #  tne:
+  #    src: https://github.com/TheNewEconomy/TNE-Bukkit/releases/download/0.1.1.8/TNE-0.1.1.8.zip
+  #    type: "archive"
+  #    force: false
+  #    config:
+  #      - src: "{{ playbook_dir }}/files/pluginconfigs/TheNewEconomy/config.yml.j2"
+  #        dest: TheNewEconomy/config.yml
+  #        force: true
+  #
+  

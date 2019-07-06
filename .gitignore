@@ -6,3 +6,4 @@ generated_reports
 *.terraform
 *.tfstate
 *.tfstate.*
+*.pyc

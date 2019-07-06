@@ -29,14 +29,14 @@ provisioner:
   inventory:
     group_vars:
       minecraftgameserver:        
-        plugin_config_dir: "/home/nolte/repos-ansible/minecraft-server-project-repos/minecraft-infrastructure/provisioning/inventories/pluginconfigs"
+        plugin_config_dir: "{{ MOLECULE_DIRECTORY }}/../../inventories/pluginconfigs"
         pluginset: "server"
         mc_accept_eula: ${mc_accept_eula}
         mc_version: 1.14.3
         pluginset: "server"
         restic_repos_localbackup_url: /tmp/localbackup
         restic_active: true
-        mc_plugins_file: "/home/nolte/repos-ansible/minecraft-server-project-repos/minecraft-infrastructure/provisioning/inventories/pluginlist.yml"
+        mc_plugins_file: "{{ MOLECULE_DIRECTORY }}/../../inventories/pluginlist.yml"
         mc_rcon_password: "password"
         sshd_AllowUsers: 
           - vagrant

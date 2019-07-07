@@ -11,3 +11,4 @@
 - name: robertdebock.fail2ban
 - name: paulfantom.restic
 - name: arillso.logrotate
+- name: adriagalin.motd

@@ -1,1 +1,4 @@
 restic_version: 0.9.5
+sshd_AllowUsers:
+  - "vagrant"
+  - "{{ ansible_user }}"

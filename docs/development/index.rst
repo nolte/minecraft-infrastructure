@@ -6,6 +6,7 @@ Development
    :glob:
 
    tools
+   local_development
 
 
 Project Structure
@@ -42,6 +43,13 @@ Maintenance Directory
 
 ``provisioning/maintenance``
 
+
+Maintenance Test Directory
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+``provisioning/maintenance-test``
+
+
 .. _ref-project-structure-provision-inventories-directory:
 
 Inventories Directory
@@ -57,7 +65,7 @@ Plugindata
 Test Inventory
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
-``provisioning/inventories/test``
+The Inventory Structure under ``provisioning/inventories/test``, will be used for creating the :term:`Vagrant` box. 
 
 Prod Inventory
 """""""""""""""""""""""""""""""""""""""""""""""""""

@@ -16,33 +16,29 @@ platforms:
     memory: 4096
     cpus: 2
     groups:
-      - minecraftgameserver    
-    #box_version: v1902.01
+      - minecraftgameserver
 provisioner:
   name: ansible
-#  inventory:
-#    links:
-#      hosts: ../../../inventories/test/hosts.yml
-#      group_vars: ../../../inventories/test/group_vars/
-#      #host_vars: ../../../inventory/host_vars/
-
   inventory:
     group_vars:
+      all:
+        local_inventory_path: "{{ playbook_dir }}/../inventories"
+        sshd_AllowUsers: 
+          - vagrant
+          - "{{ ansible_user }}"        
       minecraftgameserver:        
-        plugin_config_dir: "{{ MOLECULE_DIRECTORY }}/../../inventories/pluginconfigs"
+        plugin_config_dir: "{{ local_inventory_path }}/pluginconfigs"
         pluginset: "server"
         mc_accept_eula: ${mc_accept_eula}
         mc_version: 1.14.3
         pluginset: "server"
         restic_repos_localbackup_url: /tmp/localbackup
         restic_active: true
-        mc_plugins_file: "{{ MOLECULE_DIRECTORY }}/../../inventories/pluginlist.yml"
+        mc_plugins_file: "{{ local_inventory_path }}/pluginlist.yml"
         mc_rcon_password: "password"
-        sshd_AllowUsers: 
-          - vagrant
+
   playbooks:
-    #converge: ../../master_playbook-mc-server.yml
-    converge: ../../playbook-provision-minecraft-master.yml
+    converge: ../../master_playbook-mc-server.yml
   lint:
     name: ansible-lint
     enabled: false
@@ -54,8 +50,22 @@ provisioner:
         - ANSIBLE0016
 scenario:
   name: default
+  test_sequence:
+    - lint
+    - destroy
+    - dependency
+    - syntax
+    - create
+    - prepare
+    - converge
+#    - idempotence
+    - side_effect
+    - verify
+    - cleanup
+    - destroy  
 verifier:
   name: testinfra
   directory: ../../../maintenance-test
   lint:
     name: flake8
+    enabled: false

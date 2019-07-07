@@ -12,6 +12,7 @@ So we need a scalable environment with mininmal cost, at not used Time, lets go 
 ## Features
 
 * Provide Different Stages
+  * a Reuseable [Vagrant Box](https://www.vagrantup.com) with build with [Packer](https://www.packer.io).
   * a Local Test Environment, [Vagrant](https://www.vagrantup.com) based.
   * a Production Environment, controlled with [Terraform](https://www.terraform.io) and [Ansible](https://ansible.com), hosted at the [hetzner.de/cloud](https://hetzner.de/cloud)
 * Reacreate the Server from existing Cold Storage like [Hetzner Volume](https://www.hetzner.com/cloud#features) or [backblaze Bucket](http://backblaze.com).

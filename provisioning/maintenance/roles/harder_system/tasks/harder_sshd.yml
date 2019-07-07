@@ -5,20 +5,23 @@
   vars:
     sshd_PermitRootLogin: 'no'
     sshd_PasswordAuthentication: 'no'
-#    sshd_ListenAddress: '0.0.0.0'
+    sshd_ListenAddress: '0.0.0.0'
   tags:
     - harder_sshd
+   # - molecule-notest 
 
 - name: "set addition sshd config attributes"
   lineinfile:
     path: /etc/ssh/sshd_config
     regexp: "{{item.regexp}}"
     line: "{{item.line}}"
+    validate: 'sshd -t -f %s'
   with_items:
    - { regexp: "^Protocol", line: "Protocol 2" }
    - { regexp: "^StrictModes", line: "StrictModes yes" }
-   - { regexp: "^AllowUsers", line: "AllowUsers {{ sshd_AllowUsers | join(' ') }}" }
-   - { regexp: "^MaxAuthTries", line: "MaxAuthTries 1" }
+   - { regexp: "^AllowUsers", line: "AllowUsers {{ sshd_AllowUsers | unique | join(' ') }}" }
+   - { regexp: "^MaxAuthTries", line: "MaxAuthTries 2" }
   notify: restart sshd
   tags:
     - harder_sshd
+    #- molecule-notest 

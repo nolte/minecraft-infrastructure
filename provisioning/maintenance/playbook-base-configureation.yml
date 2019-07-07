@@ -4,6 +4,19 @@
 #  vars_files:
 #    - ./../vars/facts_mc_node.yml
   tasks:
+    - file:
+        path: /etc/update-motd.d
+        state: directory
+        
+    - include_role:
+        name:  adriagalin.motd
+      vars:
+        ag_motd_add_footer: true
+        ag_motd_sysadmins_signature: set sysadmin team signature
+        ag_motd_sysadmins_email: set sysadmin support email
+        ag_motd_content: set content of motd
+        ag_motd_info: additional information to show in message
+
 
     - set_fact:
         restic_repos_localbackup_url: /mnt/hotstoarge/mcbackup

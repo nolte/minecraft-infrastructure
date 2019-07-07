@@ -14,12 +14,12 @@ server:
     dest: LuckPerms.jar
     force: true
     config:
-      - src_dir: "{{ plugin_config_dir }}/LuckPerms/yaml-storage/groups/"
-        dest: LuckPerms/yaml-storage/groups/
-        force: true
-      - src_dir: "{{ plugin_config_dir }}/LuckPerms/yaml-storage/users/"
-        dest: LuckPerms/yaml-storage/users/
-        force: true
+#      - src_dir: "{{ plugin_config_dir }}/LuckPerms/yaml-storage/groups/"
+#        dest: LuckPerms/yaml-storage/groups/
+#        force: true
+#      - src_dir: "{{ plugin_config_dir }}/LuckPerms/yaml-storage/users/"
+#        dest: LuckPerms/yaml-storage/users/
+#        force: true
       - src: "{{ plugin_config_dir }}/LuckPerms/config.yml.j2"
         dest: LuckPerms/config.yml
         force: true

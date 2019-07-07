@@ -67,9 +67,15 @@ glossary
   reStructuredText
     `reStructuredText <http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`_ Markdown alternative.
 
+  Molecule
+    `Molecule <https://molecule.readthedocs.io/en/stable/>`_ used for automatical Ansible Tests.
 
   Testinfra
     `Testinfra <https://testinfra.readthedocs.io/en/latest/>`_ Testing infrastructure with Ansible and Pytest.
+
+  Virtualenv
+    `Virtualenv <https://virtualenv.pypa.io/en/latest/>`_ create isolated Python environments.
+
 
 .. _aide: https://de.wikipedia.org/wiki/Advanced_Intrusion_Detection_Environment
 .. _open-scap: https://www.open-scap.org/tools/openscap-base/#documentation

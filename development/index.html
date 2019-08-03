@@ -38,7 +38,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Tools" href="tools.html" />
-    <link rel="prev" title="Maintenance" href="../maintenance.html" />
+    <link rel="prev" title="Backub and Restore" href="../maintenance/jobs/backup_and_restore.html" />
  
 
 </head>
@@ -87,23 +87,15 @@
               <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../configuration/getting_started.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../maintenance.html">Maintenance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../maintenance/index.html">Maintenance</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Development</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="tools.html">Tools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#project-structure">Project Structure</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#documentation-directory">Documentation Directory</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#provision-directory">Provision Directory</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#infrastructure-directory">Infrastructure Directory</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#maintenance-directory">Maintenance Directory</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#inventories-directory">Inventories Directory</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="directory_structure.html">Directory Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="local_development.html">Local Development</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#naming-strategy">Naming Strategy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generate-the-docs">Generate the Docs</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../architecture/index.html">Architecture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">glossary</a></li>
 </ul>
 
@@ -174,43 +166,9 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="directory_structure.html">Directory Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local_development.html">Local Development</a></li>
 </ul>
-</div>
-<div class="section" id="project-structure">
-<h2>Project Structure<a class="headerlink" href="#project-structure" title="Permalink to this headline">¶</a></h2>
-<p>This Git Repository is Structured in different folders, the <a class="reference internal" href="#ref-project-structure-documentation-directory"><span class="std std-ref">Documentation Directory</span></a> and the <a class="reference internal" href="#ref-project-structure-provision-directory"><span class="std std-ref">Provision Directory</span></a> with the Infrastructure Providing Code.</p>
-<div class="section" id="documentation-directory">
-<span id="ref-project-structure-documentation-directory"></span><h3>Documentation Directory<a class="headerlink" href="#documentation-directory" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference internal" href="../glossary.html#term-sphinx"><span class="xref std std-term">Sphinx</span></a> Documentation is located at the <code class="docutils literal notranslate"><span class="pre">docs</span></code> subdirectory.</p>
-</div>
-<div class="section" id="provision-directory">
-<span id="ref-project-structure-provision-directory"></span><h3>Provision Directory<a class="headerlink" href="#provision-directory" title="Permalink to this headline">¶</a></h3>
-<p>The Scripts for configure the <a class="reference internal" href="../architecture/index.html#ref-architecture-env-local-test"><span class="std std-ref">Local Test Environment</span></a> and <a class="reference internal" href="../architecture/index.html#ref-architecture-env-public"><span class="std std-ref">Public Environment</span></a> are structured under <code class="docutils literal notranslate"><span class="pre">provisioning</span></code>.</p>
-<div class="section" id="infrastructure-directory">
-<span id="ref-project-structure-provision-infrastructure-directory"></span><h4>Infrastructure Directory<a class="headerlink" href="#infrastructure-directory" title="Permalink to this headline">¶</a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">provisioning/infrastructure</span></code></p>
-</div>
-<div class="section" id="maintenance-directory">
-<span id="ref-project-structure-provision-maintenance-directory"></span><h4>Maintenance Directory<a class="headerlink" href="#maintenance-directory" title="Permalink to this headline">¶</a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">provisioning/maintenance</span></code></p>
-</div>
-<div class="section" id="inventories-directory">
-<span id="ref-project-structure-provision-inventories-directory"></span><h4>Inventories Directory<a class="headerlink" href="#inventories-directory" title="Permalink to this headline">¶</a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">provisioning/inventories</span></code></p>
-<div class="section" id="plugindata">
-<h5>Plugindata<a class="headerlink" href="#plugindata" title="Permalink to this headline">¶</a></h5>
-<p><code class="docutils literal notranslate"><span class="pre">provisioning/inventories/pluginconfigs</span></code></p>
-</div>
-<div class="section" id="test-inventory">
-<h5>Test Inventory<a class="headerlink" href="#test-inventory" title="Permalink to this headline">¶</a></h5>
-<p><code class="docutils literal notranslate"><span class="pre">provisioning/inventories/test</span></code></p>
-</div>
-<div class="section" id="prod-inventory">
-<h5>Prod Inventory<a class="headerlink" href="#prod-inventory" title="Permalink to this headline">¶</a></h5>
-<p><code class="docutils literal notranslate"><span class="pre">provisioning/inventories/prod</span></code></p>
-</div>
-</div>
-</div>
 </div>
 <div class="section" id="naming-strategy">
 <h2>Naming Strategy<a class="headerlink" href="#naming-strategy" title="Permalink to this headline">¶</a></h2>
@@ -239,6 +197,16 @@
 </tbody>
 </table>
 </div>
+<div class="section" id="generate-the-docs">
+<span id="ref-development-local-docs-generate"></span><h2>Generate the Docs<a class="headerlink" href="#generate-the-docs" title="Permalink to this headline">¶</a></h2>
+<p>For the Docs we use <a class="reference internal" href="../glossary.html#term-sphinx"><span class="xref std std-term">Sphinx</span></a> with the <a class="reference internal" href="../glossary.html#term-restructuredtext"><span class="xref std std-term">reStructuredText</span></a>. The simpleste way for generate, is using the <a class="reference internal" href="../glossary.html#term-tox"><span class="xref std std-term">tox</span></a> Build framework.</p>
+<div class="literal-block-wrapper docutils container" id="cmd-development-local-docs-generat">
+<div class="code-block-caption"><span class="caption-text">Execute create Docs</span><a class="headerlink" href="#cmd-development-local-docs-generat" title="Permalink to this code">¶</a></div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> tox -e docs
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 
 
@@ -252,7 +220,7 @@
         <a href="tools.html" class="btn btn-neutral float-right" title="Tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../maintenance.html" class="btn btn-neutral float-left" title="Maintenance" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../maintenance/jobs/backup_and_restore.html" class="btn btn-neutral float-left" title="Backub and Restore" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

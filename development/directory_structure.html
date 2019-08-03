@@ -1,0 +1,321 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Directory Structure &mdash; Minecraft As a Service  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custome.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Local Development" href="local_development.html" />
+    <link rel="prev" title="Tools" href="tools.html" />
+ 
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Minecraft As a Service
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../configuration/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../maintenance/index.html">Maintenance</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Development</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Directory Structure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#documentation-directory">Documentation Directory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#local-directory">Local Directory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#provision-directory">Provision Directory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#infrastructure-directory">Infrastructure Directory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#maintenance-directory">Maintenance Directory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#maintenance-test-directory">Maintenance Test Directory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#inventories-directory">Inventories Directory</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="local_development.html">Local Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#naming-strategy">Naming Strategy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#generate-the-docs">Generate the Docs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Minecraft As a Service</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Development</a> &raquo;</li>
+        
+      <li>Directory Structure</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/development/directory_structure.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="directory-structure">
+<h1>Directory Structure<a class="headerlink" href="#directory-structure" title="Permalink to this headline">¶</a></h1>
+<p>This Git Repository is Structured in different folders, the <a class="reference internal" href="#ref-project-structure-documentation-directory"><span class="std std-ref">Documentation Directory</span></a> and the <a class="reference internal" href="#ref-project-structure-provision-directory"><span class="std std-ref">Provision Directory</span></a> with the Infrastructure Providing Code.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="documentation-directory">
+<span id="ref-project-structure-documentation-directory"></span><h2>Documentation Directory<a class="headerlink" href="#documentation-directory" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="../glossary.html#term-sphinx"><span class="xref std std-term">Sphinx</span></a> Documentation is located at the <code class="docutils literal notranslate"><span class="pre">docs</span></code> subdirectory.</p>
+</div>
+<div class="section" id="local-directory">
+<span id="ref-project-structure-local-directory"></span><h2>Local Directory<a class="headerlink" href="#local-directory" title="Permalink to this headline">¶</a></h2>
+<p>Working Directory for local Vagrant Box, more information at <a class="reference internal" href="../configuration/getting_started.html#ref-getting-started-environment-local"><span class="std std-ref">Local Environment</span></a>.</p>
+</div>
+<div class="section" id="provision-directory">
+<span id="ref-project-structure-provision-directory"></span><h2>Provision Directory<a class="headerlink" href="#provision-directory" title="Permalink to this headline">¶</a></h2>
+<p>The Scripts for configure the <span class="xref std std-ref">ref-architecture-env-local-test</span> and <span class="xref std std-ref">ref-architecture-env-public</span> are structured under <code class="docutils literal notranslate"><span class="pre">provisioning</span></code>.</p>
+<div class="section" id="infrastructure-directory">
+<span id="ref-project-structure-provision-infrastructure-directory"></span><h3>Infrastructure Directory<a class="headerlink" href="#infrastructure-directory" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">provisioning/infrastructure</span></code></p>
+<div class="section" id="long-term-infrastructure-elements">
+<span id="ref-project-structure-provision-infrastructure-long-term-directory"></span><h4>Long Term Infrastructure Elements<a class="headerlink" href="#long-term-infrastructure-elements" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">provisioning/infrastructure/longterm</span></code></p>
+</div>
+<div class="section" id="computing-infrastructure-elements">
+<span id="ref-project-structure-provision-infrastructure-computing-directory"></span><h4>Computing Infrastructure Elements<a class="headerlink" href="#computing-infrastructure-elements" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">provisioning/infrastructure/computing</span></code></p>
+</div>
+</div>
+<div class="section" id="maintenance-directory">
+<span id="ref-project-structure-provision-maintenance-directory"></span><h3>Maintenance Directory<a class="headerlink" href="#maintenance-directory" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">provisioning/maintenance</span></code></p>
+<div class="section" id="maintenance-build-directory">
+<span id="ref-project-structure-provision-maintenance-build-directory"></span><h4>Maintenance Build Directory<a class="headerlink" href="#maintenance-build-directory" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">provisioning/maintenance/build</span></code></p>
+</div>
+</div>
+<div class="section" id="maintenance-test-directory">
+<h3>Maintenance Test Directory<a class="headerlink" href="#maintenance-test-directory" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">provisioning/maintenance-test</span></code></p>
+</div>
+<div class="section" id="inventories-directory">
+<span id="ref-project-structure-provision-inventories-directory"></span><h3>Inventories Directory<a class="headerlink" href="#inventories-directory" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">provisioning/inventories</span></code></p>
+<div class="section" id="plugindata">
+<h4>Plugindata<a class="headerlink" href="#plugindata" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">provisioning/inventories/pluginconfigs</span></code></p>
+</div>
+<div class="section" id="test-inventory">
+<span id="ref-project-structure-provision-inventories-test-directory"></span><h4>Test Inventory<a class="headerlink" href="#test-inventory" title="Permalink to this headline">¶</a></h4>
+<p>The Inventory Structure under <code class="docutils literal notranslate"><span class="pre">provisioning/inventories/test</span></code>, will be used for creating the <a class="reference internal" href="../glossary.html#term-vagrant"><span class="xref std std-term">Vagrant</span></a> box.</p>
+<div class="literal-block-wrapper docutils container" id="config-inventory-test-minecraftgameserver">
+<div class="code-block-caption"><span class="caption-text">Test Infrastructure Server Config</span><a class="headerlink" href="#config-inventory-test-minecraftgameserver" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span>
+<span class="n">mc_version</span><span class="p">:</span> <span class="mf">1.14</span><span class="o">.</span><span class="mi">4</span>
+<span class="n">pluginset</span><span class="p">:</span> <span class="s2">&quot;server&quot;</span>
+<span class="n">restic_repos_localbackup_url</span><span class="p">:</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">localbackup</span>
+<span class="n">restic_active</span><span class="p">:</span> <span class="n">true</span>
+<span class="n">mc_accept_eula</span><span class="p">:</span> <span class="n">true</span>
+<span class="n">mc_plugins_file</span><span class="p">:</span> <span class="s2">&quot;{{ inventory_dir }}/../pluginlist.yml&quot;</span>
+<span class="n">plugin_config_dir</span><span class="p">:</span> <span class="s2">&quot;{{ inventory_dir }}/../pluginconfigs&quot;</span>
+<span class="n">mc_rcon_password</span><span class="p">:</span> <span class="s2">&quot;password&quot;</span>
+<span class="n">minecraft_port_gameserver</span><span class="p">:</span> <span class="mi">25565</span>
+<span class="n">minecraft_max_memory</span><span class="p">:</span> <span class="mi">1024</span><span class="n">M</span>
+<span class="n">minecraft_initial_memory</span><span class="p">:</span> <span class="mi">1024</span><span class="n">M</span>
+<span class="n">mc_backup_restic_repository_password</span><span class="p">:</span> <span class="n">dolphins</span>
+<span class="n">minecraft_motd</span><span class="p">:</span> <span class="s1">&#39;</span><span class="se">\u00A7</span><span class="s1">cAmazi</span><span class="se">\u00A7</span><span class="s1">6neg Mi</span><span class="se">\u00A7</span><span class="s1">anecr</span><span class="se">\u00A7</span><span class="s1">aft S</span><span class="se">\u00A7</span><span class="s1">9erv</span><span class="se">\u00A7</span><span class="s1">1er</span><span class="se">\n\u00A7</span><span class="s1">8(</span><span class="se">\u00A7</span><span class="s1">nhttps\://nolte.github.io/minecraft-gameserver</span><span class="se">\u00A7</span><span class="s1">8</span><span class="se">\u00A7</span><span class="s1">r)&#39;</span>
+<span class="n">minecraft_ops</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">nolte07</span>
+<span class="n">minecraft_whitelist</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">nolte07</span>
+
+<span class="c1"># minecraft_restore_src: &quot;s3&quot;</span>
+<span class="c1"># minecraft_restore_elements:</span>
+<span class="c1">#   - &quot;worlddata&quot;</span>
+<span class="c1">#   - &quot;plugins&quot;</span>
+
+<span class="n">backup_dests</span><span class="p">:</span>
+  <span class="o">-</span> <span class="s2">&quot;local&quot;</span>
+<span class="n">backup_parts</span><span class="p">:</span>
+  <span class="o">-</span> <span class="s2">&quot;plugins&quot;</span>
+  <span class="o">-</span> <span class="s2">&quot;worlddata&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="prod-inventory">
+<h4>Prod Inventory<a class="headerlink" href="#prod-inventory" title="Permalink to this headline">¶</a></h4>
+<p>Not a Part of this Repostiory, moved to an private GithHub Project.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="local_development.html" class="btn btn-neutral float-right" title="Local Development" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="tools.html" class="btn btn-neutral float-left" title="Tools" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+ 
+
+
+</body>
+</html>

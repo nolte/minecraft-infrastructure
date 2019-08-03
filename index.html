@@ -86,9 +86,8 @@
               <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="configuration/getting_started.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="maintenance.html">Maintenance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="maintenance/index.html">Maintenance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="development/index.html">Development</a></li>
-<li class="toctree-l1"><a class="reference internal" href="architecture/index.html">Architecture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">glossary</a></li>
 </ul>
 
@@ -164,67 +163,66 @@
 <a class="reference external image-reference" href="https://github.com/nolte/minecraft-infrastructure/stargazers/"><img alt="Stars on GitHub" src="https://img.shields.io/github/stars/nolte/minecraft-infrastructure.svg?style=social&amp;label=Star&amp;maxAge=2592000" /></a>
 <div class="section" id="montivation">
 <h2>Montivation<a class="headerlink" href="#montivation" title="Permalink to this headline">¶</a></h2>
-<p>We play Minecraft since many years, on the same world, mostly on the latest Spigot Version. Sometimes with more players, some time many users.
-So we need a scalable environment with mininmal cost at not used Time, lets go in the Cloud! ;).</p>
+<p>We play Minecraft since many years, on the same world, mostly on the latest Spigot Version. Sometimes with more players, othertimes with not so many.
+So we need a scalable environment with mininmal cost, at not used Time, lets go in the Cloud! ;).</p>
 </div>
 <div class="section" id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
+<li>Install a ready to use Minecraft Server based on <a class="reference external" href="https://github.com/nolte/ansible-minecraft">nolte/ansible-minecraft</a></li>
 <li>Provide Different Stages<ul>
+<li>a Reuseable <a class="reference external" href="https://www.vagrantup.com">Vagrant Box</a> with build with <a class="reference external" href="https://www.packer.io">Packer</a>.</li>
 <li>a Local Test Environment, <a class="reference external" href="https://www.vagrantup.com">Vagrant</a> based.</li>
 <li>a Production Environment, controlled with <a class="reference external" href="https://www.terraform.io">Terraform</a> and <a class="reference external" href="https://ansible.com">Ansible</a>, hosted at the <a class="reference external" href="https://hetzner.de/cloud">hetzner.de/cloud</a></li>
 </ul>
 </li>
-<li>Reacreate the Server from existing Cold Storage like <a class="reference external" href="https://www.hetzner.com/cloud#features">Hetzner Volume</a> or <a class="reference external" href="http://backblaze.com">backblaze Bucket</a>.<ul>
-<li>Minimize the Environment, at not used time like the Summer, so minimize the costs to the storage part.</li>
+<li>Handle different Type of Backup Solutions<ul>
+<li><a class="reference external" href="https://restic.readthedocs.io">restic</a>, for <a class="reference external" href="https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html#local">local</a> or remote Backups to destinations like <a class="reference external" href="https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html#minio-server">minio-server</a>, <a class="reference external" href="https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html#amazon-s3">amazon-s3</a> etc. <em>(Useable for Restore Servers)</em></li>
+<li>archive as tar, and optional downloading or publish to GDrive.</li>
 </ul>
 </li>
-<li>Combine different Ansible roles for os hardening, like (sshd, fail2ban, logrotate, restic).</li>
-<li>Install a ready to use Minecraft Server based on <a class="reference external" href="https://github.com/nolte/ansible-minecraft">nolte/ansible-minecraft</a></li>
+<li>Minimize the Environment, at not used time like the Summer, so minimize the costs to the storage part <em>(~0,90€/Mon)</em>.</li>
+<li>Combine different Ansible roles for os hardening, like (sshd, fail2ban, logrotate, restic) (<a class="reference external" href="https://github.com/nolte/ansible_playbook-baseline-online-server">nolte/ansible_playbook-baseline-online-server</a>).</li>
 </ul>
 </div>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<p>For configuration we use a <a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html">Ansible Inventory</a> structure.</p>
+<p>This Repository can be used to Provide your Server on two different Platforms Vagrant and Hetzner Cloud. For more information take al kook to the Documentation <a class="reference external" href="https://nolte.github.io/minecraft-infrastructure/index.html">nolte.github.io/minecraft-infrastructure</a>.</p>
 <div class="section" id="local-vagrant">
 <h3>Local (Vagrant)<a class="headerlink" href="#local-vagrant" title="Permalink to this headline">¶</a></h3>
 <p>For the Local usage you need a runnable Vagrant <a class="reference external" href="https://www.vagrantup.com/docs/installation/">Installation</a>.
-The Local Vagrant part skip the <a class="reference external" href="https://www.terraform.io">Terraform</a> installation tasks, like backup volumen handling etc. Only the Server Configuration Part <code class="docutils literal notranslate"><span class="pre">provisioning/maintenance/master_playbook-mc-server.yml</span></code> will executed, with the inventory <code class="docutils literal notranslate"><span class="pre">provisioning/inventories/test</span></code>.</p>
+The Local Vagrant part skip the <a class="reference external" href="https://www.terraform.io">Terraform</a> installation tasks, like backup volumen handling etc. Only the Server Configuration Part <code class="docutils literal notranslate"><span class="pre">provisioning/maintenance/master_playbook-configure-system.yml</span></code> will executed, with the inventory <code class="docutils literal notranslate"><span class="pre">provisioning/inventories/test</span></code>.</p>
 </div>
 <div class="section" id="hetzner-cloud">
 <h3>Hetzner Cloud<a class="headerlink" href="#hetzner-cloud" title="Permalink to this headline">¶</a></h3>
-<p>As Provide for the Production we use <a class="reference external" href="https://hetzner.de/cloud">hetzner.de</a>, it exists a nice <a class="reference external" href="https://docs.hetzner.cloud/">RestAPI</a>, and a good <a class="reference external" href="https://www.terraform.io/docs/providers/hcloud/index.html">Terraform Provider</a> for configure the Infrastructure, i love it ;).</p>
+<p>As Cloud Provide for the Production we use <a class="reference external" href="https://hetzner.de/cloud">hetzner.de</a>, it exists a nice <a class="reference external" href="https://docs.hetzner.cloud/">RestAPI</a>, and a good <a class="reference external" href="https://www.terraform.io/docs/providers/hcloud/index.html">Terraform Provider</a> for configure the Infrastructure, i love it ;).</p>
 </div>
 </div>
 <div class="section" id="advanced-informations">
 <h2>Advanced Informations<a class="headerlink" href="#advanced-informations" title="Permalink to this headline">¶</a></h2>
-<p>This Repository is part of the “Host your own Minecraft Server” Project, other parts of the project are <a class="reference external" href="https://github.com/nolte/minecraft-gameserver">nolte/minecraft-gameserver</a> for public WebPresentation and <a class="reference external" href="https://github.com/nolte/ansible-minecraft">nolte/ansible-minecraft</a>.</p>
+<p>This Repository is part of the “Host your own Minecraft Server” Project, other parts of the project are <a class="reference external" href="https://github.com/nolte/minecraft-gameserver">nolte/minecraft-gameserver</a> for public WebPresentation and <a class="reference external" href="https://github.com/nolte/ansible-minecraft">nolte/ansible-minecraft</a> a Ansible Role for install and configure the Minecraft Server.</p>
+<p>The reuseable Base is extracted to <a class="reference external" href="https://nolte.github.io/ansible_playbook-baseline-online-server/">nolte/ansible_playbook-baseline-online-server/</a> and <a class="reference external" href="https://nolte.github.io/terraform-infrastructure-modules/">nolte/terraform-infrastructure-modules</a>.</p>
+<p>Our Production Ansible Inventory is located add a private GitRepository, for protecting Player Informations.</p>
 <div class="toctree-wrapper compound" id="mastertoc">
 <p class="caption"><span class="caption-text">Table of Contents</span><a class="headerlink" href="#mastertoc" title="Permalink to this toctree">¶</a></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="configuration/getting_started.html">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="configuration/getting_started.html#local-usage">Local Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration/getting_started.html#advanced-environment-configuration">Advanced Environment Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/getting_started.html#preconditions">Preconditions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/getting_started.html#local-environment">Local Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/getting_started.html#public-environment">Public Environment</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="maintenance.html">Maintenance</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="maintenance.html#handle-the-environment">Handle The Environment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="maintenance.html#backup-and-recovery">Backup and Recovery</a></li>
-<li class="toctree-l2"><a class="reference internal" href="maintenance.html#ansible-cmdb">Ansible CMDB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="maintenance.html#open-scap-scan">Open Scap scan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="maintenance/index.html">Maintenance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="maintenance/testing.html">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="maintenance/jobs/backup_and_restore.html">Backub and Restore</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="development/index.html">Development</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="development/tools.html">Tools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="development/index.html#project-structure">Project Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development/directory_structure.html">Directory Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development/local_development.html">Local Development</a></li>
 <li class="toctree-l2"><a class="reference internal" href="development/index.html#naming-strategy">Naming Strategy</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="architecture/index.html">Architecture</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="architecture/provider/index.html">Provides</a></li>
-<li class="toctree-l2"><a class="reference internal" href="architecture/backups/index.html">Backups</a></li>
-<li class="toctree-l2"><a class="reference internal" href="architecture/index.html#local-test-environment">Local Test Environment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="architecture/index.html#public-environment">Public Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development/index.html#generate-the-docs">Generate the Docs</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">glossary</a></li>

@@ -37,7 +37,7 @@
     <link rel="stylesheet" href="_static/overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Backups" href="architecture/backups/index.html" />
+    <link rel="prev" title="Local Development" href="development/local_development.html" />
  
 
 </head>
@@ -86,9 +86,8 @@
               <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="configuration/getting_started.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="maintenance.html">Maintenance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="maintenance/index.html">Maintenance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="development/index.html">Development</a></li>
-<li class="toctree-l1"><a class="reference internal" href="architecture/index.html">Architecture</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">glossary</a></li>
 </ul>
 
@@ -159,7 +158,7 @@
 <dl class="glossary docutils">
 <dt id="term-terraform">Terraform</dt>
 <dd>With <a class="reference external" href="https://terraform.io">Terraform</a> we Create the Infrastructure like Volumes, FloatingIP and Virtual Machines.
-for the Hetzner Intergration wie use the <a class="reference internal" href="architecture/provider/hetzner/index.html#ref-env-provider-hetzner-integration-terraform"><span class="std std-ref">Hetzner Provider</span></a></dd>
+for the Hetzner Intergration wie use the <span class="xref std std-ref">ref-env-provider-hetzner-integration-terraform</span></dd>
 <dt id="term-ansible">Ansible</dt>
 <dd><a class="reference external" href="https://ansible.com">Ansible</a> is used for System configuration.</dd>
 <dt id="term-restic">restic</dt>
@@ -193,11 +192,25 @@ for the Hetzner Intergration wie use the <a class="reference internal" href="arc
 <dt id="term-openscap">OpenSCAP</dt>
 <dd>System vulnerability scans, see (<a class="reference external" href="https://www.open-scap.org/tools/openscap-base/#documentation">open-scap</a>)</dd>
 <dt id="term-backblaze-com">backblaze.com</dt>
-<dd>Cold Storage Provider, see <a class="reference internal" href="architecture/provider/backblaze/index.html#ref-architecture-provider-backblaze"><span class="std std-ref">Backblaze</span></a></dd>
+<dd>Cold Storage Provider, see <span class="xref std std-ref">ref-architecture-provider-backblaze</span></dd>
 <dt id="term-sphinx">Sphinx</dt>
 <dd><a class="reference external" href="http://www.sphinx-doc.org/en/master/">Sphinx</a>, is a tool that makes it easy to create documentation</dd>
 <dt id="term-restructuredtext">reStructuredText</dt>
 <dd><a class="reference external" href="http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html">reStructuredText</a> Markdown alternative.</dd>
+<dt id="term-molecule">Molecule</dt>
+<dd><a class="reference external" href="https://molecule.readthedocs.io/en/stable/">Molecule</a> used for automatical Ansible Tests.</dd>
+<dt id="term-testinfra">Testinfra</dt>
+<dd><a class="reference external" href="https://testinfra.readthedocs.io/en/latest/">Testinfra</a> Testing infrastructure with Ansible and Pytest.</dd>
+<dt id="term-virtualenv">Virtualenv</dt>
+<dd><a class="reference external" href="https://virtualenv.pypa.io/en/latest/">Virtualenv</a> create isolated Python environments.</dd>
+<dt id="term-personal-storage">Personal Storage</dt>
+<dd>At <a class="reference internal" href="#term-hetzner-cloud"><span class="xref std std-term">Hetzner Cloud</span></a> hosted <a class="reference internal" href="#term-minio"><span class="xref std std-term">MinIO</span></a> S3 Object Storage (look <a class="reference external" href="https://github.com/nolte/personal-storage-infrastructure">nolte/personal-storage-infrastructure</a>).</dd>
+<dt id="term-minio">MinIO</dt>
+<dd><a class="reference external" href="https://min.io/">min.io</a></dd>
+<dt id="term-gilt">gilt</dt>
+<dd><a class="reference external" href="https://gilt.readthedocs.io/en/latest/">gilt</a>, a GIT layering tool.</dd>
+<dt id="term-tox">tox</dt>
+<dd><a class="reference external" href="https://tox.readthedocs.io/en/latest/">tox</a>, python automation project.</dd>
 </dl>
 </div>
 
@@ -210,7 +223,7 @@ for the Hetzner Intergration wie use the <a class="reference internal" href="arc
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="architecture/backups/index.html" class="btn btn-neutral float-left" title="Backups" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="development/local_development.html" class="btn btn-neutral float-left" title="Local Development" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

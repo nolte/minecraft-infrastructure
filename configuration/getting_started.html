@@ -37,7 +37,7 @@
     <link rel="stylesheet" href="../_static/overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Maintenance" href="../maintenance.html" />
+    <link rel="next" title="Maintenance" href="../maintenance/index.html" />
     <link rel="prev" title="Minecraft Infrastructure" href="../index.html" />
  
 
@@ -87,17 +87,21 @@
               <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#local-usage">Local Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#advanced-environment-configuration">Advanced Environment Configuration</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#configure-ansible">Configure Ansible</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#configure-your-local-secrets">Configure your Local Secrets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#preconditions">Preconditions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#local-environment">Local Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#public-environment">Public Environment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#infrastructure">Infrastructure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#long-term-elements">Long Term Elements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#computing-elements">Computing Elements</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#configure-the-server">Configure the Server</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../maintenance.html">Maintenance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../maintenance/index.html">Maintenance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/index.html">Development</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../architecture/index.html">Architecture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">glossary</a></li>
 </ul>
 
@@ -172,91 +176,111 @@
 <div class="line">by example setting a envierment property like <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">mc_accept_eula=true</span></code></div>
 </div>
 </div>
-<div class="section" id="local-usage">
-<h2>Local Usage<a class="headerlink" href="#local-usage" title="Permalink to this headline">¶</a></h2>
-<p>For local Usage you can use the <code class="docutils literal notranslate"><span class="pre">Vagrant</span></code> file, located at the <a class="reference internal" href="../development/index.html#ref-project-structure-provision-directory"><span class="std std-ref">Provision Directory</span></a>.</p>
+<p>For A Better Python Depenendency Mananagement it is recommended to configure a own <a class="reference internal" href="../glossary.html#term-virtualenv"><span class="xref std std-term">Virtualenv</span></a>.</p>
+<div class="literal-block-wrapper docutils container" id="example-virtual-env">
+<div class="code-block-caption"><span class="caption-text">Configure Python Virtual Env</span><a class="headerlink" href="#example-virtual-env" title="Permalink to this code">¶</a></div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> virtualenv -p python3 ~/venvs/ansible-vagrant
+ <span class="nb">source</span> ~/venvs/ansible-vagrant/bin/activate
+ pip install -r requirements.txt
+ pre-commit install
+</pre></div>
+</div>
+</div>
+<div class="section" id="preconditions">
+<span id="ref-getting-started-preconditions"></span><h2>Preconditions<a class="headerlink" href="#preconditions" title="Permalink to this headline">¶</a></h2>
+<p>For a full configuration you need some “Commons Scripts” from other Repositories, for example the <a class="reference external" href="https://github.com/nolte/ansible_playbook-baseline-online-server.git">nolte/ansible_playbook-baseline-online-server</a> Project.
+The Dependencies will be managged by <a class="reference internal" href="../glossary.html#term-gilt"><span class="xref std std-term">gilt</span></a> and can be installed with the <code class="docutils literal notranslate"><span class="pre">overlay</span></code> command.</p>
 <div class="literal-block-wrapper docutils container" id="example-vagrant-start">
-<div class="code-block-caption"><span class="caption-text">Start the Local Vagrant Machine</span><a class="headerlink" href="#example-vagrant-start" title="Permalink to this code">¶</a></div>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> <span class="nb">cd</span> provisioning
+<div class="code-block-caption"><span class="caption-text">Install required Dependencies</span><a class="headerlink" href="#example-vagrant-start" title="Permalink to this code">¶</a></div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> gilt overlay
+</pre></div>
+</div>
+</div>
+<p>The Configuration file for the Dependencies is the <code class="docutils literal notranslate"><span class="pre">gilt.yml</span></code>.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="p p-Indicator">-</span> <span class="nt">git</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/nolte/ansible_playbook-baseline-online-server.git</span>
+  <span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">master</span>
+  <span class="nt">dst</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">provisioning/ext_debs/ansible_playbook-baseline-online-server/</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="local-environment">
+<span id="ref-getting-started-environment-local"></span><h2>Local Environment<a class="headerlink" href="#local-environment" title="Permalink to this headline">¶</a></h2>
+<p>For local Usage you can use the <code class="docutils literal notranslate"><span class="pre">Vagrant</span></code> file, located at the <a class="reference internal" href="../development/directory_structure.html#ref-project-structure-provision-maintenance-directory"><span class="std std-ref">Maintenance Directory</span></a>.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Start the Local Vagrant Machine</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> <span class="nb">cd</span> <span class="nb">local</span>
  vagrant up
 </pre></div>
 </div>
 </div>
-<p>After successfull starting you can join the server at <code class="docutils literal notranslate"><span class="pre">localhost:25567</span></code></p>
+<p>The Vagrant Box are configured with a minimal set of features, from the <a class="reference internal" href="../development/directory_structure.html#ref-project-structure-provision-inventories-test-directory"><span class="std std-ref">Test Inventory</span></a>.
+After successfull starting you can join the server at <code class="docutils literal notranslate"><span class="pre">localhost:25567</span></code></p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">The original gameport will mapped in the Vagrant file from <code class="docutils literal notranslate"><span class="pre">25565</span></code> to <code class="docutils literal notranslate"><span class="pre">25567</span></code>.</p>
 </div>
-<div class="literal-block-wrapper docutils container" id="example-vagrant-connect">
-<div class="code-block-caption"><span class="caption-text">connect the Local Vagrant Machine</span><a class="headerlink" href="#example-vagrant-connect" title="Permalink to this code">¶</a></div>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>   vagrant ssh
+<p><strong>Usefull Commands</strong></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">vagrant</span> <span class="pre">ssh</span></code> (SSH Connect to the Local Vagrant Box)</li>
+<li><code class="docutils literal notranslate"><span class="pre">vagrant</span> <span class="pre">provision</span></code> (Reexecute the Installation Steps)</li>
+<li><code class="docutils literal notranslate"><span class="pre">vagrant</span> <span class="pre">global-status</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">vagrant</span> <span class="pre">ssh-config</span></code></li>
+</ul>
+</div>
+<div class="section" id="public-environment">
+<span id="ref-getting-started-environment-public"></span><h2>Public Environment<a class="headerlink" href="#public-environment" title="Permalink to this headline">¶</a></h2>
+<p>The Public Env will be hosted at <a class="reference internal" href="../glossary.html#term-hetzner-cloud"><span class="xref std std-term">Hetzner Cloud</span></a>. For Rollout the public environment, you must execute the <a class="reference internal" href="../glossary.html#term-terraform"><span class="xref std std-term">Terraform</span></a> and the <a class="reference internal" href="../glossary.html#term-ansible"><span class="xref std std-term">Ansible</span></a> sources.</p>
+<div class="literal-block-wrapper docutils container" id="example-cmd-configure-env-vars">
+<div class="code-block-caption"><span class="caption-text">Required Environment Variables</span><a class="headerlink" href="#example-cmd-configure-env-vars" title="Permalink to this code">¶</a></div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> <span class="nb">export</span> <span class="nv">HCLOUD_TOKEN_STORAGE_PROJECT</span><span class="o">=</span><span class="k">$(</span>pass internet/hetzner.com/projects/personal_storage/token<span class="k">)</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
+   <span class="nb">export</span> <span class="nv">HCLOUD_TOKEN</span><span class="o">=</span><span class="k">$(</span>pass internet/hetzner.com/projects/minecraft/terraform-token<span class="k">)</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
+   <span class="nb">export</span> <span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span><span class="k">$(</span>pass internet/project/mystoragebox/minio_access_key<span class="k">)</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
+   <span class="nb">export</span> <span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span><span class="k">$(</span>pass internet/project/mystoragebox/minio_secret_key<span class="k">)</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
+   <span class="nb">export</span> <span class="nv">AWS_S3_ENDPOINT</span><span class="o">=</span>https://<span class="k">$(</span>curl -s -H <span class="s2">&quot;Authorization: Bearer </span><span class="nv">$HCLOUD_TOKEN_STORAGE_PROJECT</span><span class="s2">&quot;</span> <span class="s1">&#39;https://api.hetzner.cloud/v1/servers?name=storagenode&#39;</span> <span class="p">|</span> jq -r <span class="s1">&#39;.servers[0].public_net.ipv4.dns_ptr&#39;</span><span class="k">)</span>
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="example-vagrant-recreate">
-<div class="code-block-caption"><span class="caption-text">reinit the Local Vagrant Machine</span><a class="headerlink" href="#example-vagrant-recreate" title="Permalink to this code">¶</a></div>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>   vagrant rsync <span class="o">&amp;&amp;</span> <span class="se">\</span>
-   vagrant provision
+<div class="section" id="infrastructure">
+<span id="ref-getting-started-environment-public-infrastructure"></span><h3>Infrastructure<a class="headerlink" href="#infrastructure" title="Permalink to this headline">¶</a></h3>
+<p>For the Terraform State File, we use a Self Hosted Remote S3 Bucket, <a class="reference internal" href="../glossary.html#term-personal-storage"><span class="xref std std-term">Personal Storage</span></a>.</p>
+<div class="section" id="long-term-elements">
+<span id="ref-getting-started-environment-public-infrastructure-longterm"></span><h4>Long Term Elements<a class="headerlink" href="#long-term-elements" title="Permalink to this headline">¶</a></h4>
+<p>The <a class="reference internal" href="../development/directory_structure.html#ref-project-structure-provision-infrastructure-long-term-directory"><span class="std std-ref">Long Term Infrastructure Elements</span></a>, are Ressources like SSH Key, or the Backup Volume. Keep this Part from the Infrastructure, for restore some backup costs <em>~1€/mon</em>.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Be carefull with <code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">destroy</span></code>, you will be lost all your <a class="reference internal" href="../glossary.html#term-restic"><span class="xref std std-term">restic</span></a> Backups!</p>
+</div>
+<p>The Ressources from <code class="docutils literal notranslate"><span class="pre">provisioning/infrastructure/longterm</span></code> will be handled in a seperated Terraform State File.</p>
+</div>
+<div class="section" id="computing-elements">
+<span id="ref-getting-started-environment-public-infrastructure-computing"></span><h4>Computing Elements<a class="headerlink" href="#computing-elements" title="Permalink to this headline">¶</a></h4>
+<p>The <a class="reference internal" href="../development/directory_structure.html#ref-project-structure-provision-infrastructure-computing-directory"><span class="std std-ref">Computing Infrastructure Elements</span></a>, are Ressources like Attatch Volume and Create the Server.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Do <code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">destroy</span></code>, to save money <em>(~5,83€/mon)</em>, or when the Server makes Problems! You can use the Last Backup from the <a class="reference internal" href="../development/directory_structure.html#ref-project-structure-provision-infrastructure-long-term-directory"><span class="std std-ref">Long Term Infrastructure Elements</span></a> for restoring, look <a class="reference internal" href="../maintenance/jobs/backup_and_restore.html#ref-maintenance-jobs-backup-task-restore-on-create"><span class="std std-ref">Restore on Create</span></a>.
+So it makes fun to destroy the Ressources from <code class="docutils literal notranslate"><span class="pre">provisioning/infrastructure/computing</span></code>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="configure-the-server">
+<h3>Configure the Server<a class="headerlink" href="#configure-the-server" title="Permalink to this headline">¶</a></h3>
+<p>For this we use the <a class="reference internal" href="../glossary.html#term-ansible"><span class="xref std std-term">Ansible</span></a> Playbooks from the <a class="reference internal" href="../development/directory_structure.html#ref-project-structure-provision-maintenance-directory"><span class="std std-ref">Maintenance Directory</span></a> and the dependencies from the <a class="reference internal" href="#ref-getting-started-preconditions"><span class="std std-ref">Preconditions</span></a>.</p>
+<div class="literal-block-wrapper docutils container" id="example-getting-started-maintenance-ansible-roles">
+<div class="code-block-caption"><span class="caption-text">Install Ansible Galaxy Dependencies</span><a class="headerlink" href="#example-getting-started-maintenance-ansible-roles" title="Permalink to this code">¶</a></div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ansible-galaxy install -r provisioning/ext_debs/ansible_playbook-baseline-online-server/requirements.yml <span class="o">&amp;&amp;</span> <span class="se">\</span>
+ ansible-galaxy install -r provisioning/maintenance/requirements.yml
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="advanced-environment-configuration">
-<h2>Advanced Environment Configuration<a class="headerlink" href="#advanced-environment-configuration" title="Permalink to this headline">¶</a></h2>
-<p>For usage with <a class="reference internal" href="../glossary.html#term-hetzner-cloud"><span class="xref std std-term">Hetzner Cloud</span></a> you must prepare you system a little bit more.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">HCLOUD_TOKEN</span><span class="o">=</span><span class="k">$(</span>pass internet/hetzner.com/projects/minecraft/terraform-token<span class="k">)</span>
-</pre></div>
-</div>
-<div class="section" id="configure-ansible">
-<span id="ref-getting-started-configure-ansible"></span><h3>Configure Ansible<a class="headerlink" href="#configure-ansible" title="Permalink to this headline">¶</a></h3>
-<div class="literal-block-wrapper docutils container" id="example-setup-python-env">
-<div class="code-block-caption"><span class="caption-text">configure ansible python Environment</span><a class="headerlink" href="#example-setup-python-env" title="Permalink to this code">¶</a></div>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>virtualenv
-pip install ansible requests ansible-cmdb
-ansible-galaxy install -f -r maintenance/requirements.yml
+<p>When you use a external Inventory Folder, define the Environment Variable: <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">ANSIBLE_INVENTORY=$(pwd)/storagebox/prod/</span></code>, now you can execute the Master Playbook:</p>
+<div class="literal-block-wrapper docutils container" id="example-getting-started-maintenance-master-playbook">
+<div class="code-block-caption"><span class="caption-text">Execute the full Installation</span><a class="headerlink" href="#example-getting-started-maintenance-master-playbook" title="Permalink to this code">¶</a></div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> ansible-playbook provisioning/maintenance/master-configure-system.yml
 </pre></div>
 </div>
 </div>
-<p>You must set your used <code class="docutils literal notranslate"><span class="pre">private_key_file</span></code> and some SSH Extra args <code class="docutils literal notranslate"><span class="pre">-o</span> <span class="pre">IdentitiesOnly=yes</span></code>, otherwise the <a class="reference internal" href="../glossary.html#term-fail2ban"><span class="xref std std-term">fail2ban</span></a> process will block your IP!.</p>
-<div class="literal-block-wrapper docutils container" id="example-config-ansible-cfg">
-<div class="code-block-caption"><span class="caption-text">example ansible.cfg</span><a class="headerlink" href="#example-config-ansible-cfg" title="Permalink to this code">¶</a></div>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[defaults]</span>
-<span class="na">validate_certs</span><span class="o">=</span><span class="s">False</span>
-<span class="na">private_key_file</span><span class="o">=</span><span class="s">~/.ssh/id_ed25519</span>
-
-<span class="k">[ssh_connection]</span>
-<span class="na">ssh_extra_args</span><span class="o">=</span><span class="s">-o IdentitiesOnly=yes</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="configure-your-local-secrets">
-<h3>Configure your Local Secrets<a class="headerlink" href="#configure-your-local-secrets" title="Permalink to this headline">¶</a></h3>
-<p>Infrastructure as Code is a nice stuff but it is not a good idea to publish all stuff at github.</p>
-<table border="1" class="colwidths-given docutils" id="id1">
-<caption><span class="caption-text">Title</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col width="25%" />
-<col width="25%" />
-<col width="50%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Environment Variable</th>
-<th class="head">Default Pass Path</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>Row 1, column 1</td>
-<td>&#160;</td>
-<td>Row 1, column 3</td>
-</tr>
-<tr class="row-odd"><td>Row 2, column 1</td>
-<td>Row 2, column 2</td>
-<td>Row 2, column 3</td>
-</tr>
-</tbody>
-</table>
+<p>After the successfull configuration execute the <a class="reference internal" href="../maintenance/testing.html#example-cmd-maintenance-testing"><span class="std std-ref">“Testinfra Acception Tests”</span></a>.</p>
 </div>
 </div>
 </div>
@@ -269,7 +293,7 @@ ansible-galaxy install -f -r maintenance/requirements.yml
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../maintenance.html" class="btn btn-neutral float-right" title="Maintenance" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../maintenance/index.html" class="btn btn-neutral float-right" title="Maintenance" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../index.html" class="btn btn-neutral float-left" title="Minecraft Infrastructure" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

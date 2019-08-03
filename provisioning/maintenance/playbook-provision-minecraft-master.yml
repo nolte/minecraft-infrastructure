@@ -5,8 +5,13 @@
   become: true
   tasks:
 
-    - set_fact:
-        mc_plugin_sets: "{{ lookup('file', mc_plugins_file) | from_yaml }}"
+    - include_role:
+        name:  gdrive
+
+    - name: define the used plugin sets for the server
+      set_fact:
+        mc_plugin_sets: "{{ lookup('template', mc_plugins_file) | from_yaml }}"
+      when: mc_plugins_file is defined
 
     - include_role:
         name: geerlingguy.java
@@ -36,12 +41,12 @@
           sizeBased: "10 MB"
         minecraft_server_properties:
           server-port: "{{ minecraft_port_gameserver | default(25565) }}"
-          rcon.port: 25564
+          rcon.port: "{{ minecraft_port_rcon | default(25564) }}"
           enable-rcon: true
           rcon.password: "{{ mc_rcon_password | default(lookup('password', '/tmp/passwordfile chars=ascii_letters,digits,hexdigits,punctuation')) }}"
           white-list: true
           enable-command-block: true
-          motd: "{{ minecraft_motd | default('Amazing Minecraft Server')}}"
+          motd: "{{ minecraft_motd | default('Amazing Minecraft Server') }}"
           online-mode: true
           resource-pack: http://backup.just-mfg.de/Gerudoku_Faithful_3D_Models_Add-on.zip
 
@@ -50,7 +55,6 @@
         name: backup
         tasks_from: configure_backup_jobs.yml
       when: restic_active | default(false)
-
 
     - name: open the gameport for external usage
       firewalld:

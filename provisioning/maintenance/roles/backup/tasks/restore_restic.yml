@@ -1,0 +1,11 @@
+---
+
+- include_tasks: "restic_prepare_envs.yml"
+
+- name: restore restic backup
+  shell: "{{ restic_command }} restore latest --target /"
+  environment: "{{ RESTIC_ENVS }}"
+  become_user: root
+  become: true
+  tags:
+  - skip_ansible_lint

@@ -1,9 +1,10 @@
 ---
 - name: restore restic backup
-  shell: "restic restore latest --target /"
+  shell: "{{ restic_command }} restore latest --target /"
   environment:
-    PATH: /usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin
-    RESTIC_REPOSITORY: "{{backup.repo.RESTIC_REPOSITORY}}"
-    RESTIC_PASSWORD: "{{backup.repo.RESTIC_PASSWORD}}"
+    RESTIC_REPOSITORY: "{{ backup.repo.RESTIC_REPOSITORY }}"
+    RESTIC_PASSWORD: "{{ backup.repo.RESTIC_PASSWORD }}"
   become_user: root
   become: true
+  tags:
+  - skip_ansible_lint

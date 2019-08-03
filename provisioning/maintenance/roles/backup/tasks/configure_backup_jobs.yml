@@ -1,10 +1,17 @@
 ---
-# convert the config structure to a cronable config for `paulfantom.restic`
-- set_fact:
-    restic_repos_mc: "{{ ( restic_repos_mc | default([]) ) +
-     [ lookup('template', 'cron_parameter_template.yml.j2',template_vars=dict(backup=item))
-     | from_yaml ]  }}"
-  with_items: "{{ backup_dirs }}"
+
+- name: prepare the restic configs for the cron jobs
+  set_fact:
+    restic_repos_mc: "{{ lookup('template', 'restic-cron-jobs.yml.j2',template_vars=dict(dests=backup_dests,parts=backup_parts)) | from_yaml  }}"
+
+- name: Template a file to /etc/files.conf
+  become: true
+  template:
+    src: minecraft_backup_script.sh.j2
+    dest: /usr/local/bin/minecraft_restic_backup
+    owner: root
+    group: root
+    mode: '+x'
 
 # configure restic backups
 - include_role:

@@ -1,0 +1,23 @@
+---
+
+
+- name: execute backup
+  block:
+    - name: deactivate save for backup time
+      shell: "/usr/local/bin/rcon-cli --port {{ minecraft_port_rcon }} --password '{{ mc_rcon_password }}' save-off"
+      tags:
+      - skip_ansible_lint
+
+    - include_tasks: "{{ backup_adhoc_hook | default('empty.yml') }}"
+
+    - include_tasks: "{{ backup_adhoc_post_hook | default('empty.yml') }}"
+
+  always:
+    - name: activate autosave
+      shell: "/usr/local/bin/rcon-cli --port {{ minecraft_port_rcon }} --password '{{ mc_rcon_password }}' save-on"
+      tags:
+      - skip_ansible_lint
+    - name: activate autosave
+      shell: "/usr/local/bin/rcon-cli --port {{ minecraft_port_rcon }} --password '{{ mc_rcon_password }}' say backup finished"
+      tags:
+      - skip_ansible_lint

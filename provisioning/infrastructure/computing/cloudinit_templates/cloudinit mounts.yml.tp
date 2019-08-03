@@ -1,0 +1,4 @@
+mounts:
+%{ if hot_backup_storage_active }
+ - [ ${hot_backup_storage_device_id}, ${hot_backup_storage_path}, "${hot_backup_storage_type}", "defaults,nofail,discard", "0", "0" ]
+%{ endif }

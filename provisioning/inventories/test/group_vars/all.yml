@@ -1,1 +1,9 @@
-restic_version: 0.9.4
+---
+restic_version: 0.9.5
+restic_install_path: "/usr/bin"
+system_supporters:
+  - ansible
+  - "vagrant"
+  - "{{ ansible_user }}"
+
+sshd_AllowUsers: "{{ system_supporters }}"

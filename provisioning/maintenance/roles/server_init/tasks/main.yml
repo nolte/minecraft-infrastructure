@@ -4,11 +4,13 @@
     path: /opt/minecraft
   register: p
 
-- name: restore the backup from restic repo if not exists
-  include_role:
+- include_role:
     name: backup
-    tasks_from: restore.yml
-  with_items: "{{ backup_dirs }}"
+    tasks_from: restore_restic.yml
+  vars:
+    backup_restic:
+      env: "{{ backup_dirs[backup].dest[minecraft_restore_src] }}"
+  with_items: "{{ minecraft_restore_elements }}"
   loop_control:
     loop_var: backup
   when: not p.stat.exists

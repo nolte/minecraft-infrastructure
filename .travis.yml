@@ -1,8 +1,9 @@
+---
 language: python
 install:
-- pip install tox
+  - pip install tox
 script:
-- tox
+  - tox
 deploy:
   provider: pages
   skip-cleanup: true

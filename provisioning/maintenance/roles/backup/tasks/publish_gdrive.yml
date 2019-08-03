@@ -1,0 +1,24 @@
+---
+- name: define backup file description
+  set_fact:
+    gdrive_file_description: "Backup from {{ inventory_hostname }}"
+
+- name: upload the Archive tp gdrive
+  shell: |
+     {{ gdrive_path_bin }} --refresh-token {{ gdrive_refresh_token }} \
+        upload --parent {{ gdrive_parent_folder_id }} \
+        --description \"{{ gdrive_file_description }}\" \
+        --delete  {{ archive_dest }}
+  async: 1000
+  poll: 0
+  register: backup_gdrive_upload_sleeper
+  tags:
+  - skip_ansible_lint
+
+- name: 'Wait that the upload finished'
+  async_status:
+    jid: "{{ backup_gdrive_upload_sleeper.ansible_job_id }}"
+  register: job_gdrive_upload_result
+  until: job_gdrive_upload_result.finished
+  retries: 126
+  delay: 30

@@ -1,6 +1,3 @@
 ---
-# Handle the Hetzner Infrastructure
-#- import_playbook: infrastructure/playbook-create-infrastructure.yml
-
 # Handle the ECS Instances
 - import_playbook: maintenance/master_playbook-mc-server.yml

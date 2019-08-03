@@ -1,0 +1,21 @@
+---
+- hosts: minecraftgameserver
+  vars:
+    backup_dest: "s3"
+    backup_part: "plugins"
+  vars_files:
+    - ./../vars/facts_mc_node.yml
+  tasks:
+
+    - set_fact:
+        backup_informations:
+          source:
+            basedir: "{{ backup_dirs[backup_part].source.basedir }}"
+            excludes: "{{ backup_dirs[backup_part].source.excludes | default([]) }}"
+          env: "{{ backup_dirs[backup_part].dest[backup_dest] }}"
+
+    - include_role:
+        name: backup
+        tasks_from: restore_restic.yml
+      vars:
+        backup_restic: "{{ backup_informations }}"

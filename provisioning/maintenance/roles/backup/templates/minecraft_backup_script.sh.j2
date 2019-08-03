@@ -1,0 +1,28 @@
+#!/bin/bash
+
+backup_excludes=$1
+backup_source=$2
+# exit with this by default, if it is not set later
+exit_code=0
+rcon_password=$(awk -F "=" '/rcon.password/ {print $2}' /opt/minecraft/server/shared/server.properties)
+rcon_port=$(awk -F "=" '/rcon.port/ {print $2}' /opt/minecraft/server/shared/server.properties)
+
+# the cleanup function will be the exit point
+cleanup () {
+  # ignore stderr from rm incase the hook is called twice
+  /usr/local/bin/rcon-cli --port $rcon_port --password $rcon_password save-on
+  /usr/local/bin/rcon-cli --port $rcon_port --password $rcon_password say "backup finished $backup_source"
+  # exit(code)
+  exit $exit_code
+}
+
+# register the cleanup function for all these signal types (see link below)
+trap cleanup EXIT ERR INT TERM
+
+/usr/local/bin/rcon-cli --port $rcon_port --password $rcon_password save-off
+/usr/local/bin/rcon-cli --port $rcon_port --password $rcon_password say "backup starts $backup_source"
+
+restic backup $backup_excludes $backup_source
+
+# set the exit_code with the real result, used when cleanup is called
+exit_code=$?

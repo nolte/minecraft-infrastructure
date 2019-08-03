@@ -1,8 +1,13 @@
 serverdata
 generated_reports
+output-vagrant
+ext_debs
+.vscode
 .tox
 *.retry
 *.vagrant
 *.terraform
 *.tfstate
 *.tfstate.*
+*.pyc
+*.log

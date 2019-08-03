@@ -1,0 +1,30 @@
+{
+    "variables": {
+        "minecraft_version": "1.14.3",
+        "clean_resource_name": "mc-gameserver-spigot",
+        "output_path": "./.output-minecraft"
+    },
+    "provisioners": [
+        {
+            "type": "ansible",
+            "playbook_file": "../maintenance/master_playbook-configure-system.yml",
+            "groups": [
+                "minecraftgameserver"
+            ],
+            "inventory_directory": "../inventories/test"
+        }
+    ],
+    "builders": [
+        {
+            "communicator": "ssh",
+            "source_path": "centos/7",
+            "provider": "virtualbox",
+            "box_version": "1905.1",
+            "add_force": true,
+            "type": "vagrant",
+            "template": "./Vagrantfile",
+            "output_dir": "{{user `output_path`}}/vagrant"
+        }
+    ],
+    "post-processors": []
+}

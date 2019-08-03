@@ -1,0 +1,87 @@
+---
+
+- name: define restic env variable set
+  set_fact:
+    RESTIC_ENVS: "{{ backup_restic.env }}"
+
+- name: define restic env variable set
+  set_fact:
+    RESTIC_REPOSITORY: " {{ backup_restic.env.RESTIC_REPOSITORY }}"
+  when: backup_restic.env.RESTIC_REPOSITORY is defined
+
+
+- name: define restic env variable set
+  set_fact:
+    RESTIC_REPOSITORY: "s3:{{ backup_restic.env.RESTIC_S3_URL }}/{{ backup_restic.env.RESTIC_S3_BUCKET }}{{ backup_restic.env.RESTIC_S3_PATH }}"
+  when: backup_restic.env.RESTIC_S3_URL is defined
+
+
+- name: check backup repository is allways exists
+  stat:
+    path: "{{ backup_restic.env.RESTIC_REPOSITORY }}/config"
+  register: registry_check
+  become: true
+  when: not ( ("b2:" in RESTIC_REPOSITORY ) or ("s3:" in RESTIC_REPOSITORY)  )
+
+- name: check s3 storage for existing backup
+  aws_s3:
+    bucket: "{{ backup_restic.env.RESTIC_S3_BUCKET }}"
+    object: "{{ backup_restic.env.RESTIC_S3_PATH }}/config"
+    mode: geturl
+    aws_access_key: "{{ backup_restic.env.AWS_ACCESS_KEY_ID }}"
+    aws_secret_key: "{{ backup_restic.env.AWS_SECRET_ACCESS_KEY }}"
+    s3_url: "{{ backup_restic.env.RESTIC_S3_URL }}"
+  when: ( "s3" in RESTIC_REPOSITORY )
+  register: registry_check
+  ignore_errors: yes
+
+- name: define backblaze.com required variables
+  set_fact:
+    RESTIC_ENVS_ENCODED:
+      B2_ACCOUNT_KEY: "{{ RESTIC_ENVS.B2_ACCOUNT_KEY | b64decode }}"
+  when:
+    ( RESTIC_REPOSITORY  | search("b2") ) and
+    RESTIC_ENVS.B2_ACCOUNT_KEY is defined
+
+- name: define restic env variable set
+  set_fact:
+    RESTIC_ENVS: "{{ RESTIC_ENVS | combine(RESTIC_ENVS_ENCODED) }}"
+  when:
+    ( RESTIC_REPOSITORY | search("b2") ) and
+    RESTIC_ENVS.B2_ACCOUNT_KEY is defined
+
+- name: define helper object for restic process
+  set_fact:
+    _append_dict:
+      RESTIC_REPOSITORY: "{{ RESTIC_REPOSITORY }}"
+
+- name: init the restic backup
+  shell: "{{ restic_command }} init {{ backup_restic.source.basedir }}"
+  environment: "{{ RESTIC_ENVS  | combine( _append_dict ) }}"
+  become_user: root
+  become: true
+  when:
+    (
+      ("s3" not in RESTIC_REPOSITORY) and
+        (
+          ( registry_check.stat is defined ) and ( not registry_check.stat.exists )
+        )
+    )
+    or
+    (
+      ("s3" in RESTIC_REPOSITORY) and
+      ("does not exist" in registry_check.msg)
+    )
+  tags:
+  - skip_ansible_lint
+- name: generate restic excludes
+  set_fact:
+    excludes: "{{ lookup('template', 'restic-exclude-parameters.j2', template_vars=dict(excludes=backup_restic.source.excludes)) }}"
+
+- name: start restic backup
+  shell: "{{ restic_command }} backup {{ backup_restic.source.basedir }}{{ excludes }}"
+  environment: "{{ RESTIC_ENVS  | combine( _append_dict ) }}"
+  become_user: root
+  become: true
+  tags:
+  - skip_ansible_lint

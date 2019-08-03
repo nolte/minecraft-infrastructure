@@ -1,48 +1,78 @@
 ---
 - hosts: minecraftgameserver
+  vars:
+    backup_dest: "s3"
   vars_files:
     - ./../vars/facts_mc_node.yml
-  become: true
-  vars:
-    password_store_paths:
-      RESTIC_REPO_PASSWORD_PATH: internet/backblaze.com/nolte07@gmail.com/buckets/mcbackup-worlddata/restic
-      B2_ACCOUNT_ID_PATH: "internet/backblaze.com/nolte07@gmail.com/appuser/mcbackup/keyid"
-      B2_ACCOUNT_KEY_PATH: "internet/backblaze.com/nolte07@gmail.com/appuser/mcbackup/token"
   tasks:
-    - name: Basic lookup. Fails if backblaze secrects doesn't exist
-      set_fact:
-        RESTIC_REPO_PASSWORD: "{{ lookup('passwordstore', password_store_paths.RESTIC_REPO_PASSWORD_PATH ,convert_data=False) |string}}"
-        B2_ACCOUNT_ID: "{{ lookup('passwordstore', password_store_paths.B2_ACCOUNT_ID_PATH ,convert_data=False) |string}}"
-        B2_ACCOUNT_KEY: "{{ lookup('passwordstore', password_store_paths.B2_ACCOUNT_KEY_PATH ,convert_data=False) | b64encode |string}}"
-      delegate_to: localhost
-      when:
-        backup_destination is defined and
-        backup_destination == 'backblaze'
-
-    - name: stop spigot
-      service:
-        name: spigot
-        state: stopped
-      notify: restart spigot
 
 
-    - debug:
-        msg: "{{ lookup('template', playbook_dir+'/roles/backup/templates/restic-tasks-parameter.yml.j2' ,template_vars=dict(backup=backup_loop,backup_dest=backup_destination)) }}"
-      with_items: "{{ backup_dirs }}"
-      loop_control:
-        loop_var: backup_loop
-        
-    - name: start the restic backup process
-      include_role:
+    - include_role:
         name: backup
-      vars:
-        backup: "{{ ( lookup('template', playbook_dir+'/roles/backup/templates/restic-tasks-parameter.yml.j2' ,template_vars=dict(backup=backup_loop,backup_dest=backup_destination)) | from_yaml ) }}"
-      with_items: "{{ backup_dirs }}"
-      loop_control:
-        loop_var: backup_loop
 
-  handlers:
-    - name: restart spigot
-      service:
-        name: spigot
-        state: restarted
+#    - include_role:
+#        name: backup
+#        tasks_from: adhoc_backup.yml
+#      vars:
+#        backup_adhoc_hook: "archive_content.yml"
+#        backup_adhoc_post_hook: "empty.yml"
+
+#    - include_role:
+#        name: backup
+#        tasks_from: adhoc_backup.yml
+#      vars:
+#        gdrive_parent_folder_id: "{{ backup_gdrive_parent_folder_id }}"
+#        backup_adhoc_hook: "archive_content.yml"
+#        #backup_adhoc_hook: "empty.yml"
+#        #archive_dest: "/tmp/backup-20190707T201746.tar.gz"
+#        backup_adhoc_post_hook: "publish_gdrive.yml"
+
+#    - include_role:
+#        name: backup
+#        tasks_from: adhoc_backup.yml
+#      vars:
+#        backup_adhoc_hook: "adhoc_restic.yml"
+#        backup_restic:
+#          source:
+#            basedir: /opt/minecraft/plugins
+#            excludes:
+#              - shared/dynmap/*
+#          env:
+#            RESTIC_S3_URL: https://static.119.158.216.95.clients.your-server.de
+#            RESTIC_S3_BUCKET: backup
+#            RESTIC_S3_PATH: "/mctestserver/restic/plugindata"
+#
+#            RESTIC_PASSWORD: dolphins
+#            AWS_ACCESS_KEY_ID: "{{ s3_access_key }}"
+#            AWS_SECRET_ACCESS_KEY: "{{ s3_secret_key }}"
+
+#    - include_role:
+#        name: backup
+#        tasks_from: adhoc_backup.yml
+#      vars:
+#        backup_restic:
+#          source:
+#            basedir: "{{ current_backup_dir.source.basedir }}"
+#            excludes: "{{ current_backup_dir.source.excludes | default([]) }}"
+#          env: "{{ current_backup_dir.dest[backup_dest] }}"
+#        backup_adhoc_hook: "adhoc_restic.yml"
+#      with_items: "{{ backup_dirs }}"
+#      loop_control:
+#        loop_var: current_backup_dir
+
+
+
+#
+#    - include_role:
+#        name: backup
+#        tasks_from: adhoc_backup.yml
+#      vars:
+#        backup_restic:
+#          source:
+#            basedir: "{{ current_backup_dir.source.basedir }}"
+#            excludes: "{{ current_backup_dir.source.excludes | default([]) }}"
+#          env: "{{ current_backup_dir.repo }}"
+#        backup_adhoc_hook: "adhoc_restic.yml"
+#      with_items: "{{ backup_dirs }}"
+#      loop_control:
+#        loop_var: current_backup_dir

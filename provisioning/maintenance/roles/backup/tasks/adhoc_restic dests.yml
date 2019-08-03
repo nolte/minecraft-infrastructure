@@ -1,0 +1,13 @@
+---
+
+- include_role:
+    name: backup
+    tasks_from: adhoc_backup.yml
+  vars:
+    backup_restic:
+      source: "{{ backup_dirs[current_backup_dir].source }}"
+      env: "{{ backup_dirs[current_backup_dir].dest[backup_dest] }}"
+    backup_adhoc_hook: "adhoc_restic.yml"
+  with_items: "{{ backup_parts }}"
+  loop_control:
+    loop_var: current_backup_dir

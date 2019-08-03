@@ -1,8 +1,0 @@
----
-- hosts: minecraftgameserver
-  tasks:
-
-    - set_fact:
-        mc_plugin_sets: "{{ lookup('file', mc_plugins_file) | from_yaml }}"
-
-    - debug: var=mc_plugin_sets

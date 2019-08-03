@@ -1,5 +1,0 @@
-ansible==2.8.2
-testinfra==3.0.5
-molecule[vagrant]==2.20.1
-paramiko==2.6.0
-ansible-cmdb==1.30

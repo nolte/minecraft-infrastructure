@@ -1,0 +1,30 @@
+Vagrant.require_version ">= 1.7.0"
+Vagrant.configure(2) do |config|
+  config.vm.network "forwarded_port", guest: 25565, host: 25567
+  config.vm.network "forwarded_port", guest: 25564, host: 25566
+  #config.vm.network "forwarded_port", guest: 8123, host: 8123
+  config.vm.provider "virtualbox" do |v|
+    v.memory = 8192
+    v.cpus = 4
+  end
+
+  config.vm.provision "shell", inline: "yum -y install git"
+  config.vm.box = "centos/7"
+
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "../provisioning/ext_debs/ansible_playbook-baseline-online-server/master-configure-system.yml"
+    ansible.galaxy_role_file = "../provisioning/ext_debs/ansible_playbook-baseline-online-server/requirements.yml"
+    ansible.galaxy_roles_path = "/tmp/vagrant_ansible_roles"
+    ansible.inventory_path = "../provisioning/inventories/test"
+    ansible.limit = "boxedmc"
+  end
+
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "../provisioning/maintenance/playbook-provision-minecraft-master.yml"
+    ansible.galaxy_role_file = "../provisioning/maintenance/requirements.yml"
+    ansible.galaxy_roles_path = "/tmp/vagrant_ansible_roles"
+    ansible.inventory_path = "../provisioning/inventories/test"
+    ansible.limit = "boxedmc"
+  end
+
+end

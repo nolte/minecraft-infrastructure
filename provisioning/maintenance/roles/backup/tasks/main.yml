@@ -1,52 +1,34 @@
 ---
 
-- name: define restic path
-  set_fact:
-    restic_base:
-      PATH: /usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin
+- name: execute a archive base backup
+  block:
+    - name: "no post tasks by default"
+      set_fact:
+        publishing_task: "empty.yml"
 
-- name: define restic env variable set
-  set_fact:
-    RESTIC_ENVS: "{{ backup.repo | combine(restic_base) }}"
+    - name: using fetch the backup as post task
+      set_fact:
+        publishing_task: "fetching_backup.yml"
+      when: backup_adhoc_publish == "local"
 
-- name: check backup repository is allways exists
-  stat:
-    path: "{{backup.repo.RESTIC_REPOSITORY}}/config"
-  register: registry_check
-  when: ( backup.repo.RESTIC_REPOSITORY  | search("b2") ) == false
+    - include_role:
+        name: backup
+        tasks_from: adhoc_backup.yml
+      vars:
+        backup_adhoc_hook: "archive_content.yml"
+        backup_adhoc_post_hook: "{{ publishing_task }}"
 
-- set_fact:
-    excludes: "{{ lookup('template', 'restic-exclude-parameters.j2') }}"
+  when: backup_type == "archive"
 
-- set_fact:
-    RESTIC_ENVS_ENCODED:
-      B2_ACCOUNT_KEY: "{{RESTIC_ENVS.B2_ACCOUNT_KEY | b64decode}}"
-  when:
-    ( backup.repo.RESTIC_REPOSITORY  | search("b2") ) and
-    RESTIC_ENVS.B2_ACCOUNT_KEY is defined
+- name: execute Restic Backups
+  block:
+    - debug: msg="restic"
 
-- name: define restic env variable set
-  set_fact:
-    RESTIC_ENVS: "{{ RESTIC_ENVS | combine(RESTIC_ENVS_ENCODED) }}"
-  when:
-    ( backup.repo.RESTIC_REPOSITORY  | search("b2") ) and
-    RESTIC_ENVS.B2_ACCOUNT_KEY is defined
+    - include_role:
+        name: backup
+        tasks_from: adhoc_restic dests.yml
+      with_items: "{{ backup_dests }}"
+      loop_control:
+        loop_var: current_dest
 
-- debug: var=RESTIC_ENVS
-- name: init the restic backup
-  shell: "restic init {{backup.source.basedir}}"
-  environment: "{{ RESTIC_ENVS }}"
-  become_user: root
-  become: true
-  when:
-    registry_check.stat is defined and
-    registry_check.stat.exists == False
-
-- name: start restic backup
-  shell: "restic backup {{backup.source.basedir}}{{ excludes }}"
-  environment: "{{ RESTIC_ENVS }}"
-  become_user: root
-  become: true
-  register: backuptask
-
-- debug: var=backuptask
+  when: backup_type == "restic"

@@ -1,0 +1,18 @@
+---
+
+- name: define restic env variable set
+  set_fact:
+    RESTIC_ENVS: "{{ backup_restic.env }}"
+
+- name: define restic env variable set
+  set_fact:
+    RESTIC_REPOSITORY: "{{ lookup('template', 'restic_repository_url.str.j2' , template_vars=dict(endpoint=backup_restic.env)) }}"
+
+- name: define helper object for restic process
+  set_fact:
+    _append_dict:
+      RESTIC_REPOSITORY: "{{ RESTIC_REPOSITORY }}"
+
+- name: define restic env variable set
+  set_fact:
+    RESTIC_ENVS: "{{ RESTIC_ENVS  | combine( _append_dict ) }}"

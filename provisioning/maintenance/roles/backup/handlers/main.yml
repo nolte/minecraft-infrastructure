@@ -1,0 +1,5 @@
+- name: "backup delete local archive"
+  file:
+    path: "{{ job_backup_archive_result.dest }}"
+    state: absent
+  when: backup_archive_cleanup_enabled

@@ -1,0 +1,9 @@
+---
+
+# https://github.com/gdrive-org/gdrive
+- name: Download gdrive
+  get_url:
+    url: "{{ gdrive_download_url }}"
+    dest: "{{ gdrive_path_bin }}"
+    checksum: "sha1:{{ gdrive_download_sha }}"
+    mode: 'a+x'

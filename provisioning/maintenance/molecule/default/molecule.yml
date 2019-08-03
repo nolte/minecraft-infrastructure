@@ -23,31 +23,31 @@ provisioner:
     group_vars:
       all:
         local_inventory_path: "{{ playbook_dir }}/../inventories"
-        sshd_AllowUsers: 
+        sshd_AllowUsers:
           - vagrant
-          - "{{ ansible_user }}"        
-      minecraftgameserver:        
+          - "{{ ansible_user }}"
+      minecraftgameserver:
         plugin_config_dir: "{{ local_inventory_path }}/pluginconfigs"
         pluginset: "server"
         mc_accept_eula: ${mc_accept_eula}
         mc_version: 1.14.3
-        pluginset: "server"
         restic_repos_localbackup_url: /tmp/localbackup
         restic_active: true
         mc_plugins_file: "{{ local_inventory_path }}/pluginlist.yml"
         mc_rcon_password: "password"
 
   playbooks:
-    converge: ../../master_playbook-mc-server.yml
+    converge: ../../playbook-provision-minecraft-master.yml
   lint:
     name: ansible-lint
-    enabled: false
+    enabled: true
     options:
       x:
         - ANSIBLE0006
         - ANSIBLE0010
         - ANSIBLE0011
         - ANSIBLE0016
+        - ANSIBLE0305
 scenario:
   name: default
   test_sequence:
@@ -62,7 +62,7 @@ scenario:
     - side_effect
     - verify
     - cleanup
-    - destroy  
+    - destroy
 verifier:
   name: testinfra
   directory: ../../../maintenance-test

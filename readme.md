@@ -11,28 +11,35 @@ So we need a scalable environment with mininmal cost, at not used Time, lets go 
 
 ## Features
 
+* Install a ready to use Minecraft Server based on [nolte/ansible-minecraft](https://github.com/nolte/ansible-minecraft)
 * Provide Different Stages
   * a Reuseable [Vagrant Box](https://www.vagrantup.com) with build with [Packer](https://www.packer.io).
   * a Local Test Environment, [Vagrant](https://www.vagrantup.com) based.
   * a Production Environment, controlled with [Terraform](https://www.terraform.io) and [Ansible](https://ansible.com), hosted at the [hetzner.de/cloud](https://hetzner.de/cloud)
-* Reacreate the Server from existing Cold Storage like [Hetzner Volume](https://www.hetzner.com/cloud#features) or [backblaze Bucket](http://backblaze.com).
-  * Minimize the Environment, at not used time like the Summer, so minimize the costs to the storage part.
-* Combine different Ansible roles for os hardening, like (sshd, fail2ban, logrotate, restic).
-* Install a ready to use Minecraft Server based on [nolte/ansible-minecraft](https://github.com/nolte/ansible-minecraft)
+* Handle different Type of Backup Solutions
+    * [restic](https://restic.readthedocs.io), for [local](https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html#local) or remote Backups to destinations like [minio-server](https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html#minio-server), [amazon-s3](https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html#amazon-s3) etc. _(Useable for Restore Servers)_
+    * archive as tar, and optional downloading or publish to GDrive.
+* Minimize the Environment, at not used time like the Summer, so minimize the costs to the storage part _(~0,90€/Mon)_.
+* Combine different Ansible roles for os hardening, like (sshd, fail2ban, logrotate, restic) ([nolte/ansible_playbook-baseline-online-server](https://github.com/nolte/ansible_playbook-baseline-online-server)). 
+
 
 ## Usage
 
-For configuration we use a [Ansible Inventory](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html) structure.
+This Repository can be used to Provide your Server on two different Platforms Vagrant and Hetzner Cloud. For more information take al kook to the Documentation [nolte.github.io/minecraft-infrastructure](https://nolte.github.io/minecraft-infrastructure/index.html).
 
 ### Local (Vagrant)
 
 For the Local usage you need a runnable Vagrant [Installation](https://www.vagrantup.com/docs/installation/).
-The Local Vagrant part skip the [Terraform](https://www.terraform.io) installation tasks, like backup volumen handling etc. Only the Server Configuration Part ``provisioning/maintenance/master_playbook-mc-server.yml`` will executed, with the inventory ``provisioning/inventories/test``.
+The Local Vagrant part skip the [Terraform](https://www.terraform.io) installation tasks, like backup volumen handling etc. Only the Server Configuration Part ``provisioning/maintenance/master_playbook-configure-system.yml`` will executed, with the inventory ``provisioning/inventories/test``.
 
 ### Hetzner Cloud
 
-As Provide for the Production we use [hetzner.de](https://hetzner.de/cloud), it exists a nice [RestAPI](https://docs.hetzner.cloud/), and a good [Terraform Provider](https://www.terraform.io/docs/providers/hcloud/index.html) for configure the Infrastructure, i love it ;).
+As Cloud Provide for the Production we use [hetzner.de](https://hetzner.de/cloud), it exists a nice [RestAPI](https://docs.hetzner.cloud/), and a good [Terraform Provider](https://www.terraform.io/docs/providers/hcloud/index.html) for configure the Infrastructure, i love it ;).
 
 ## Advanced Informations
 
 This Repository is part of the "Host your own Minecraft Server" Project, other parts of the project are [nolte/minecraft-gameserver](https://github.com/nolte/minecraft-gameserver) for public WebPresentation and [nolte/ansible-minecraft](https://github.com/nolte/ansible-minecraft) a Ansible Role for install and configure the Minecraft Server.
+
+The reuseable Base is extracted to [nolte/ansible_playbook-baseline-online-server/](https://nolte.github.io/ansible_playbook-baseline-online-server/) and [nolte/terraform-infrastructure-modules](https://nolte.github.io/terraform-infrastructure-modules/).
+
+Our Production Ansible Inventory is located add a private GitRepository, for protecting Player Informations.

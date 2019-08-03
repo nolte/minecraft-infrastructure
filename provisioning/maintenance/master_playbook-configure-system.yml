@@ -1,0 +1,5 @@
+---
+# Setup the base System Config like firewalld and configure sshd
+- import_playbook: ../ext_debs/ansible_playbook-baseline-online-server/master-configure-system.yml
+# install the mc gameserver
+- import_playbook: playbook-provision-minecraft-master.yml

@@ -1,0 +1,30 @@
+{%- for destination in dests -%}
+{%- for part in parts -%}
+{% set backup_part = backup_dirs[part].dest[destination] -%}
+{% set backup_jobName = destination +"-"+part -%}
+{% set backup_excludes = lookup('template', 'restic-exclude-parameters.j2' , template_vars=dict(excludes=backup_dirs[part].source.excludes)) -%}
+{% set restic_repo_url = lookup('template', 'restic_repository_url.str.j2' , template_vars=dict(endpoint=backup_part)) %}
+- name: "{{ backup_jobName }}"
+  url: "{{ restic_repo_url }}"
+  password: "{{ backup_part.RESTIC_PASSWORD }}"
+{% if "s3:" in restic_repo_url %}
+  remote_credentials:
+    aws_access_key_id: "{{ backup_part.AWS_ACCESS_KEY_ID }}"
+    aws_secret_access_key: '{{ backup_part.AWS_SECRET_ACCESS_KEY }}'
+{% endif %}
+  jobs:
+    - command: "/usr/local/bin/minecraft_restic_backup \"{{ backup_excludes }}\" {{ backup_dirs[part].source.basedir }}"
+      #at: '0 1  * * *'
+      at: "{{ backup_part.restic_job_cron | default('0 1  * * *') }}"
+  retention_time: '17 5 * * *'
+  retention:
+    last: 2
+    hourly: 4
+    daily: 10
+    weekly: 9
+    monthly: 3
+    yearly: 10
+    tags:
+      - special
+{% endfor -%}
+{%- endfor -%}

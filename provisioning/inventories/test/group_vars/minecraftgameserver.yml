@@ -1,4 +1,5 @@
-mc_version: 1.14.3
+---
+mc_version: 1.14.4
 pluginset: "server"
 restic_repos_localbackup_url: /tmp/localbackup
 restic_active: true
@@ -9,12 +10,20 @@ mc_rcon_password: "password"
 minecraft_port_gameserver: 25565
 minecraft_max_memory: 1024M
 minecraft_initial_memory: 1024M
+mc_backup_restic_repository_password: dolphins
 minecraft_motd: '\u00A7cAmazi\u00A76neg Mi\u00A7anecr\u00A7aft S\u00A79erv\u00A71er\n\u00A78(\u00A7nhttps\://nolte.github.io/minecraft-gameserver\u00A78\u00A7r)'
 minecraft_ops:
   - nolte07
 minecraft_whitelist:
   - nolte07
 
+# minecraft_restore_src: "s3"
+# minecraft_restore_elements:
+#   - "worlddata"
+#   - "plugins"
 
-
-#mc_plugins_file: "{{ local_inventory_path }}/pluginlist.yml"
+backup_dests:
+  - "local"
+backup_parts:
+  - "plugins"
+  - "worlddata"

@@ -1,0 +1,22 @@
+---
+- name: "Crate a archive"
+  archive:
+    path: /opt/minecraft
+    dest: "/tmp/{{ backup_archive_name }}"
+  async: 1000
+  poll: 0
+  register: backup_sleeper
+
+- name: 'Wait that the backup finished'
+  async_status:
+    jid: "{{ backup_sleeper.ansible_job_id }}"
+  register: job_backup_archive_result
+  until: job_backup_archive_result.finished
+  retries: 60
+  delay: 30
+  notify:
+    - "backup delete local archive"
+
+- name: define the archive destination
+  set_fact:
+    archive_dest: "{{ job_backup_archive_result.dest }}"

@@ -8,5 +8,4 @@
    configuration/getting_started
    maintenance/index
    development/index
-   architecture/index
    glossary

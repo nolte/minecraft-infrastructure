@@ -14,7 +14,6 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinxcontrib.plantuml',
     'sphinx.ext.githubpages',
-    'sphinxcontrib.ansibleautodoc',
     'm2r'
 ]
 

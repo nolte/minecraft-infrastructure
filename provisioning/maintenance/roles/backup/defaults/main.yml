@@ -1,0 +1,12 @@
+gdrive_path_bin: /usr/bin/gdrive
+minecraft_port_rcon: 25564
+backup_archive_name: "backup-{{ansible_date_time.iso8601_basic_short}}.tar.gz"
+backup_feching_local_dest: "/tmp/fetched/"
+restic_command: "restic"
+
+backup_parts: []
+backup_dests: []
+
+backup_type: restic
+backup_archive_cleanup_enabled: true
+backup_adhoc_publish: "none"

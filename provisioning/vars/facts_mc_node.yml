@@ -1,20 +1,45 @@
+---
 backup_dirs:
-  - name: "localbackup-plugins"
+  plugins:
     source:
       basedir: /opt/minecraft/plugins
       excludes:
         - shared/dynmap/*
-    repo:
-      RESTIC_REPOSITORY: "{{ restic_repos_localbackup_url }}/plugindata"
-      RESTIC_REPOSITORY_COLD_STORAGE: "b2:mcbackup-plugindata"
-      RESTIC_PASSWORD: dolphins
-  - name: "localbackup-worlddata"
+    dest:
+      local:
+        restic_job_cron: '15 1  * * *'
+        RESTIC_REPOSITORY: "{{ restic_repos_localbackup_url }}/plugindata"
+        RESTIC_PASSWORD: "{{ mc_backup_restic_repository_password | default('dolphins') }}"
+      b2:
+        RESTIC_REPOSITORY: "b2:mcbackup-plugindata"
+      s3:
+        restic_job_cron: '40 2  * * *'
+        RESTIC_S3_URL: "{{ restic_s3_endpoint | default('') }}"
+        RESTIC_S3_BUCKET: backup
+        RESTIC_S3_PATH: "/{{ backup_s3_subpath | default('') }}/restic/plugindata"
+        RESTIC_PASSWORD: "{{ mc_backup_restic_repository_password | default('dolphins') }}"
+        AWS_ACCESS_KEY_ID: "{{ s3_access_key | default('') }}"
+        AWS_SECRET_ACCESS_KEY: "{{ s3_secret_key | default('') }}"
+  worlddata:
     source:
       basedir: /opt/minecraft/server/shared
       excludes:
         - plugins/*
         - logs/*
-    repo:
-      RESTIC_REPOSITORY: "{{ restic_repos_localbackup_url }}/gamedata"
-      RESTIC_REPOSITORY_COLD_STORAGE: "b2:mcbackup-worlddata"
-      RESTIC_PASSWORD: dolphins
+        - crash-reports/*
+    dest:
+      local:
+        restic_job_cron: '0 1  * * *'
+        RESTIC_REPOSITORY: "{{ restic_repos_localbackup_url }}/gamedata"
+        RESTIC_PASSWORD: "{{ mc_backup_restic_repository_password | default('dolphins') }}"
+      b2:
+        RESTIC_REPOSITORY: "b2:mcbackup-worlddata"
+      s3:
+        # restic_job_cron: '*/10 * * * *'
+        restic_job_cron: '0 2  * * *'
+        RESTIC_S3_URL: "{{ restic_s3_endpoint | default('') }}"
+        RESTIC_S3_BUCKET: backup
+        RESTIC_S3_PATH: "/{{ backup_s3_subpath | default('') }}/restic/gamedata"
+        RESTIC_PASSWORD: "{{ mc_backup_restic_repository_password | default('dolphins') }}"
+        AWS_ACCESS_KEY_ID: "{{ s3_access_key | default('') }}"
+        AWS_SECRET_ACCESS_KEY: "{{ s3_secret_key | default('') }}"

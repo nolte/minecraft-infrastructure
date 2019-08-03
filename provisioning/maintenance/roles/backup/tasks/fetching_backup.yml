@@ -1,0 +1,8 @@
+---
+
+- name: "Fetching Backup {{ archive_dest }} to local host"
+  become: false
+  fetch:
+    src: "{{ archive_dest }}"
+    dest: "{{ backup_feching_local_dest }}"
+    flat: true

@@ -1,3 +1,5 @@
+.. _ref-development-local:
+
 Local Development
 **************************************************
 
@@ -12,6 +14,7 @@ For the Local develop process we use a combination of :term:`Molecule` and :term
     source ~/venvs/develop-ansible_role-vagrant/bin/activate
     pip install requirementsDev.txt
 
+.. _ref-development-local-vagrant-box:
 
 Starting a local Vagrant Box
 ==============================
@@ -33,11 +36,13 @@ for reexecuting the playbook use the ``converge`` command.
 
    molecule converge
 
-
+.. _ref-development-local-vagrant-box-packer:
 
 Package a new Vagrant Box
 ==============================
 
+For creating new :term:`Vagrant` box Versions we use :term:`Packer`.
+Navigate to the :ref:`ref-project-structure-provision-maintenance-build-directory` (``provisioning/maintenance/build``) for packaging a new box.
 
 .. code-block:: shell
    :caption: build a reuseable box with packer
@@ -45,9 +50,29 @@ Package a new Vagrant Box
 
    packer build minecraft_box.json
 
+this will be need some minutes, but you got a reuseable and shareable :term:`Vagrant` box, with a preconfigured ready to used Server.
 
 .. code-block:: shell
    :caption: Import the Box
    :name: example-vagrant-import-box
 
     vagrant box add mc-gameserver-spigot file:///$(pwd)/output-vagrant/package.box --force
+
+
+know when you have imported the new box Version, got to the :ref:`ref-project-structure-provision-maintenance-directory` (``provisioning/maintenance``) Directory and create the Virtual Machine.
+
+
+.. code-block:: shell
+   :caption: Import the Box
+   :name: example-vagrant-import-box
+
+    vagrant up
+
+
+.. code-block:: shell
+   :caption: Ping the Box
+   :name: example-vagrant-ping
+
+
+   export ANSIBLE_INVENTORY=$(pwd)/inventories/test/
+   ansible all -m ping

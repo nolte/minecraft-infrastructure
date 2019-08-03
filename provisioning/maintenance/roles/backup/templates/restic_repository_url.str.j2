@@ -1,0 +1,5 @@
+{%- if endpoint.RESTIC_REPOSITORY is defined -%}
+{{ endpoint.RESTIC_REPOSITORY }}
+{%- elif endpoint.RESTIC_S3_URL is defined -%}
+s3:{{ endpoint.RESTIC_S3_URL }}/{{ endpoint.RESTIC_S3_BUCKET }}{{ endpoint.RESTIC_S3_PATH }}
+{%- endif -%}

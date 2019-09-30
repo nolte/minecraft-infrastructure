@@ -3,6 +3,7 @@
 Infrastructure Repostory for hosting a Minecraft Server at [hetzner.de](https://hetzner.de/cloud), used a combination of [Terraform](https://www.terraform.io), [Ansible](https://ansible.com) and [Vagrant](https://www.vagrantup.com).
 
 [![Travis CI build status](https://travis-ci.org/nolte/minecraft-infrastructure.svg?branch=master)](https://travis-ci.org/nolte/minecraft-infrastructure) [![Chat on gitter.im](https://badges.gitter.im/noltes-minecraft-server/Lobby.svg)](https://gitter.im/noltes-minecraft-server/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Chat on Discord](https://img.shields.io/discord/516299557412274209.svg)](https://discord.gg/tFZmkxW) [![Issues on GitHub](https://img.shields.io/github/issues/nolte/minecraft-infrastructure.svg)](https://github.com/nolte/minecraft-infrastructure/issues) [![Stars on GitHub](https://img.shields.io/github/stars/nolte/minecraft-infrastructure.svg?style=social&label=Star&maxAge=2592000)](https://github.com/nolte/minecraft-infrastructure/stargazers/)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fnolte%2Fminecraft-infrastructure.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fnolte%2Fminecraft-infrastructure?ref=badge_shield)
 
 ## Montivation
 
@@ -43,3 +44,7 @@ This Repository is part of the "Host your own Minecraft Server" Project, other p
 The reuseable Base is extracted to [nolte/ansible_playbook-baseline-online-server/](https://nolte.github.io/ansible_playbook-baseline-online-server/) and [nolte/terraform-infrastructure-modules](https://nolte.github.io/terraform-infrastructure-modules/).
 
 Our Production Ansible Inventory is located add a private GitRepository, for protecting Player Informations.
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fnolte%2Fminecraft-infrastructure.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fnolte%2Fminecraft-infrastructure?ref=badge_large)

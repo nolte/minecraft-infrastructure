@@ -2,10 +2,10 @@
 
 Infrastructure Repostory for hosting a Minecraft Server at [hetzner.de](https://hetzner.de/cloud), used a combination of [Terraform](https://www.terraform.io), [Ansible](https://ansible.com) and [Vagrant](https://www.vagrantup.com).
 
-[![Travis CI build status](https://travis-ci.org/nolte/minecraft-infrastructure.svg?branch=master)](https://travis-ci.org/nolte/minecraft-infrastructure) [![Chat on gitter.im](https://badges.gitter.im/noltes-minecraft-server/Lobby.svg)](https://gitter.im/noltes-minecraft-server/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Chat on Discord](https://img.shields.io/discord/516299557412274209.svg)](https://discord.gg/tFZmkxW) [![Issues on GitHub](https://img.shields.io/github/issues/nolte/minecraft-infrastructure.svg)](https://github.com/nolte/minecraft-infrastructure/issues) [![Stars on GitHub](https://img.shields.io/github/stars/nolte/minecraft-infrastructure.svg?style=social&label=Star&maxAge=2592000)](https://github.com/nolte/minecraft-infrastructure/stargazers/)
+[![Travis CI build status](https://travis-ci.org/nolte/minecraft-infrastructure.svg?branch=master)](https://travis-ci.org/nolte/minecraft-infrastructure) [![Chat on gitter.im](https://badges.gitter.im/noltes-minecraft-server/Lobby.svg)](https://gitter.im/noltes-minecraft-server/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Chat on Discord](https://img.shields.io/discord/516299557412274209.svg)](https://discord.gg/tFZmkxW) [![Issues on GitHub](https://img.shields.io/github/issues/nolte/minecraft-infrastructure.svg)](https://github.com/nolte/minecraft-infrastructure/issues) [![Stars on GitHub](https://img.shields.io/github/stars/nolte/minecraft-infrastructure.svg?style=social&label=Star)](https://github.com/nolte/minecraft-infrastructure/stargazers/)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fnolte%2Fminecraft-infrastructure.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fnolte%2Fminecraft-infrastructure?ref=badge_shield)
 
-## Montivation
+## Motivation
 
 We play Minecraft since many years, on the same world, mostly on the latest Spigot Version. Sometimes with more players, othertimes with not so many.
 So we need a scalable environment with mininmal cost, at not used Time, lets go in the Cloud! ;).

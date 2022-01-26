@@ -3,6 +3,7 @@
   name: nolte.minecraft
   version: develop
 - name: ypsman.sshd_config
+- name: nolte.msopenjdk
 #- name: mrlesmithjr.ipset
 - name: dev-sec.os-hardening
 - name: geerlingguy.java

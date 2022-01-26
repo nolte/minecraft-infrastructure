@@ -8,7 +8,7 @@ server:
     # src: https://github.com/EssentialsX/Essentials/releases/download/2.16.0/EssentialsX-2.16.0.3.jar
     src: https://ci.ender.zone/job/EssentialsX/lastSuccessfulBuild/
     type: "jenkins_latest"
-    jenkins_artefact_path: "/artifact/Essentials/target"
+    jenkins_artefact_path: "/artifact/jars"
     dest: "EssentialsX.jar"
     force: true
     config:

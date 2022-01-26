@@ -1,5 +1,6 @@
 ---
-mc_version: 1.14.4
+mc_version: 1.18.1
+jdk_used_version: 17
 pluginset: "server"
 restic_repos_localbackup_url: /tmp/localbackup
 restic_active: true
@@ -12,6 +13,10 @@ minecraft_max_memory: 1024M
 minecraft_initial_memory: 1024M
 mc_backup_restic_repository_password: dolphins
 minecraft_motd: '\u00A7cAmazi\u00A76neg Mi\u00A7anecr\u00A7aft S\u00A79erv\u00A71er\n\u00A78(\u00A7nhttps\://nolte.github.io/minecraft-gameserver\u00A78\u00A7r)'
+
+# Disable Sel linux for the moment, will be reactivate later ...
+selinux_state: disabled
+
 minecraft_ops:
   - nolte07
 minecraft_whitelist:

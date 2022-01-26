@@ -1,9 +1,10 @@
+---
 apiVersion: vendir.k14s.io/v1alpha1
 kind: Config
 directories:
-- path: provisioning/ext_debs
-  contents:
-  - path: ansible_playbook-baseline-online-server
-    git:
-      url: https://github.com/nolte/ansible_playbook-baseline-online-server.git
-      ref: v1.0.4
+  - path: provisioning/ext_debs
+    contents:
+      - path: ansible_playbook-baseline-online-server
+        git:
+          url: https://github.com/nolte/ansible_playbook-baseline-online-server.git
+          ref: v1.0.4

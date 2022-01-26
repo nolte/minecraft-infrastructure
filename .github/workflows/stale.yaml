@@ -1,9 +1,10 @@
+---
 on:
   schedule:
-  - cron: "0 0 * * *"
+    - cron: "0 0 * * *"
 
 jobs:
   stale:
-    uses: nolte/gh-plumbing/.github/workflows/reuseable-stale.yaml@v1.0.3
+    uses: nolte/gh-plumbing/.github/workflows/reuseable-stale.yaml@v1.0.4
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}

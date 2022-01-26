@@ -1,0 +1,11 @@
+apiVersion: vendir.k14s.io/v1alpha1
+directories:
+- contents:
+  - git:
+      commitTitle: Rocky Linux Test Support (#95)...
+      sha: e3bfa77b054a8012e8db147ae87373b9c44e9bf7
+      tags:
+      - v1.0.4
+    path: ansible_playbook-baseline-online-server
+  path: provisioning/ext_debs
+kind: LockConfig

@@ -83,7 +83,10 @@ glossary
     `min.io <https://min.io/>`_
 
   gilt
-    `gilt <https://gilt.readthedocs.io/en/latest/>`_, a GIT layering tool.
+    `gilt <https://gilt.readthedocs.io/en/latest/>`_, a GIT layering tool (deprecated).
+
+  vendir
+    `vendir <https://github.com/vmware-tanzu/carvel-vendir/>`_, a GIT layering tool.
 
   tox
     `tox <https://tox.readthedocs.io/en/latest/>`_, python automation project.

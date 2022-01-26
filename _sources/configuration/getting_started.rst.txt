@@ -22,18 +22,18 @@ Preconditions
 ==================================================
 
 For a full configuration you need some "Commons Scripts" from other Repositories, for example the `nolte/ansible_playbook-baseline-online-server <https://github.com/nolte/ansible_playbook-baseline-online-server.git>`_ Project.
-The Dependencies will be managged by :term:`gilt` and can be installed with the ``overlay`` command.
+The Dependencies will be managed by :term:`vendir` and can be installed with the ``overlay`` command.
 
 .. code-block:: shell
    :caption: Install required Dependencies
    :name: example-vagrant-start
 
-    gilt overlay
+    vendir sync
 
 
-The Configuration file for the Dependencies is the ``gilt.yml``.
+The Configuration file for the Dependencies is the ``vendir.yml``.
 
-.. literalinclude:: ../../gilt.yml
+.. literalinclude:: ../../vendir.yml
    :language: yaml
 
 

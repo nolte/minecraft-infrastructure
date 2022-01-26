@@ -3,6 +3,7 @@
     "config:base",
     ":dependencyDashboard"
   ],
+  "labels": ["chore","dependencies"],
   "pip_requirements": {
     "fileMatch": ["requirements.*.txt"]
   }

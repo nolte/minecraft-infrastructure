@@ -10,7 +10,7 @@ variable "minecraft_storage_hot_backup_active" {
 }
 
 variable "minecraft_computing_instance_labels" {
-  type = "map"
+  type = map(string)
   default = {
     stage   = "dev"
     service = "minecraft"

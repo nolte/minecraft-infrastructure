@@ -1,0 +1,27 @@
+---
+# These settings are synced to GitHub by https://probot.github.io/apps/settings/
+
+_extends: gh-plumbing:.github/commons-settings.yml
+
+repository:
+  name: minecraft-infrastructure
+  description: Infrastructure Project for Preconfigured Minecraft Servers
+  homepage: https://nolte.github.io/minecraft-infrastructure
+  topics: ansible, minecraft
+
+
+branches:
+  - name: master
+    protection:
+      required_pull_request_reviews: null
+      required_status_checks: null
+      enforce_admins: true
+      restrictions: null
+  - name: develop
+    protection:
+      required_pull_request_reviews: null
+      required_status_checks:
+        strict: true
+        contexts:
+          - "Static Tests"
+      restrictions: null

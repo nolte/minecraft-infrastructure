@@ -5,7 +5,7 @@ _extends: gh-plumbing:.github/commons-settings.yml
 
 repository:
   name: minecraft-infrastructure
-  description: Infrastructure Project for Preconfigured Minecraft Servers
+  description: Infrastructure Project for some preconfigured Minecraft Server.
   homepage: https://nolte.github.io/minecraft-infrastructure
   topics: ansible, minecraft
 
@@ -23,5 +23,5 @@ branches:
       required_status_checks:
         strict: true
         contexts:
-          - "Static Tests"
+          - "security / Build"
       restrictions: null

@@ -5,6 +5,6 @@ on:
 
 jobs:
   publish_docs:
-    uses: nolte/gh-plumbing/.github/workflows/reuseable-sphinx.yaml@v1.0.4
+    uses: nolte/gh-plumbing/.github/workflows/reuseable-sphinx.yaml@v1.0.5
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}

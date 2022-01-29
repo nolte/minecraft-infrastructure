@@ -24,13 +24,12 @@ data "template_file" "cloudinit_mounts" {
 
 
 module "minecraft_computing_elements" {
-  source = "git::https://github.com/nolte/terraform-infrastructure-modules.git//computing_elements?ref=v0.0.5"
+  source = "git::https://github.com/nolte/terraform-infrastructure-modules.git//modules/computing_elements?ref=v0.0.6"
 
   computing_instance_name                          = var.minecraft_computing_instance_name
   computing_instance_usage_root_key                = data.hcloud_ssh_key.machine_key.id
   computing_instance_labels                        = var.minecraft_computing_instance_labels
   computing_instance_ssh_machine_key_id_var        = data.hcloud_ssh_key.machine_key.public_key
-  computing_instance_ssh_private_key_id_var        = data.hcloud_ssh_key.private_key.public_key
   computing_instance_additional_volumes_cloud_init = data.template_file.cloudinit_mounts.rendered
   computing_instance_flavour                       = var.minecraft_computing_instance_flavour
 }

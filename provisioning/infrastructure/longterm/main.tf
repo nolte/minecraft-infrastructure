@@ -1,5 +1,5 @@
 module "private_access_key" {
-  source = "git::https://github.com/nolte/terraform-infrastructure-modules.git//project_access_elements?ref=v0.0.5"
+  source = "git::https://github.com/nolte/terraform-infrastructure-modules.git//project_access_elements?ref=v0.0.6"
 
   name      = "private_access"
   pass_path = var.private_access_pass_path
@@ -9,7 +9,7 @@ module "private_access_key" {
 }
 
 module "management_access_key" {
-  source = "git::https://github.com/nolte/terraform-infrastructure-modules.git//project_access_elements?ref=v0.0.5"
+  source = "git::https://github.com/nolte/terraform-infrastructure-modules.git//project_access_elements?ref=v0.0.6"
 
   name      = "management_key"
   pass_path = var.machine_access_pass_path
@@ -18,7 +18,7 @@ module "management_access_key" {
   }
 }
 module "minecraft_storage_hot_backup" {
-  source = "git::https://github.com/nolte/terraform-infrastructure-modules.git//storage_elements?ref=v0.0.5"
+  source = "git::https://github.com/nolte/terraform-infrastructure-modules.git//storage_elements?ref=v0.0.6"
 
   storage_name   = "volume_mc_data"
   storage_format = var.minecraft_storage_hot_backup_format

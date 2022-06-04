@@ -1,5 +1,5 @@
 ansible-cmdb==1.31
-ansible==5.4.0
+ansible==5.8.0
 bump2version==1.0.1
 hcloud==1.16.0
 molecule==3.6.1

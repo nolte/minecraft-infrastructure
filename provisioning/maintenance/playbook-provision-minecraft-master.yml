@@ -57,30 +57,26 @@
       firewalld:
         port: 25565/tcp
         permanent: true
+        immediate: true
         state: enabled
-      notify: restart firewalld
+
     - name: close the rcon for external usage
       firewalld:
         port: 25564/tcp
         permanent: true
+        immediate: true
         state: disabled
-      notify: restart firewalld
 
     - name: open the dynmapport for external usage
       firewalld:
         port: 8123/tcp
         permanent: true
+        immediate: true
         state: enabled
-      notify: restart firewalld
 
   handlers:
     - name: restart sshd
       service:
         name: sshd
-        state: restarted
-
-    - name: restart firewalld
-      service:
-        name: firewalld
         state: restarted
 #

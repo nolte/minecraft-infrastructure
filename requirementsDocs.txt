@@ -1,6 +1,6 @@
 sphinx==4.4.0
 sphinxcontrib-plantuml==0.23
 sphinxcontrib-ansibleautodoc==0.0.5
-sphinx_rtd_theme==1.0.0
+sphinx_rtd_theme==1.3.0
 PyYAML==6.0
 m2r2==0.3.2

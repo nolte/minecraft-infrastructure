@@ -2,17 +2,30 @@
 # Manual edits may be lost in future updates.
 
 provider "registry.terraform.io/camptocamp/pass" {
-  version     = "2.0.0"
-  constraints = "2.0.0"
+  version     = "2.1.1"
+  constraints = "2.1.1"
   hashes = [
-    "h1:sQ5IlQHIMGMR7jqrrKkkoncnkZvpZp08qFRqXYzkv8E=",
-    "zh:04bda4bdfda18c4974e95eb4802e0a9bfb351f1cc932b9d8bc6f86c2bb267e3b",
-    "zh:0e7ce73fe3c8c346d4cb2906025647cb9b03c09baf825e97d82cee923e887092",
-    "zh:52e11c8c213e716a81b7baf5fcad158a1e97206de65d2ba139f8240a00237b8c",
-    "zh:774aaca25d279327329c0551ad466cb5a304815ea8e8e5546eb57de746a74998",
-    "zh:a1c5597adebf8b6a07d9a9a7c1c46b11ce7d814eacfabbf9e2fdf1ebd996b377",
-    "zh:d4d0060b78e834f7d9bf5d8c6c35bfe2cd564edce42c19dac82667acfa0ca048",
-    "zh:fa11074bab6f884f912a24b53126d465c16adb8abd41652449fea868136ea18b",
+    "h1:0jQfaI+3KNVcqs1gTgg05qfziyEqcf+wgKpbO8lDfWQ=",
+    "h1:3okQwayAtcU8S16FZINBkGRVJYVPKgQIf9LpfdsTYqI=",
+    "h1:C6sIbixofa/ExsxGQ5WfZ9gEmdSYJ9l42YoYa8yW9n8=",
+    "h1:Cqqf55av0+tcfhXXYhZYEjJze4lR5mpV9JALW2cISD8=",
+    "h1:GchRD5bCXgbAzgUxBNMddnxVwiVt3y6vNVHDt/wduj0=",
+    "h1:b26FFbTyOIKCeqpAjnBzLZU1S9jU7XE9U+3+NOxtAq0=",
+    "h1:gEJHBwtseH+j4UnhAqPXWTmAR7LuDxGgWVB6t5b9YmY=",
+    "h1:jwBJhLKpJPZOEJTDH1+H/hKRfkeN8YlUZaN8I0pWjFg=",
+    "h1:vX6861iZWxcPfdyrhTxuW68fID+YRFnLxEkEhq+Q5Xw=",
+    "h1:x+73uJWjkUX2au4QZueyQoCfQReLCCiB6LZKHM0dqVk=",
+    "zh:2ec5926b48526bc23b99f26dd18138811f6b1f1f81125bce75e841020b58350c",
+    "zh:32448b55d615ffc4924aab08c5fdea57102cc0f2752003e81367e7d05d42ce9a",
+    "zh:35c2d4e4551486b3e3befcf5efcf56f94deae0e3293fe8634365e4fb8b632598",
+    "zh:4d7932ddc0bb0a4f429ce6213d8139c05e54ce0c8f1a60d0a42e84f0dcccf334",
+    "zh:4f44287a8cab55ad339a04422496f4b607ce257aaa8a8cf1e4bd459f5ac6dbbb",
+    "zh:6e8f181c187b5c070f6cba458eeabcefb5a8e110a414b349c2f94ccc5952ca64",
+    "zh:79ae6e5c34221ee6324d57bec033d336f72b96521560ca3ba017c90560e337ba",
+    "zh:9ff86045990bdac860d9535c2abaaa80794451910f353c8bf71bcc5a6d594fc2",
+    "zh:c76ed4b72ca17e24b201a2f3365bd0d0ea22f6e93621e61371f1322c1ff33806",
+    "zh:dc3f2410d08af24d58c3fb5357ec9a8cf74fd02b63f01ff52379b03f147c0b08",
+    "zh:de0c0ceb0ef2af78fe402ffa860ec1fbc08ff91b18342f17cb55100934ea2c4b",
   ]
 }
 

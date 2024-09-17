@@ -26,7 +26,7 @@ repos:
                 maintenance/*
             )
   - repo: git://github.com/antonbabenko/pre-commit-terraform
-    rev: v1.64.0
+    rev: v1.96.1
     hooks:
       - id: terraform_fmt
       - id: terraform_validate
